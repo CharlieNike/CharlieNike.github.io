@@ -197,7 +197,7 @@ var themeMenus = {};
 
           
             <div class="entry-thumbnail">
-              <a href="2018/05/01/MWeb使用简介/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/4" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+              <a href="2018/05/01/MWeb使用简介/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/2" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
             </div>
             <div class="entry-summary">
             欢迎使用 MWeb首先介绍一下 MWeb 是什么，MWeb 是专业的 Markdown 写作、记笔记、静态博客生成软件。MWeb 使用的是 Github Flavored Markdown 语法，在使用 MWeb 前，建议你一定要去 MWeb 官网首页 看一下介绍视频，MWeb 官网也做了比较详细的帮助，建议你也看一下大概内容，帮助的网址为：http://zh.mweb.im/help.ht...
@@ -254,20 +254,32 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>用go语言简单实现SHA256哈希算法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">	&quot;crypto/sha256&quot;</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	string := &quot;Hello&quot;  //需要哈希的字符串内容</span><br><span class="line"></span><br><span class="line">	hash := sha256.New()   //声明sha256哈希函数</span><br><span class="line">	hash.Write([]byte(string))</span><br><span class="line">	bs := hash.Sum(nil)</span><br><span class="line"></span><br><span class="line">	fmt.Printf(&quot;%x&quot;, bs)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="运行结果："><a href="#运行结果：" class="headerlink" title="运行结果："></a>运行结果：</h5><p>185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969<br>其中，hash.Write()写入需要生成哈希的内容，h.Sum()添加额外的[]byte到当前的哈希中。</p>
-<h5 id="生成符合某一条件的哈希："><a href="#生成符合某一条件的哈希：" class="headerlink" title="生成符合某一条件的哈希："></a>生成符合某一条件的哈希：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">	&quot;crypto/sha256&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func isvhd(hash string, diff int) bool &#123;</span><br><span class="line">	var i int</span><br><span class="line">	for i = 0; i &lt; len(hash); i++ &#123;</span><br><span class="line">		if hash[i] != &apos;8&apos; &#123;   //哈希字符串的前diff个字符是否为8，如果不为8，结束循环。</span><br><span class="line">			break</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return i &gt;= diff</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	nonce := 0</span><br><span class="line">	hash := &quot;&quot;</span><br><span class="line"></span><br><span class="line">	shaobj := sha256.New()</span><br><span class="line"></span><br><span class="line">	prehash := &quot;0000fedaa499741317a18f1ad626f933776ad24822cb422634978bfe8005c94b&quot;</span><br><span class="line">	//prehash := &quot;185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969&quot;</span><br><span class="line">	count := 0     //循环的次数</span><br><span class="line">	for !isvhd(hash, 4) &#123;</span><br><span class="line">		nonce++</span><br><span class="line">		input := &quot;100&quot; + prehash + &quot;Thu, 26 Apr 2018 03:30:54 GMT&quot; + &quot;A -&gt; B 1000&quot; + string(nonce)</span><br><span class="line">		shaobj.Write([]byte(input))</span><br><span class="line">		hash = fmt.Sprintf(&quot;%x&quot;, shaobj.Sum(nil))</span><br><span class="line">		fmt.Println(hash)</span><br><span class="line">		count++</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(&quot;count:&quot;, count)</span><br><span class="line">	fmt.Println(&quot;nonce:&quot;, nonce)</span><br><span class="line">	fmt.Println(hash)</span><br><span class="line">	fmt.Println(len(hash))     //哈希字符串的长度</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="运行结果：-1"><a href="#运行结果：-1" class="headerlink" title="运行结果："></a>运行结果：</h5><p>············<br>0c7d465c78faf8dcc359343df18d535497b6dee228577f84b236e908193c6522<br>8888448863c33dff9acdc99dc6b85ca3329716c4d6fa3f51a540e2b977347ac6<br>count: 11743<br>nonce: 11743<br>8888448863c33dff9acdc99dc6b85ca3329716c4d6fa3f51a540e2b977347ac6<br>64</p>
-<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><p>isvhd（）函数用来判断生成的哈希内容是否满足某一条件，此处为判断生成的哈希数，前4位数是否为8。若不满足这一条件，则给nonce加1，再次生成哈希，直到生成一个前4位数均为8的哈希，结束循环。<br>生成了一个前四位数为8的哈希，哈希字符串长度为64，循环了11743次。</p>
+        
 
+          
+            <div class="entry-thumbnail">
+              <a href="2018/05/01/用go语言简单实现SHA256哈希算法：/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/1" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+            </div>
+            <div class="entry-summary">
+            用go语言简单实现SHA256哈希算法：
+12345678910111213141516package mainimport (	&quot;crypto/sha256&quot;	&quot;fmt&quot;)func main() &#123;	string := &quot;Hello&quot;  //需要哈希的字符串内容	hash := sha256.New()   //声明sh...
+          
+
+        
+          <p class="article-more-link">
+            <a href="2018/05/01/用go语言简单实现SHA256哈希算法：/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="categories/算法/">算法</a>
+
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/算法/">算法</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/go语言/">go语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/算法/">算法</a></li></ul>
 
       
             
@@ -410,7 +422,7 @@ var themeMenus = {};
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/MWEB使用/">MWEB使用</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/MWEB使用/">MWEB使用</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="categories/算法/">算法</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -420,7 +432,7 @@ var themeMenus = {};
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="tags/MWeb/">MWeb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="tags/MWeb/">MWeb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/go语言/">go语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
