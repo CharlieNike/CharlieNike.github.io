@@ -72,13 +72,13 @@ var themeMenus = {};
 
   themeMenus["index.html"] = "首页"; 
 
-  themeMenus["/archives"] = "所有文章"; 
+  themeMenus["archives"] = "归档"; 
 
-  themeMenus["/categories"] = "分类"; 
+  themeMenus["categories"] = "分类"; 
 
-  themeMenus["/tags"] = "标签"; 
+  themeMenus["tags"] = "标签"; 
 
-  themeMenus["/about"] = "关于我"; 
+  themeMenus["about"] = "关于"; 
 
 </script>
 
@@ -92,9 +92,7 @@ var themeMenus = {};
 
           <h1 class="site-title">
             
-              <a href="/" rel="home" >
-                <img style="margin-bottom: 10px;"  width="355px" height="352px" alt="Hike News" src=" /css/images/mylogo.png">
-              </a>
+              <a href="/" title="CharlieNike" rel="home"> CharlieNike </a>
             
           </h1>
 
@@ -109,13 +107,13 @@ var themeMenus = {};
                     
                       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="index.html">首页</a> </li>
                     
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">所有文章</a> </li>
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="archives">归档</a> </li>
                     
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">分类</a> </li>
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="categories">分类</a> </li>
                     
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">标签</a> </li>
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="tags">标签</a> </li>
                     
-                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">关于我</a> </li>
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="about">关于</a> </li>
                     
               </ul>
             </div>
@@ -190,11 +188,11 @@ var themeMenus = {};
         
 
           
-            <div class="entry-thumbnail">
-              <a href="2018/05/01/MWeb使用简介/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/6" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-            </div>
-            <div class="entry-summary">
-            欢迎使用 MWeb首先介绍一下 MWeb 是什么，MWeb 是专业的 Markdown 写作、记笔记、静态博客生成软件。MWeb 使用的是 Github Flavored Markdown 语法，在使用 MWeb 前，建议你一定要去 MWeb 官网首页 看一下介绍视频，MWeb 官网也做了比较详细的帮助，建议你也看一下大概内容，帮助的网址为：http://zh.mweb.im/help.ht...
+            <div class="entry-summary" style="margin-left:0;">
+            欢迎使用 MWeb首先介绍一下 MWeb 是什么，MWeb 是专业的 Markdown 写作、记笔记、静态博客生成软件。MWeb 使用的是 Github Flavored Markdown 语法，在使用 MWeb 前，建议你一定要去 MWeb 官网首页 看一下介绍视频，MWeb 官网也做了比较详细的帮助，建议你也看一下大概内容，帮助的网址为：http://zh.mweb.im/help.html。
+需要您重点注意的
+
+MWeb 是有两种模式的：外部模式和文档库模式。MWeb 为了满足所有 Markdown 使用需求，设计了两种模式！外部模式用于打开和编辑所有本地 Markdown 文档。另外为了方便用 Markdown 记笔记，MWeb 设计了文档库模式，文档库中的文档也支持一键生成静...
           
 
         
@@ -251,12 +249,10 @@ var themeMenus = {};
         
 
           
-            <div class="entry-thumbnail">
-              <a href="2018/05/01/用go语言简单实现SHA256哈希算法：/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/8" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-            </div>
-            <div class="entry-summary">
+            <div class="entry-summary" style="margin-left:0;">
             用go语言简单实现SHA256哈希算法：
-12345678910111213141516package mainimport (	"crypto/sha256"	"fmt")func main() &#123;	string := "Hello"  //需要哈希的字符串内容	hash := sha256.New()   //声明sha256哈希函数	hash.Write([]byte(str...
+12345678910111213141516package mainimport (	"crypto/sha256"	"fmt")func main() &#123;	string := "Hello"  //需要哈希的字符串内容	hash := sha256.New()   //声明sha256哈希函数	hash.Write([]byte(string))	bs := hash.Sum(nil)	fmt.Printf("%x", bs)&#125;
+运行结果：185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969其中，hash.Write()写入需要生成哈希的内容，h...
           
 
         
@@ -336,17 +332,17 @@ var themeMenus = {};
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">联系我</h3>
+    <h3 class="widget-title">联系我们</h3>
     <div class="widget widget_athemes_social_icons">
 
     	<ul class="clearfix widget-social-icons">   
     	
           
-     			  <li><a href="https://github.com/CharlieNike" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
+     			  <li><a href="https://github.com/iTimeTraveler" title="Github"><i class="fa fa-github" aria-hidden="true"></i></a></li> 
           
    		
           
-     			  <li><a href="https://weibo.com/u/2324677452/" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
+     			  <li><a href="http://www.yoursite.com" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a></li> 
           
    		
           
@@ -354,7 +350,27 @@ var themeMenus = {};
           
    		
           
-            <li><a href="mailto:charlief@qq.com?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
+     			  <li><a href="" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+     			  <li><a href="" title="Google-plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+     			  <li><a href="" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+     			  <li><a href="" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+     			  <li><a href="" title="Flickr"><i class="fa fa-flickr" aria-hidden="true"></i></a></li> 
+          
+   		
+          
+            <li><a href="mailto:?subject=请联系我&body=我能帮你什么" title="email"><i class="fa fa-envelope" aria-hidden="true"></i></a></li> 
           
    		
    		</ul>
@@ -434,6 +450,15 @@ var themeMenus = {};
   
     
   <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="tags/MWeb/" style="font-size: 10px;">MWeb</a> <a href="tags/go语言/" style="font-size: 10px;">go语言</a> <a href="tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
@@ -481,13 +506,13 @@ var themeMenus = {};
   
     <a href="index.html" class="mobile-nav-link">Home</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="archives" class="mobile-nav-link">Archives</a>
   
-    <a href="/categories" class="mobile-nav-link">Categories</a>
+    <a href="categories" class="mobile-nav-link">Categories</a>
   
-    <a href="/tags" class="mobile-nav-link">Tags</a>
+    <a href="tags" class="mobile-nav-link">Tags</a>
   
-    <a href="/about" class="mobile-nav-link">About</a>
+    <a href="about" class="mobile-nav-link">About</a>
   
 </nav> -->
     
