@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[在localhost部署super—dictionary智能合约]]></title>
+    <url>%2F2018%2F05%2F03%2F%E5%9C%A8localhost%E9%83%A8%E7%BD%B2super%E2%80%94dictionary%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%2F</url>
+    <content type="text"><![CDATA[在localhost部署super—dictionary智能合约整理：房玉辉博客：https://charlienike.github.io星云链Dapp开发系列1、解决本地交易网络错误问题：进入go/src/github.com/nebulasio/go-nebulas/conf/default文件夹，打开config.conf文件，找到以下代码： 1234567rpc &#123; rpc_listen: ["0.0.0.0:8684"] http_listen: ["0.0.0.0:8685"] http_module: ["api","admin"] # HTTP CORS allowed origins # http_cors: []&#125; 去掉最后一行代码的注释，并更改如下：http_cors: [&quot;*&quot;] 2、进入super-dictionary-master/lib文件夹：打开nebPay.js文件：找到第四行代码：var payUrl = &quot;http://18.221.150.42/api/pay&quot;;更改为：var payUrl = &quot;http://localhost:8685/api/pay&quot;; 3、启动节点：打开第一个终端窗口，启动第一个星云节点： 12cd $GOPATH/src/github.com/nebulasio/go-nebulas./neb -c conf/default/config.conf 再打开一个终端窗口，启动第一个矿工节点： 12cd $GOPATH/src/github.com/nebulasio/go-nebulas./neb -c conf/example/miner.conf 4、部署合约：打开web-wallet钱包，部署super-dictionary智能合约到星云链localhost网络：进入web-wallet文件夹，用浏览器打开index.html文件，点击合约，再点击部署，找到super-dictionary-master/smartContract文件夹下的super-dictionary.js文件，将全部代码粘贴到合约代码框内：选择钱包文件，输入密码，点击解锁，再点击测试，再点击提交：保存好合约地址：n1wfeKn7GSjo8GbAE64CgUPyxwqLrpWWLnK点击交易哈希，查看交易状态，下图为部署成功： 5、执行、调用合约，与前端交互：进入super-dictionary-master文件夹，用开发工具打开index.html文件，找到第190行代码，将合约地址粘贴过来：var dappAddress = &quot;n1wfeKn7GSjo8GbAE64CgUPyxwqLrpWWLnK&quot;;保存后，用浏览器打开index.html文件，随便输入“比特币”一词，可以看到，没有释义，但是底下有一句话： Failed to find related information. Do you want to add infromation for “比特币”? 并且add可以点击，点击add后可以添加释义，输入如下释义：“比特币（BitCoin）的概念最初由中本聪在2009年提出，根据中本聪的思路设计发布的开源软件以及建构其上的P2P网络。比特币是一种P2P形式的数字货币。”点击submit，之后会弹出WebExtensionWallet钱包页面，选择localhost当地钱包文件，输入密码“passphrase”，点击生成交易，再点击交易确认，正在打包：交易打包成功：查询，如图所示：至此，super-dictionary智能合约部署成功，前端调用合约成功。]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>星云链Dapp开发</tag>
+        <tag>智能合约</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MWEB简介和使用帮助]]></title>
     <url>%2F2018%2F05%2F01%2FMWeb%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B%2F</url>
-    <content type="text"><![CDATA[欢迎使用 MWeb首先介绍一下 MWeb 是什么，MWeb 是专业的 Markdown 写作、记笔记、静态博客生成软件。MWeb 使用的是 Github Flavored Markdown 语法，在使用 MWeb 前，建议你一定要去 MWeb 官网首页 看一下介绍视频，MWeb 官网也做了比较详细的帮助，建议你也看一下大概内容，帮助的网址为：http://zh.mweb.im/help.html。 需要您重点注意的 MWeb 是有两种模式的：外部模式和文档库模式。MWeb 为了满足所有 Markdown 使用需求，设计了两种模式！外部模式用于打开和编辑所有本地 Markdown 文档。另外为了方便用 Markdown 记笔记，MWeb 设计了文档库模式，文档库中的文档也支持一键生成静态博客，以便于分享。关于两个模式的情况，还是建议您去看一下官网的视频和帮助。 帮助我们改进 MWeb如果你喜欢 MWeb，想让它变得更好，你可以： 推荐 MWeb，让更多的人知道。 给我们发反馈和建议：&#x63;&#x6f;&#100;&#x65;&#x72;&#x66;&#x6f;&#114;&#97;&#114;&#116;&#43;&#x32;&#51;&#51;&#x40;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109; 在 Mac App Store 上评价 （如果是在 MAS 上购买的话）。]]></content>
+    <content type="text"><![CDATA[欢迎使用 MWeb首先介绍一下 MWeb 是什么，MWeb 是专业的 Markdown 写作、记笔记、静态博客生成软件。MWeb 使用的是 Github Flavored Markdown 语法，在使用 MWeb 前，建议你一定要去 MWeb 官网首页 看一下介绍视频，MWeb 官网也做了比较详细的帮助，建议你也看一下大概内容，帮助的网址为：http://zh.mweb.im/help.html。 需要您重点注意的 MWeb 是有两种模式的：外部模式和文档库模式。MWeb 为了满足所有 Markdown 使用需求，设计了两种模式！外部模式用于打开和编辑所有本地 Markdown 文档。另外为了方便用 Markdown 记笔记，MWeb 设计了文档库模式，文档库中的文档也支持一键生成静态博客，以便于分享。关于两个模式的情况，还是建议您去看一下官网的视频和帮助。 帮助我们改进 MWeb如果你喜欢 MWeb，想让它变得更好，你可以： 推荐 MWeb，让更多的人知道。 给我们发反馈和建议：&#99;&#x6f;&#x64;&#101;&#114;&#102;&#x6f;&#x72;&#x61;&#x72;&#x74;&#x2b;&#x32;&#x33;&#51;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#46;&#x63;&#x6f;&#x6d; 在 Mac App Store 上评价 （如果是在 MAS 上购买的话）。]]></content>
       <categories>
         <category>MWEB使用</category>
       </categories>
