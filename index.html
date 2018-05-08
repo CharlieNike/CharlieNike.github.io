@@ -168,7 +168,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2018/05/03/在localhost部署super—dictionary智能合约/">在localhost部署super—dictionary智能合约</a>
+      <a class="article-title" href="2018/05/03/在localhost部署super—dictionary智能合约/">在本地网络部署super—dictionary智能合约</a>
     </h1>
   
 
@@ -184,21 +184,22 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="在localhost部署super—dictionary智能合约"><a href="#在localhost部署super—dictionary智能合约" class="headerlink" title="在localhost部署super—dictionary智能合约"></a>在localhost部署super—dictionary智能合约</h1><h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><h5 id="博客：https-charlienike-github-io"><a href="#博客：https-charlienike-github-io" class="headerlink" title="博客：https://charlienike.github.io"></a>博客：<a href="https://charlienike.github.io" target="_blank" rel="noopener">https://charlienike.github.io</a></h5><h3 id="星云链Dapp开发系列"><a href="#星云链Dapp开发系列" class="headerlink" title="星云链Dapp开发系列"></a>星云链Dapp开发系列</h3><h6 id="1、解决本地交易网络错误问题："><a href="#1、解决本地交易网络错误问题：" class="headerlink" title="1、解决本地交易网络错误问题："></a>1、解决本地交易网络错误问题：</h6><p>进入go/src/github.com/nebulasio/go-nebulas/conf/default文件夹，打开config.conf文件，找到以下代码：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rpc &#123;</span><br><span class="line">    rpc_listen: [<span class="string">"0.0.0.0:8684"</span>]</span><br><span class="line">    http_listen: [<span class="string">"0.0.0.0:8685"</span>]</span><br><span class="line">    http_module: [<span class="string">"api"</span>,<span class="string">"admin"</span>]</span><br><span class="line">    # HTTP CORS allowed origins</span><br><span class="line">    # http_cors: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>去掉最后一行代码的注释，并更改如下：<br><code>http_cors: [&quot;*&quot;]</code></p>
-<h6 id="2、进入super-dictionary-master-lib文件夹："><a href="#2、进入super-dictionary-master-lib文件夹：" class="headerlink" title="2、进入super-dictionary-master/lib文件夹："></a>2、进入super-dictionary-master/lib文件夹：</h6><p>打开nebPay.js文件：<br>找到第四行代码：<br><code>var payUrl = &quot;http://18.221.150.42/api/pay&quot;;</code><br>更改为：<br><code>var payUrl = &quot;http://localhost:8685/api/pay&quot;;</code></p>
-<h6 id="3、启动节点："><a href="#3、启动节点：" class="headerlink" title="3、启动节点："></a>3、启动节点：</h6><p>打开第一个终端窗口，启动第一个星云节点：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $GOPATH/src/github.com/nebulasio/go-nebulas</span><br><span class="line">./neb -c conf/default/config.conf</span><br></pre></td></tr></table></figure>
-<p>再打开一个终端窗口，启动第一个矿工节点：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $GOPATH/src/github.com/nebulasio/go-nebulas</span><br><span class="line">./neb -c conf/example/miner.conf</span><br></pre></td></tr></table></figure>
-<h6 id="4、部署合约："><a href="#4、部署合约：" class="headerlink" title="4、部署合约："></a>4、部署合约：</h6><p>打开web-wallet钱包，部署super-dictionary智能合约到星云链localhost网络：<br>进入web-wallet文件夹，用浏览器打开index.html文件，点击合约，再点击部署，找到super-dictionary-master/smartContract文件夹下的super-dictionary.js文件，将全部代码粘贴到合约代码框内：<br><img src="http://p83c9zj44.bkt.clouddn.com/%E9%83%A8%E7%BD%B2%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.jpeg" alt=""><br>选择钱包文件，输入密码，点击解锁，再点击测试，<br><img src="http://p83c9zj44.bkt.clouddn.com/%E6%B5%8B%E8%AF%95.jpeg" alt=""><br>再点击提交：<br><img src="http://p83c9zj44.bkt.clouddn.com/%E6%8F%90%E4%BA%A4.jpeg" alt=""><br>保存好合约地址：<br><code>n1wfeKn7GSjo8GbAE64CgUPyxwqLrpWWLnK</code><br>点击交易哈希，查看交易状态，下图为部署成功：<br><img src="http://p83c9zj44.bkt.clouddn.com/%E9%83%A8%E7%BD%B2%E6%88%90%E5%8A%9F.png" alt=""></p>
-<h6 id="5、执行、调用合约，与前端交互："><a href="#5、执行、调用合约，与前端交互：" class="headerlink" title="5、执行、调用合约，与前端交互："></a>5、执行、调用合约，与前端交互：</h6><p>进入super-dictionary-master文件夹，用开发工具打开index.html文件，找到第190行代码，将合约地址粘贴过来：<br><code>var dappAddress = &quot;n1wfeKn7GSjo8GbAE64CgUPyxwqLrpWWLnK&quot;;</code><br>保存后，用浏览器打开index.html文件，随便输入“比特币”一词，可以看到，没有释义，但是底下有一句话：</p>
-<blockquote>
-<p>Failed to find related information. Do you want to add infromation for “比特币”?</p>
-</blockquote>
-<p><img src="http://p83c9zj44.bkt.clouddn.com/%E6%89%A7%E8%A1%8C%E5%90%88%E7%BA%A6.jpeg" alt=""><br>并且add可以点击，点击add后可以添加释义，输入如下释义：<br>“比特币（BitCoin）的概念最初由中本聪在2009年提出，根据中本聪的思路设计发布的开源软件以及建构其上的P2P网络。比特币是一种P2P形式的数字货币。”<br><img src="http://p83c9zj44.bkt.clouddn.com/%E6%B7%BB%E5%8A%A0%E9%87%8A%E4%B9%89.jpeg" alt=""><br>点击submit，之后会弹出WebExtensionWallet钱包页面，选择localhost当地钱包文件，输入密码“passphrase”，<br><img src="http://p83c9zj44.bkt.clouddn.com/%E6%8F%90%E4%BA%A4submit.jpeg" alt=""><br>点击生成交易，<br><img src="http://p83c9zj44.bkt.clouddn.com/%E7%94%9F%E6%88%90%E4%BA%A4%E6%98%93.jpeg" alt=""><br>再点击交易确认，<br><img src="http://p83c9zj44.bkt.clouddn.com/%E4%BA%A4%E6%98%93%E7%A1%AE%E8%AE%A4.jpeg" alt=""><br>正在打包：<br><img src="http://p83c9zj44.bkt.clouddn.com/%E7%A1%AE%E8%AE%A4.jpeg" alt=""><br>交易打包成功：<br><img src="http://p83c9zj44.bkt.clouddn.com/%E9%87%8A%E4%B9%89%E6%88%90%E5%8A%9F.jpeg" alt=""><br>查询，如图所示：<br><img src="http://p83c9zj44.bkt.clouddn.com/local%E6%9F%A5%E8%AF%8D.jpeg" alt=""><br>至此，super-dictionary智能合约部署成功，前端调用合约成功。</p>
+        
 
+          
+            <div class="entry-thumbnail">
+              <a href="2018/05/03/在localhost部署super—dictionary智能合约/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/4" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+            </div>
+            <div class="entry-summary">
+            整理：房玉辉博客：https://charlienike.github.io星云链Dapp开发系列在本地网络（localhost）部署super-dictionary智能合约1、解决本地交易网络错误问题：进入go/src/github.com/nebulasio/go-nebulas/conf/default文件夹，打开config.conf文件，找到以下代码：
+1234567rpc &#1...
+          
+
+        
+          <p class="article-more-link">
+            <a href="2018/05/03/在localhost部署super—dictionary智能合约/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -209,67 +210,6 @@ var themeMenus = {};
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/星云链Dapp开发/">星云链Dapp开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/智能合约/">智能合约</a></li></ul>
-
-      
-            
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-MWeb使用简介"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="2018/05/01/MWeb使用简介/">MWEB简介和使用帮助</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="2018/05/01/MWeb使用简介/" class="article-date">
-	  <time datetime="2018-05-01T15:36:20.000Z" itemprop="datePublished">五月 1, 2018</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-
-          
-            <div class="entry-thumbnail">
-              <a href="2018/05/01/MWeb使用简介/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/1" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-            </div>
-            <div class="entry-summary">
-            欢迎使用 MWeb首先介绍一下 MWeb 是什么，MWeb 是专业的 Markdown 写作、记笔记、静态博客生成软件。MWeb 使用的是 Github Flavored Markdown 语法，在使用 MWeb 前，建议你一定要去 MWeb 官网首页 看一下介绍视频，MWeb 官网也做了比较详细的帮助，建议你也看一下大概内容，帮助的网址为：http://zh.mweb.im/help.ht...
-          
-
-        
-          <p class="article-more-link">
-            <a href="2018/05/01/MWeb使用简介/#more">阅读全文</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="categories/MWEB使用/">MWEB使用</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="tags/MWeb/">MWeb</a></li></ul>
 
       
             
@@ -310,7 +250,7 @@ var themeMenus = {};
 
           
             <div class="entry-thumbnail">
-              <a href="2018/05/01/用go语言简单实现SHA256哈希算法：/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/6" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+              <a href="2018/05/01/用go语言简单实现SHA256哈希算法：/"><img width="250" height="175" src="http://lorempixel.com/500/350/city/2" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
             </div>
             <div class="entry-summary">
             用go语言简单实现SHA256哈希算法：
@@ -447,20 +387,8 @@ var themeMenus = {};
               <div class="widget-entry-summary" style="margin: 0;">
             
 
-              <h6 style="margin: 0;"><a href="2018/05/03/在localhost部署super—dictionary智能合约/">在localhost部署super—dictionary智能合约</a></h6>
+              <h6 style="margin: 0;"><a href="2018/05/03/在localhost部署super—dictionary智能合约/">在本地网络部署super—dictionary智能合约</a></h6>
               <span>五月 3, 2018</span>
-            </div>
-
-          </li>
-        
-          <li class="clearfix">
-
-            
-              <div class="widget-entry-summary" style="margin: 0;">
-            
-
-              <h6 style="margin: 0;"><a href="2018/05/01/MWeb使用简介/">MWEB简介和使用帮助</a></h6>
-              <span>五月 1, 2018</span>
             </div>
 
           </li>
@@ -486,7 +414,7 @@ var themeMenus = {};
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/MWEB使用/">MWEB使用</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="categories/智能合约/">智能合约</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="categories/算法/">算法</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="categories/智能合约/">智能合约</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="categories/算法/">算法</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -496,7 +424,7 @@ var themeMenus = {};
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="tags/MWeb/">MWeb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/go语言/">go语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/星云链Dapp开发/">星云链Dapp开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/智能合约/">智能合约</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="tags/go语言/">go语言</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/星云链Dapp开发/">星云链Dapp开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/智能合约/">智能合约</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -507,7 +435,7 @@ var themeMenus = {};
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/05/">五月 2018</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2018/05/">五月 2018</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
