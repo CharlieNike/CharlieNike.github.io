@@ -11,16 +11,4 @@
         <tag>星云链Dapp开发</tag>
       </tags>
   </entry>
-  <entry>
-    <title><![CDATA[用go语言简单实现SHA256哈希算法]]></title>
-    <url>%2F2018%2F05%2F01%2F%E7%94%A8go%E8%AF%AD%E8%A8%80%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0SHA256%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%EF%BC%9A%2F</url>
-    <content type="text"><![CDATA[用go语言简单实现SHA256哈希算法： 12345678910111213141516package mainimport ( "crypto/sha256" "fmt")func main() &#123; string := "Hello" //需要哈希的字符串内容 hash := sha256.New() //声明sha256哈希函数 hash.Write([]byte(string)) bs := hash.Sum(nil) fmt.Printf("%x", bs)&#125; 运行结果：185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969其中，hash.Write()写入需要生成哈希的内容，h.Sum()添加额外的[]byte到当前的哈希中。 生成符合某一条件的哈希：12345678910111213141516171819202122232425262728293031323334353637383940package mainimport ( "fmt" "crypto/sha256")func isvhd(hash string, diff int) bool &#123; var i int for i = 0; i &lt; len(hash); i++ &#123; if hash[i] != '8' &#123; //哈希字符串的前diff个字符是否为8，如果不为8，结束循环。 break &#125; &#125; return i &gt;= diff&#125;func main() &#123; nonce := 0 hash := "" shaobj := sha256.New() prehash := "0000fedaa499741317a18f1ad626f933776ad24822cb422634978bfe8005c94b" //prehash := "185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969" count := 0 //循环的次数 for !isvhd(hash, 4) &#123; nonce++ input := "100" + prehash + "Thu, 26 Apr 2018 03:30:54 GMT" + "A -&gt; B 1000" + string(nonce) shaobj.Write([]byte(input)) hash = fmt.Sprintf("%x", shaobj.Sum(nil)) fmt.Println(hash) count++ &#125; fmt.Println("count:", count) fmt.Println("nonce:", nonce) fmt.Println(hash) fmt.Println(len(hash)) //哈希字符串的长度&#125; 运行结果：············0c7d465c78faf8dcc359343df18d535497b6dee228577f84b236e908193c65228888448863c33dff9acdc99dc6b85ca3329716c4d6fa3f51a540e2b977347ac6count: 11743nonce: 117438888448863c33dff9acdc99dc6b85ca3329716c4d6fa3f51a540e2b977347ac664 分析：isvhd（）函数用来判断生成的哈希内容是否满足某一条件，此处为判断生成的哈希数，前4位数是否为8。若不满足这一条件，则给nonce加1，再次生成哈希，直到生成一个前4位数均为8的哈希，结束循环。生成了一个前四位数为8的哈希，哈希字符串长度为64，循环了11743次。]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>go语言</tag>
-      </tags>
-  </entry>
 </search>
