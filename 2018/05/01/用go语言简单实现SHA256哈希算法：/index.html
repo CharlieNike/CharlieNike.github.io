@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    <script src="../../../../js/pace.min.js"></script>
+    <link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>用go语言简单实现sha256哈希算法 | CharlieNike</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="sha256哈希算法" />
+  
+  
+  
+  
+  <meta name="description" content="用go语言简单实现SHA256哈希算法： 12345678910111213141516package mainimport (	&quot;crypto/sha256&quot;	&quot;fmt&quot;)func main() &amp;#123;	string := &quot;Hello&quot;  //需要哈希的字符串内容	hash := sha256.New()   //声明sha256哈希函数	hash.Write([]byte(string">
+<meta name="keywords" content="sha256哈希算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用go语言简单实现SHA256哈希算法">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/用go语言简单实现SHA256哈希算法：/index.html">
+<meta property="og:site_name" content="CharlieNike">
+<meta property="og:description" content="用go语言简单实现SHA256哈希算法： 12345678910111213141516package mainimport (	&quot;crypto/sha256&quot;	&quot;fmt&quot;)func main() &amp;#123;	string := &quot;Hello&quot;  //需要哈希的字符串内容	hash := sha256.New()   //声明sha256哈希函数	hash.Write([]byte(string">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-12T04:50:29.795Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用go语言简单实现SHA256哈希算法">
+<meta name="twitter:description" content="用go语言简单实现SHA256哈希算法： 12345678910111213141516package mainimport (	&quot;crypto/sha256&quot;	&quot;fmt&quot;)func main() &amp;#123;	string := &quot;Hello&quot;  //需要哈希的字符串内容	hash := sha256.New()   //声明sha256哈希函数	hash.Write([]byte(string">
+  
+    <link rel="alternate" href="/atom.xml" title="CharlieNike" type="application/atom+xml">
+  
+  <link rel="icon" href="/http://p83c9zj44.bkt.clouddn.com/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../../../css/my.css">
+  <!-- Google Adsense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["../../../../index.html"] = "首页"; 
+
+  themeMenus["../../../../archives"] = "所有文章"; 
+
+  themeMenus["../../../../categories"] = "分类"; 
+
+  themeMenus["../../../../tags"] = "标签"; 
+
+  themeMenus["../../../../about"] = "关于我"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="400px" height="400px" alt="Hike News" src="http://p83c9zj44.bkt.clouddn.com/mylogo.png">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">拥抱这个时代，疯狂这个青春，用青春点亮未来，为时代树立标杆！</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../index.html">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../archives">所有文章</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../about">关于我</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-用go语言简单实现SHA256哈希算法：" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      用go语言简单实现SHA256哈希算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="" class="article-date">
+	  <time datetime="2018-05-01T15:36:20.000Z" itemprop="datePublished">五月 1, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用go语言简单实现SHA256哈希算法：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"crypto/sha256"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">string</span> := <span class="string">"Hello"</span>  <span class="comment">//需要哈希的字符串内容</span></span><br><span class="line"></span><br><span class="line">	hash := sha256.New()   <span class="comment">//声明sha256哈希函数</span></span><br><span class="line">	hash.Write([]<span class="keyword">byte</span>(<span class="keyword">string</span>))</span><br><span class="line">	bs := hash.Sum(<span class="literal">nil</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">"%x"</span>, bs)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="运行结果："><a href="#运行结果：" class="headerlink" title="运行结果："></a>运行结果：</h5><p>185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969<br>其中，hash.Write()写入需要生成哈希的内容，h.Sum()添加额外的[]byte到当前的哈希中。</p>
+<a id="more"></a>
+<h5 id="生成符合某一条件的哈希："><a href="#生成符合某一条件的哈希：" class="headerlink" title="生成符合某一条件的哈希："></a>生成符合某一条件的哈希：</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"crypto/sha256"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isvhd</span><span class="params">(hash <span class="keyword">string</span>, diff <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> i <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">for</span> i = <span class="number">0</span>; i &lt; <span class="built_in">len</span>(hash); i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> hash[i] != <span class="string">'8'</span> &#123;   <span class="comment">//哈希字符串的前diff个字符是否为8，如果不为8，结束循环。</span></span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i &gt;= diff</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	nonce := <span class="number">0</span></span><br><span class="line">	hash := <span class="string">""</span></span><br><span class="line"></span><br><span class="line">	shaobj := sha256.New()</span><br><span class="line"></span><br><span class="line">	prehash := <span class="string">"0000fedaa499741317a18f1ad626f933776ad24822cb422634978bfe8005c94b"</span></span><br><span class="line">	<span class="comment">//prehash := "185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969"</span></span><br><span class="line">	count := <span class="number">0</span>     <span class="comment">//循环的次数</span></span><br><span class="line">	<span class="keyword">for</span> !isvhd(hash, <span class="number">4</span>) &#123;</span><br><span class="line">		nonce++</span><br><span class="line">		input := <span class="string">"100"</span> + prehash + <span class="string">"Thu, 26 Apr 2018 03:30:54 GMT"</span> + <span class="string">"A -&gt; B 1000"</span> + <span class="keyword">string</span>(nonce)</span><br><span class="line">		shaobj.Write([]<span class="keyword">byte</span>(input))</span><br><span class="line">		hash = fmt.Sprintf(<span class="string">"%x"</span>, shaobj.Sum(<span class="literal">nil</span>))</span><br><span class="line">		fmt.Println(hash)</span><br><span class="line">		count++</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"count:"</span>, count)</span><br><span class="line">	fmt.Println(<span class="string">"nonce:"</span>, nonce)</span><br><span class="line">	fmt.Println(hash)</span><br><span class="line">	fmt.Println(<span class="built_in">len</span>(hash))     <span class="comment">//哈希字符串的长度</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="运行结果：-1"><a href="#运行结果：-1" class="headerlink" title="运行结果："></a>运行结果：</h5><p>············<br>0c7d465c78faf8dcc359343df18d535497b6dee228577f84b236e908193c6522<br>8888448863c33dff9acdc99dc6b85ca3329716c4d6fa3f51a540e2b977347ac6<br>count: 11743<br>nonce: 11743<br>8888448863c33dff9acdc99dc6b85ca3329716c4d6fa3f51a540e2b977347ac6<br>64</p>
+<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><p>isvhd（）函数用来判断生成的哈希内容是否满足某一条件，此处为判断生成的哈希数，前4位数是否为8。若不满足这一条件，则给nonce加1，再次生成哈希，直到生成一个前4位数均为8的哈希，结束循环。<br>生成了一个前四位数为8的哈希，哈希字符串长度为64，循环了11743次。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="../../../../categories/算法/">算法</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/sha256哈希算法/">sha256哈希算法</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+<script src="../../../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '攒点银子，买本狗粮!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://p83c9zj44.bkt.clouddn.com/WeCahtQR.jpg',
+  alipayImage: 'http://p83c9zj44.bkt.clouddn.com/AlipayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjI2NC8xMjc5OQ==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../03/在localhost部署super—dictionary智能合约/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          在本地网络部署super—dictionary智能合约
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#运行结果："><span class="nav-number">1.</span> <span class="nav-text">运行结果：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#生成符合某一条件的哈希："><span class="nav-number">2.</span> <span class="nav-text">生成符合某一条件的哈希：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运行结果：-1"><span class="nav-number">3.</span> <span class="nav-text">运行结果：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分析："><span class="nav-number">4.</span> <span class="nav-text">分析：</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 CharlieNike All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+<script src="../../../../js/my.js"></script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/scripts.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+<script src="../../../../js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
