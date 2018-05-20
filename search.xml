@@ -12,6 +12,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[在星云链测试网部署super-dictionary智能合约]]></title>
+    <url>%2F2018%2F05%2F02%2F%E5%9C%A8%E6%98%9F%E4%BA%91%E9%93%BE%E6%B5%8B%E8%AF%95%E7%BD%91%E9%83%A8%E7%BD%B2super-dictionary%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%2F</url>
+    <content type="text"><![CDATA[整理：房玉辉博客：https://charlienike.github.io 星云链Dapp开发系列在星云链测试网部署super-dictionary智能合约工具：Goland，Chrome，WebExtensionWallet插件钱包super-dictionary智能合约源码下载地址：https://github.com/15010159959/super-dictionary 1、下载星云链官方钱包：到GitHub的星云官方库下载web-wallet钱包https://github.com/nebulasio/web-wallet，用谷歌浏览器打开文件包里的index.html，点击右上角，选择testnet网络，再新建钱包，牢记密码，并下载保存好密码库文件，申请测试币https://testnet.nebulas.io/claim/ 2、在谷歌浏览器上安装WebExtensionWallet插件钱包，有详细安装攻略。3、部署合约下载super-dictionary智能合约：https://github.com/15010159959/super-dictionary打开super-dictionary-master/smartcontract文件夹下的super_dictionary.js文件，复制全部代码，打开web-wallet文件夹里的index.html文件，点击右上角选择Testnet测试网络，点击合约——部署，粘贴全部代码到合约部署框内，选择钱包文件，输入密码，点击解锁，再点击测试，后点击提交，保存好交易哈希和合约地址。合约地址：n1vPTmFsXNGCjZ3Dmf2ngEEyUeut7pqebaJ用goland开发工具打开super-dictionary-master文件夹下的index.html，找到第190行，把合约地址粘贴过去并保存：var dappAddress = &quot;n1vPTmFsXNGCjZ3Dmf2ngEEyUeut7pqebaJ&quot;; 4、执行合约：用谷歌浏览器打开super-dictionary-master文件夹下的index.html，点击浏览器右上角的插件钱包，选择Testnet测试网络，搜索“金庸”，可以看到没有释义，而输入框下面出现一句话，Failed to find related information. Do you want to add infromation for “金庸”?点击add添加释义，点击submit提交后，就会弹出插件钱包，选择钱包，输入密码，,点击生成交易，点击确认，大概一分钟后，交易成功，最后再次查询“金庸“，已经有了释义，如此，合约部署成功。执行合约成功。 版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信]]></content>
+      <categories>
+        <category>智能合约</category>
+      </categories>
+      <tags>
+        <tag>星云链Dapp开发</tag>
+        <tag>super-dictionary智能合约</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[用go语言简单实现SHA256哈希算法]]></title>
     <url>%2F2018%2F05%2F01%2F%E7%94%A8go%E8%AF%AD%E8%A8%80%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0SHA256%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%EF%BC%9A%2F</url>
     <content type="text"><![CDATA[用go语言简单实现SHA256哈希算法： 12345678910111213141516package mainimport ( "crypto/sha256" "fmt")func main() &#123; string := "Hello" //需要哈希的字符串内容 hash := sha256.New() //声明sha256哈希函数 hash.Write([]byte(string)) bs := hash.Sum(nil) fmt.Printf("%x", bs)&#125; 运行结果：185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969其中，hash.Write()写入需要生成哈希的内容，h.Sum()添加额外的[]byte到当前的哈希中。 生成符合某一条件的哈希：12345678910111213141516171819202122232425262728293031323334353637383940package mainimport ( "fmt" "crypto/sha256")func isvhd(hash string, diff int) bool &#123; var i int for i = 0; i &lt; len(hash); i++ &#123; if hash[i] != '8' &#123; //哈希字符串的前diff个字符是否为8，如果不为8，结束循环。 break &#125; &#125; return i &gt;= diff&#125;func main() &#123; nonce := 0 hash := "" shaobj := sha256.New() prehash := "0000fedaa499741317a18f1ad626f933776ad24822cb422634978bfe8005c94b" //prehash := "185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969" count := 0 //循环的次数 for !isvhd(hash, 4) &#123; nonce++ input := "100" + prehash + "Thu, 26 Apr 2018 03:30:54 GMT" + "A -&gt; B 1000" + string(nonce) shaobj.Write([]byte(input)) hash = fmt.Sprintf("%x", shaobj.Sum(nil)) fmt.Println(hash) count++ &#125; fmt.Println("count:", count) fmt.Println("nonce:", nonce) fmt.Println(hash) fmt.Println(len(hash)) //哈希字符串的长度&#125; 运行结果：············0c7d465c78faf8dcc359343df18d535497b6dee228577f84b236e908193c65228888448863c33dff9acdc99dc6b85ca3329716c4d6fa3f51a540e2b977347ac6count: 11743nonce: 117438888448863c33dff9acdc99dc6b85ca3329716c4d6fa3f51a540e2b977347ac664 分析：isvhd（）函数用来判断生成的哈希内容是否满足某一条件，此处为判断生成的哈希数，前4位数是否为8。若不满足这一条件，则给nonce加1，再次生成哈希，直到生成一个前4位数均为8的哈希，结束循环。生成了一个前四位数为8的哈希，哈希字符串长度为64，循环了11743次。]]></content>
