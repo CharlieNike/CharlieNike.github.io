@@ -21,21 +21,21 @@
   
   
   
-  <meta name="description" content="整理：房玉辉博客：https://charlienike.github.io 1、清空缓存：在etcd目录下执行make clean 2、导入API：在etcd/bin目录下执行export ETCDCTL_API=3  3、设置服务器IP：在etcd/bin目录下执行三台机器按主机IP顺序执行以下同一段代码   123456789TOKEN=token-01CLUSTER_STATE=newNA">
+  <meta name="description" content="整理：房玉辉博客：https://charlienike.github.io">
 <meta name="keywords" content="etcd多台服务器集群">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建etcd多台服务器集群">
 <meta property="og:url" content="http://yoursite.com/2018/05/11/搭建etcd多台服务器集群/index.html">
 <meta property="og:site_name" content="CharlieNike">
-<meta property="og:description" content="整理：房玉辉博客：https://charlienike.github.io 1、清空缓存：在etcd目录下执行make clean 2、导入API：在etcd/bin目录下执行export ETCDCTL_API=3  3、设置服务器IP：在etcd/bin目录下执行三台机器按主机IP顺序执行以下同一段代码   123456789TOKEN=token-01CLUSTER_STATE=newNA">
+<meta property="og:description" content="整理：房玉辉博客：https://charlienike.github.io">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/etcd%E6%B8%85%E7%A9%BA%E7%BC%93%E5%AD%98.png">
 <meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E4%B8%BB%E6%9C%BA3%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F.png">
 <meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F.png">
-<meta property="og:updated_time" content="2018-05-29T02:43:35.656Z">
+<meta property="og:updated_time" content="2018-05-31T02:13:13.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建etcd多台服务器集群">
-<meta name="twitter:description" content="整理：房玉辉博客：https://charlienike.github.io 1、清空缓存：在etcd目录下执行make clean 2、导入API：在etcd/bin目录下执行export ETCDCTL_API=3  3、设置服务器IP：在etcd/bin目录下执行三台机器按主机IP顺序执行以下同一段代码   123456789TOKEN=token-01CLUSTER_STATE=newNA">
+<meta name="twitter:description" content="整理：房玉辉博客：https://charlienike.github.io">
 <meta name="twitter:image" content="http://p83c9zj44.bkt.clouddn.com/etcd%E6%B8%85%E7%A9%BA%E7%BC%93%E5%AD%98.png">
   
     <link rel="alternate" href="/atom.xml" title="CharlieNike" type="application/atom+xml">
@@ -202,7 +202,8 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><h5 id="博客：https-charlienike-github-io"><a href="#博客：https-charlienike-github-io" class="headerlink" title="博客：https://charlienike.github.io"></a>博客：<a href="https://charlienike.github.io" target="_blank" rel="noopener">https://charlienike.github.io</a></h5><ul>
+        <h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><h5 id="博客：https-charlienike-github-io"><a href="#博客：https-charlienike-github-io" class="headerlink" title="博客：https://charlienike.github.io"></a>博客：<a href="https://charlienike.github.io" target="_blank" rel="noopener">https://charlienike.github.io</a></h5><a id="more"></a>
+<ul>
 <li><strong>1、清空缓存：在etcd目录下执行</strong><br>make clean<br><img src="http://p83c9zj44.bkt.clouddn.com/etcd%E6%B8%85%E7%A9%BA%E7%BC%93%E5%AD%98.png" alt=""></li>
 <li><p><strong>2、导入API：在etcd/bin目录下执行</strong><br>export ETCDCTL_API=3</p>
 </li>
@@ -226,7 +227,6 @@ var themeMenus = {};
 <p>新开一个终端：进入etcd/bin目录<br>导入IP：<br>export ETCDCTL_API=3<br>执行以下命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HOST_1=10.0.154.189</span><br><span class="line">HOST_2=10.0.154.210</span><br><span class="line">HOST_3=10.0.154.244</span><br><span class="line">ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379</span><br><span class="line"></span><br><span class="line">./etcdctl --endpoints=$ENDPOINTS member list</span><br></pre></td></tr></table></figure>
 <p>连接成功如图：<br><img src="http://p83c9zj44.bkt.clouddn.com/%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F.png" alt=""></p>
-<a id="more"></a>
 <font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
 
 
@@ -287,6 +287,15 @@ var a = new Donate({
   
     
 <nav id="article-nav">
+  
+    <a href="../../12/在一台电脑上搭建etcd服务器集群/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          在一台电脑上搭建etcd服务器集群
+        
+      </div>
+    </a>
   
   
     <a href="../../03/在localhost部署super—dictionary智能合约/" id="article-nav-older" class="article-nav-link-wrap">
