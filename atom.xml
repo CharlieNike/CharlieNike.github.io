@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>CharlieNike</title>
+  <title>Jelinek</title>
   
   <subtitle>房玉辉区块链博客</subtitle>
   <link href="/atom.xml" rel="self"/>
@@ -169,6 +169,32 @@
     
     
       <category term="RSA秘钥" scheme="http://yoursite.com/tags/RSA%E7%A7%98%E9%92%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac配置环境变量</title>
+    <link href="http://yoursite.com/2016/03/26/Mac%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
+    <id>http://yoursite.com/2016/03/26/Mac配置环境变量/</id>
+    <published>2016-03-26T10:58:09.000Z</published>
+    <updated>2018-06-01T08:51:17.622Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><h5 id="博客：https-charlienike-github-io"><a href="#博客：https-charlienike-github-io" class="headerlink" title="博客：https://charlienike.github.io"></a>博客：<a href="https://charlienike.github.io" target="_blank" rel="noopener">https://charlienike.github.io</a></h5><p>Mac上的环境变量都在隐藏文件.bash_profile里配置，该文件一般都在Mac的用户名目录下，</p><font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h5 id=&quot;整理：房玉辉&quot;&gt;&lt;a href=&quot;#整理：房玉辉&quot; class=&quot;headerlink&quot; title=&quot;整理：房玉辉&quot;&gt;&lt;/a&gt;整理：房玉辉&lt;/h5&gt;&lt;h5 id=&quot;博客：https-charlienike-github-io&quot;
+      
+    
+    </summary>
+    
+      <category term="智能合约" scheme="http://yoursite.com/categories/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/"/>
+    
+    
+      <category term="星云链Dapp开发" scheme="http://yoursite.com/tags/%E6%98%9F%E4%BA%91%E9%93%BEDapp%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
