@@ -177,9 +177,9 @@
     <link href="http://yoursite.com/2016/03/26/Mac%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
     <id>http://yoursite.com/2016/03/26/Mac配置环境变量/</id>
     <published>2016-03-26T10:58:09.000Z</published>
-    <updated>2018-06-01T09:53:55.371Z</updated>
+    <updated>2018-06-02T05:25:14.333Z</updated>
     
-    <content type="html"><![CDATA[<h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><a id="more"></a><h5 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h5><p>Mac上的环境变量都在隐藏文件.bash_profile里配置，该文件一般都在Mac的用户名目录下，</p><font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>]]></content>
+    <content type="html"><![CDATA[<h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><a id="more"></a><h5 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h5><h6 id="1、找到-bash-profile文件"><a href="#1、找到-bash-profile文件" class="headerlink" title="1、找到.bash_profile文件"></a>1、找到<strong>.bash_profile</strong>文件</h6><p>Mac上的环境变量都在隐藏文件<strong>.bash_profile</strong>里配置，该文件一般都在Mac的用户名目录下，打开访达，进入到用户名目录，按<strong><code>shift+command+•</code></strong>，就可以看见用户名目录下的所有文件（包括隐藏文件），如图，我的用户名为<strong>CharlieNike</strong><img src="http://p83c9zj44.bkt.clouddn.com/hjbl%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6.jpeg" alt=""><br>第三个文件<strong>.bash_profile</strong>就是Mac的配置环境变量的文件；或者打开终端，输入：<strong><code>ls -a</code></strong>，就可以看见用户名目录下的所有文件和文件夹（包括隐藏的）；如果用户名目录下没有该文件，说明之前未配置过环境变量，该文件不存在，就打开终端，输入：</p><blockquote><p><strong><code>touch .bash_profile</code></strong><br>创建<strong>.bash_profile</strong>文件。</p></blockquote><h6 id="2、编辑-bash-profile文件"><a href="#2、编辑-bash-profile文件" class="headerlink" title="2、编辑.bash_profile文件"></a>2、编辑.bash_profile文件</h6><p>有了该文件之后，可用记事本打开，进行编辑；或者在终端输入：</p><blockquote><p><strong><code>open -e .bash_profile</code></strong><br>就可以调用记事本打开该文件，编辑完成后，保存退出。<br>例如，我的golang的环境变量如下<br>export GOPATH=/Users/charlienike/go<br>export PATH=/Users/charlienike/bin:$GOPATH/bin:$PATH</p></blockquote><h6 id="3、使配置生效"><a href="#3、使配置生效" class="headerlink" title="3、使配置生效"></a>3、使配置生效</h6><p>编辑完成后，在终端输入：</p><blockquote><p><strong><code>source .bash_profile</code></strong><br>才能使刚刚配置的环境变量生效。<br><img src="http://p83c9zj44.bkt.clouddn.com/hjblopenebash.jpeg" alt=""></p></blockquote><font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>]]></content>
     
     <summary type="html">
     
@@ -187,10 +187,8 @@
     
     </summary>
     
-      <category term="智能合约" scheme="http://yoursite.com/categories/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/"/>
     
-    
-      <category term="星云链Dapp开发" scheme="http://yoursite.com/tags/%E6%98%9F%E4%BA%91%E9%93%BEDapp%E5%BC%80%E5%8F%91/"/>
+      <category term="环境变量" scheme="http://yoursite.com/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
     
   </entry>
   

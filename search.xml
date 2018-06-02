@@ -81,12 +81,9 @@
   <entry>
     <title><![CDATA[Mac配置环境变量]]></title>
     <url>%2F2016%2F03%2F26%2FMac%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%2F</url>
-    <content type="text"><![CDATA[整理：房玉辉 博客：https://ElonJelinek.github.ioMac上的环境变量都在隐藏文件.bash_profile里配置，该文件一般都在Mac的用户名目录下， 版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信]]></content>
-      <categories>
-        <category>智能合约</category>
-      </categories>
+    <content type="text"><![CDATA[整理：房玉辉 博客：https://ElonJelinek.github.io1、找到.bash_profile文件Mac上的环境变量都在隐藏文件.bash_profile里配置，该文件一般都在Mac的用户名目录下，打开访达，进入到用户名目录，按shift+command+•，就可以看见用户名目录下的所有文件（包括隐藏文件），如图，我的用户名为CharlieNike第三个文件.bash_profile就是Mac的配置环境变量的文件；或者打开终端，输入：ls -a，就可以看见用户名目录下的所有文件和文件夹（包括隐藏的）；如果用户名目录下没有该文件，说明之前未配置过环境变量，该文件不存在，就打开终端，输入： touch .bash_profile创建.bash_profile文件。 2、编辑.bash_profile文件有了该文件之后，可用记事本打开，进行编辑；或者在终端输入： open -e .bash_profile就可以调用记事本打开该文件，编辑完成后，保存退出。例如，我的golang的环境变量如下export GOPATH=/Users/charlienike/goexport PATH=/Users/charlienike/bin:$GOPATH/bin:$PATH 3、使配置生效编辑完成后，在终端输入： source .bash_profile才能使刚刚配置的环境变量生效。 版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信]]></content>
       <tags>
-        <tag>星云链Dapp开发</tag>
+        <tag>环境变量</tag>
       </tags>
   </entry>
 </search>
