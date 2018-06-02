@@ -390,9 +390,6 @@ body {
 .widget dt {
   font-weight: bold;
 }
-.header {
-  background: url("../image/background.jpg");
-}
 .article {
   color: #555;
   margin: 0 0 40px 0;
