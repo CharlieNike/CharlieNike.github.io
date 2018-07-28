@@ -13,30 +13,30 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>搭建etcd多台服务器集群 | Jelinek</title>
+  <title>mac下生成rsa私钥和公钥 | Jelinek</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="etcd多台服务器集群" />
+  <meta name="keywords" content="RSA秘钥" />
   
   
   
   
   <meta name="description" content="整理：房玉辉">
-<meta name="keywords" content="etcd多台服务器集群">
+<meta name="keywords" content="RSA秘钥">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建etcd多台服务器集群">
-<meta property="og:url" content="http://yoursite.com/2018/05/11/搭建etcd多台服务器集群/index.html">
+<meta property="og:title" content="mac下生成RSA私钥和公钥">
+<meta property="og:url" content="http://yoursite.com/2017/11/30/mac下生成rsa私钥和公钥/index.html">
 <meta property="og:site_name" content="Jelinek">
 <meta property="og:description" content="整理：房玉辉">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/etcd%E6%B8%85%E7%A9%BA%E7%BC%93%E5%AD%98.png">
-<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E4%B8%BB%E6%9C%BA3%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F.png">
-<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F.png">
-<meta property="og:updated_time" content="2018-06-01T09:51:03.680Z">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E7%9A%84%E7%A7%81%E9%92%A5.jpeg">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E5%9C%A8%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%8B%E7%94%9F%E6%88%90%E7%9A%84%E7%A7%81%E9%92%A5%EF%BC%88%E8%AE%B0%E4%BA%8B%E6%9C%AC%E6%89%93%E5%BC%80%EF%BC%89.jpeg">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%94%9F%E6%88%90%E7%A7%98%E9%92%A5.jpeg">
+<meta property="og:updated_time" content="2018-07-28T10:41:32.270Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建etcd多台服务器集群">
+<meta name="twitter:title" content="mac下生成RSA私钥和公钥">
 <meta name="twitter:description" content="整理：房玉辉">
-<meta name="twitter:image" content="http://p83c9zj44.bkt.clouddn.com/etcd%E6%B8%85%E7%A9%BA%E7%BC%93%E5%AD%98.png">
+<meta name="twitter:image" content="http://p83c9zj44.bkt.clouddn.com/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E7%9A%84%E7%A7%81%E9%92%A5.jpeg">
   
     <link rel="alternate" href="/atom.xml" title="Jelinek" type="application/atom+xml">
   
@@ -174,7 +174,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-搭建etcd多台服务器集群" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-mac下生成rsa私钥和公钥" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -182,7 +182,7 @@ var themeMenus = {};
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      搭建etcd多台服务器集群
+      mac下生成RSA私钥和公钥
     </h1>
   
 
@@ -191,7 +191,7 @@ var themeMenus = {};
     <div class="article-meta">
       
 	Posted on <a href="" class="article-date">
-	  <time datetime="2018-05-11T03:08:05.000Z" itemprop="datePublished">五月 11, 2018</time>
+	  <time datetime="2017-11-30T13:26:05.000Z" itemprop="datePublished">十一月 30, 2017</time>
 	</a>
 
       
@@ -202,33 +202,13 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><a id="more"></a>
-<h5 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h5><ul>
-<li><strong>1、清空缓存：在etcd目录下执行</strong><br>make clean<br><img src="http://p83c9zj44.bkt.clouddn.com/etcd%E6%B8%85%E7%A9%BA%E7%BC%93%E5%AD%98.png" alt=""></li>
-<li><p><strong>2、导入API：在etcd/bin目录下执行</strong><br>export ETCDCTL_API=3</p>
-</li>
-<li><p><strong>3、设置服务器IP：在etcd/bin目录下执行</strong><br>三台机器按主机IP顺序执行以下同一段代码</p>
-</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">TOKEN=token<span class="number">-01</span></span><br><span class="line">CLUSTER_STATE=<span class="built_in">new</span></span><br><span class="line">NAME_1=machine<span class="number">-1</span></span><br><span class="line">NAME_2=machine<span class="number">-2</span></span><br><span class="line">NAME_3=machine<span class="number">-3</span></span><br><span class="line">HOST_1=<span class="number">10.0</span><span class="number">.154</span><span class="number">.189</span></span><br><span class="line">HOST_2=<span class="number">10.0</span><span class="number">.154</span><span class="number">.210</span></span><br><span class="line">HOST_3=<span class="number">10.0</span><span class="number">.154</span><span class="number">.244</span></span><br><span class="line">CLUSTER=$&#123;NAME_1&#125;=http:<span class="comment">//$&#123;HOST_1&#125;:2380,$&#123;NAME_2&#125;=http://$&#123;HOST_2&#125;:2380,$&#123;NAME_3&#125;=http://$&#123;HOST_3&#125;:2380</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>4、启动服务：在etcd/bin目录下执行</strong></li>
-</ul>
-<p>三台机器按顺序执行各自命令：<br>machine1执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">THIS_NAME=$&#123;NAME_1&#125;</span><br><span class="line">THIS_IP=$&#123;HOST_1&#125;</span><br><span class="line">./etcd --data-dir=data.etcd --name $&#123;THIS_NAME&#125; --initial-advertise-peer-urls http://$&#123;THIS_IP&#125;:2380 --listen-peer-urls http://$&#123;THIS_IP&#125;:2380 --advertise-client-urls http://$&#123;THIS_IP&#125;:2379 --listen-client-urls http://$&#123;THIS_IP&#125;:2379 --initial-cluster $&#123;CLUSTER&#125; --initial-cluster-state $&#123;CLUSTER_STATE&#125; --initial-cluster-token $&#123;TOKEN&#125;</span><br></pre></td></tr></table></figure>
-<p>machine2执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">THIS_NAME=$&#123;NAME_2&#125;</span><br><span class="line">THIS_IP=$&#123;HOST_2&#125;</span><br><span class="line">./etcd --data-dir=data.etcd --name $&#123;THIS_NAME&#125; --initial-advertise-peer-urls http://$&#123;THIS_IP&#125;:2380 --listen-peer-urls http://$&#123;THIS_IP&#125;:2380 --advertise-client-urls http://$&#123;THIS_IP&#125;:2379 --listen-client-urls http://$&#123;THIS_IP&#125;:2379 --initial-cluster $&#123;CLUSTER&#125; --initial-cluster-state $&#123;CLUSTER_STATE&#125; --initial-cluster-token $&#123;TOKEN&#125;</span><br></pre></td></tr></table></figure>
-<p>machine3执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">THIS_NAME=$&#123;NAME_3&#125;</span><br><span class="line">THIS_IP=$&#123;HOST_3&#125;</span><br><span class="line">./etcd --data-dir=data.etcd --name $&#123;THIS_NAME&#125; --initial-advertise-peer-urls http://$&#123;THIS_IP&#125;:2380 --listen-peer-urls http://$&#123;THIS_IP&#125;:2380 --advertise-client-urls http://$&#123;THIS_IP&#125;:2379 --listen-client-urls http://$&#123;THIS_IP&#125;:2379 --initial-cluster $&#123;CLUSTER&#125; --initial-cluster-state $&#123;CLUSTER_STATE&#125; --initial-cluster-token $&#123;TOKEN&#125;</span><br></pre></td></tr></table></figure>
-<p>machine3接入成功<br><img src="http://p83c9zj44.bkt.clouddn.com/%E4%B8%BB%E6%9C%BA3%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F.png" alt=""></p>
-<ul>
-<li><strong>5、检测几台机器接入集群：</strong></li>
-</ul>
-<p>新开一个终端：进入etcd/bin目录<br>导入IP：<br>export ETCDCTL_API=3<br>执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HOST_1=10.0.154.189</span><br><span class="line">HOST_2=10.0.154.210</span><br><span class="line">HOST_3=10.0.154.244</span><br><span class="line">ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379</span><br><span class="line"></span><br><span class="line">./etcdctl --endpoints=$ENDPOINTS member list</span><br></pre></td></tr></table></figure>
-<p>连接成功如图：<br><img src="http://p83c9zj44.bkt.clouddn.com/%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F.png" alt=""></p>
-<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
+        <h3 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h3><a id="more"></a>
+<h3 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h3><h3 id="第一种方式（执行第2步之后，需要输入两次开机密码）："><a href="#第一种方式（执行第2步之后，需要输入两次开机密码）：" class="headerlink" title="第一种方式（执行第2步之后，需要输入两次开机密码）："></a>第一种方式（执行第2步之后，需要输入两次开机密码）：</h3><p>打开终端：输入：openssl<br>依次输入命令：<br><strong>1、制作私钥</strong><br>genrsa -out rsa_private_key.pem 2048<br><strong>2、设置私钥为PKCS8格式</strong><br>pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM</p>
+<font color="#FF0000" size="5"><strong>注意：</strong>执行完第2步，终端会输出以—–BEGIN ENCRYPTED PRIVATE KEY—–开头，以—–END ENCRYPTED PRIVATE KEY—–结尾的私钥，不是<strong>RSA</strong>私钥：<img src="http://p83c9zj44.bkt.clouddn.com/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E7%9A%84%E7%A7%81%E9%92%A5.jpeg" alt="">记住不要用此私钥，可以把这里的私钥保存一下，查看其长度，为1784。</font><br>此时，/Users/（用户名）目录下也有了名为rsa_private_key.pem的私钥文件，可用记事本查看一下，<img src="http://p83c9zj44.bkt.clouddn.com/%E5%9C%A8%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%8B%E7%94%9F%E6%88%90%E7%9A%84%E7%A7%81%E9%92%A5%EF%BC%88%E8%AE%B0%E4%BA%8B%E6%9C%AC%E6%89%93%E5%BC%80%EF%BC%89.jpeg" alt=""><br><font color="red" size="5" face="黑体">是以—–BEGIN RSA PRIVATE KEY—–开头，以—–END RSA PRIVATE KEY—–结尾。这才是<strong>RSA</strong>私钥。</font><br><strong>3、通过私钥产生公钥</strong><br>rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem<br><br>执行完第三步<br>/Users/（用户名）<br>目录下就已经有了两个文件：<br>rsa_private_key.pem<br>rsa_public_key.pem<br>前者为私钥，后者为公钥。<br>此时可以用记事本打开文件，公钥长度为450，私钥长度为1678，<font color="gree">私钥与刚才控制台输出的私钥不一样</font><br>也可以用命令行在终端查看秘钥：cat /Users/charlienike/rsa_private_key.pem<br>### 第二种方式（不需要输密码）：<br>打开终端：输入 openssl<br>依次输入命令：<br>1、genrsa -out rsa_private_key.pem 2048<br>2、pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM –nocrypt<br>3、rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem<br>命令执行过程中控制台不会输出私钥<img src="http://p83c9zj44.bkt.clouddn.com/%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%94%9F%E6%88%90%E7%A7%98%E9%92%A5.jpeg" alt=""><br>最后/Users/(用户名)目录下会生成两个文件，一个公钥，一个私钥，用记事本打开（或者用终端：cat 文件路径），公钥长度为450，私钥长度为1674。<br><font color="gree">私钥的长度与第一种方式生成的私钥不一样长（1678、1674）。</font>
 
+<p><strong>注意：RSA</strong>私钥是以—–BEGIN RSA PRIVATE KEY—–开头，以—–END RSA PRIVATE KEY—–结尾，公钥是以—–BEGIN PUBLIC KEY—–开头，以—–END PUBLIC KEY—–结尾，第一种方式执行过程中终端输出的并不是<strong>RSA</strong>私钥。<br>两种方式的不同是第二种方式的第2条命令后面多了个<font color="gree">–nocrypt</font>，第二种方式执行过程中不会输出私钥，也不需要输入密码，因此推荐使用第二种方式，以避免混淆。</p>
+<p>同理：如果要生成1024字节的秘钥，只需要将第1行命令最后的2048改成1024即可：<br>rsa_private_key.pem 1024<br>同样推荐使用第二种方式，因为不需要输密码，且不易混淆。若使用第一种方式，过程中终端输出的私钥同样不是以—–BEGIN RSA PRIVATE KEY—–开头，不是RSA私钥，长度为992。正确的秘钥，即在用户名目录下生成的两个秘钥文件，私钥长度为886，公钥长度为271。</p>
+<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
 
 
       
@@ -236,11 +216,11 @@ var themeMenus = {};
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="../../../../categories/分布式系统/">分布式系统</a>
+    <a class="article-category-link" href="../../../../categories/密码学/">密码学</a>
 
       
   <span class="ico-tags"></span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/etcd多台服务器集群/">etcd多台服务器集群</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/RSA秘钥/">RSA秘钥</a></li></ul>
 
       
         <div id="donation_div"></div>
@@ -288,19 +268,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="../../12/在一台电脑上搭建etcd服务器集群/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../../12/01/用go语言简单实现SHA256哈希算法/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          在一台电脑上搭建etcd服务器集群
+          用go语言简单实现SHA256哈希算法
         
       </div>
     </a>
   
   
-    <a href="../../03/在localhost部署super—dictionary智能合约/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../../../03/26/Mac配置环境变量/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">在本地网络部署super—dictionary智能合约</div>
+      <div class="article-nav-title">Mac配置环境变量</div>
     </a>
   
 </nav>
@@ -314,7 +294,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#整理：房玉辉"><span class="nav-number">1.</span> <span class="nav-text">整理：房玉辉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#博客：https-ElonJelinek-github-io"><span class="nav-number">2.</span> <span class="nav-text">博客：https://ElonJelinek.github.io</span></a></li></ol>
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#整理：房玉辉"><span class="nav-number">1.</span> <span class="nav-text">整理：房玉辉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客：https-ElonJelinek-github-io"><span class="nav-number">2.</span> <span class="nav-text">博客：https://ElonJelinek.github.io</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种方式（执行第2步之后，需要输入两次开机密码）："><span class="nav-number">3.</span> <span class="nav-text">第一种方式（执行第2步之后，需要输入两次开机密码）：</span></a></li></ol>
     
     </div>
   </aside>
