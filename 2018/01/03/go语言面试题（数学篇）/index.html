@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Jelinek">
 <meta property="og:description" content="整理：房玉辉">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-31T10:24:11.629Z">
+<meta property="og:updated_time" content="2018-07-31T10:35:44.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="go语言常见面试题（数学篇）">
 <meta name="twitter:description" content="整理：房玉辉">
@@ -238,6 +238,9 @@ var themeMenus = {};
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	num := <span class="number">6</span></span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		num = num + <span class="number">5</span></span><br><span class="line">		count := num</span><br><span class="line">		monkey := <span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> i := <span class="number">0</span>; i &lt;= <span class="number">5</span>; i++ &#123;</span><br><span class="line">			<span class="keyword">if</span> (count<span class="number">-1</span>)%<span class="number">5</span> == <span class="number">0</span> &#123;</span><br><span class="line">				count = (count - <span class="number">1</span>) / <span class="number">5</span> * <span class="number">4</span></span><br><span class="line">				monkey++</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">				<span class="comment">//如果不满足扔一个还能均分5份，就跳出内层循环，再给num加5</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> monkey == <span class="number">5</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">			<span class="comment">//如果不满足monkey等于5，就一直循环</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(num)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：<code>3121</code></p>
 <p>这里的很多题都有不止一种解法，就好像同样一种算法，可能每个人写的代码都不完全相同，有的可能逻辑更清晰，有的可能代码量更少，有的可能时间复杂度更低，实际开发中很多问题都需要针对不同的具体情况去优化。</p>
+<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
+
+
 
       
     </div>
