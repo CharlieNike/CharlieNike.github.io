@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    <script src="../../../../js/pace.min.js"></script>
+    <link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>redis数据库的安装（mac环境） | Jelinek</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Redis数据库" />
+  
+  
+  
+  
+  <meta name="description" content="整理：房玉辉">
+<meta name="keywords" content="Redis数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis数据库的安装（Mac环境）">
+<meta property="og:url" content="http://yoursite.com/2018/01/03/Redis数据库的安装/index.html">
+<meta property="og:site_name" content="Jelinek">
+<meta property="og:description" content="整理：房玉辉">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E7%BB%88%E7%AB%AF1.jpeg">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E7%BB%88%E7%AB%AF2.jpeg">
+<meta property="og:updated_time" content="2018-08-23T10:32:52.096Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis数据库的安装（Mac环境）">
+<meta name="twitter:description" content="整理：房玉辉">
+<meta name="twitter:image" content="http://p83c9zj44.bkt.clouddn.com/%E7%BB%88%E7%AB%AF1.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="Jelinek" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../../../css/my.css">
+  <!-- Google Adsense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["../../../../index.html"] = "首页"; 
+
+  themeMenus["../../../../archives"] = "所有文章"; 
+
+  themeMenus["../../../../categories"] = "分类"; 
+
+  themeMenus["../../../../tags"] = "标签"; 
+
+  themeMenus["../../../../about"] = "关于我"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="400px" height="400px" alt="Hike News" src="http://p83c9zj44.bkt.clouddn.com/mylogo.png">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">拥抱这个时代，疯狂这个青春，用青春点亮未来，为时代树立标杆！</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../index.html">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../archives">所有文章</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../about">关于我</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Redis数据库的安装" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Redis数据库的安装（Mac环境）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="" class="article-date">
+	  <time datetime="2018-01-03T08:16:00.000Z" itemprop="datePublished">一月 3, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><a id="more"></a>
+<h5 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h5><h2 id="1、利用Homebrew安装Redis"><a href="#1、利用Homebrew安装Redis" class="headerlink" title="1、利用Homebrew安装Redis"></a>1、利用Homebrew安装Redis</h2><p>打开终端，输入以下命令：</p>
+<p><code>brew install redis</code></p>
+<p>会输出如下内容：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">（之前的输出省略）</span><br><span class="line">……</span><br><span class="line">……</span><br><span class="line">……</span><br><span class="line">==&gt; Pouring redis-<span class="number">-4.0</span><span class="number">.11</span>.high_sierra.bottle.tar.gz</span><br><span class="line">==&gt; Caveats</span><br><span class="line">To have launchd start redis now and restart at login:</span><br><span class="line">  brew services start redis</span><br><span class="line">Or, <span class="keyword">if</span> you don<span class="string">'t want/need a background service you can just run:</span></span><br><span class="line"><span class="string">  redis-server /usr/local/etc/redis.conf</span></span><br><span class="line"><span class="string">==&gt; Summary</span></span><br><span class="line"><span class="string">🍺  /usr/local/Cellar/redis/4.0.11: 13 files, 2.8MB</span></span><br></pre></td></tr></table></figure>
+<p>到这里即安装完成。</p>
+<p>启动Redis服务：</p>
+<p><code>redis-server</code></p>
+<p>出现以下内容，说明安装成功，并启动成功</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">（之前的输出省略）</span><br><span class="line">……</span><br><span class="line">……</span><br><span class="line">……</span><br><span class="line">                _._                                                  </span><br><span class="line">           _.-<span class="string">``</span>__ <span class="string">''-._                                             </span></span><br><span class="line"><span class="string">      _.-``    `.  `_.  '</span><span class="string">'-._           Redis 4.0.11 (00000000/0) 64 bit</span></span><br><span class="line"><span class="string">  .-`` .-```.  ```\/    _.,_ '</span><span class="string">'-._                                   </span></span><br><span class="line"><span class="string"> (    '</span>      ,       .-<span class="string">`  | `</span>,    )     Running in standalone mode</span><br><span class="line"> |<span class="string">`-._`</span>-...-<span class="string">` __...-.`</span><span class="string">`-._|'`</span> _.-<span class="string">'|     Port: 6379</span></span><br><span class="line"><span class="string"> |    `-._   `._    /     _.-'</span>    |     PID: <span class="number">78083</span></span><br><span class="line">  <span class="string">`-._    `</span>-._  <span class="string">`-./  _.-'    _.-'                                   </span></span><br><span class="line"><span class="string"> |`</span>-._<span class="string">`-._    `</span>-.__.-<span class="string">'    _.-'</span>_.-<span class="string">'|                                  </span></span><br><span class="line"><span class="string"> |    `-._`-._        _.-'</span>_.-<span class="string">'    |           http://redis.io        </span></span><br><span class="line"><span class="string">  `-._    `-._`-.__.-'</span>_.-<span class="string">'    _.-'</span>                                   </span><br><span class="line"> |<span class="string">`-._`</span>-._    <span class="string">`-.__.-'    _.-'_.-'|                                  </span></span><br><span class="line"><span class="string"> |    `</span>-._<span class="string">`-._        _.-'_.-'    |                                  </span></span><br><span class="line"><span class="string">  `</span>-._    <span class="string">`-._`</span>-.__.-<span class="string">'_.-'</span>    _.-<span class="string">'                                   </span></span><br><span class="line"><span class="string">      `-._    `-.__.-'</span>    _.-<span class="string">'                                       </span></span><br><span class="line"><span class="string">          `-._        _.-'</span>                                           </span><br><span class="line">              <span class="string">`-.__.-'                                               </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">78083:M 23 Aug 14:39:07.868 # Server initialized</span></span><br><span class="line"><span class="string">78083:M 23 Aug 14:39:07.868 * Ready to accept connections</span></span><br></pre></td></tr></table></figure>
+<p><strong>此时，该终端窗口会一直保持启动状态，不能再输入命令，要写入数据，需要另外开启一个终端窗口<br>打开另一个终端窗口，启动Redis客户端</strong></p>
+<p><code>redis-cli</code></p>
+<p>会输出如下内容，表示已经进入Redis客户端，之后可进行数据的读写操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2、数据的增删改查"><a href="#2、数据的增删改查" class="headerlink" title="2、数据的增删改查"></a>2、数据的增删改查</h2><p>Redis是key-value型数据库，<br>输入<code>key *</code>可查看所有的key-value键值对</p>
+<blockquote>
+<p><code>set</code>为写入命令<br><code>get</code>为读取命令<br><code>append</code>为追加命令<br><code>del</code>为删除<br><code>shutdown</code>为关闭Redis服务</p>
+</blockquote>
+<p>接下来依次输入一些数据，查看效果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; keys *</span><br><span class="line">(empty list or set)</span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; set name <span class="string">"lucy"</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; get name </span><br><span class="line"><span class="string">"lucy"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; keys *</span><br><span class="line"><span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; <span class="built_in">append</span> name Tom</span><br><span class="line">(integer) <span class="number">7</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; get name</span><br><span class="line"><span class="string">"lucyTom"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; set age <span class="number">22</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; keys *</span><br><span class="line"><span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"age"</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; del name</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; get name</span><br><span class="line">(<span class="literal">nil</span>)</span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; shutdown</span><br><span class="line">not connected&gt;</span><br></pre></td></tr></table></figure>
+<p>输入<code>shutdown</code>之后，Redis服务会被关闭，前一个终端窗口会输出如下内容</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">76944</span>:M <span class="number">23</span> Aug <span class="number">17</span>:<span class="number">57</span>:<span class="number">40.220</span> # User requested shutdown...</span><br><span class="line"><span class="number">76944</span>:M <span class="number">23</span> Aug <span class="number">17</span>:<span class="number">57</span>:<span class="number">40.220</span> * Saving the final RDB snapshot before exiting.</span><br><span class="line"><span class="number">76944</span>:M <span class="number">23</span> Aug <span class="number">17</span>:<span class="number">57</span>:<span class="number">40.221</span> * DB saved on disk</span><br><span class="line"><span class="number">76944</span>:M <span class="number">23</span> Aug <span class="number">17</span>:<span class="number">57</span>:<span class="number">40.221</span> # Redis is now ready to exit, bye bye...</span><br><span class="line">ElonJelinek:~ ElonJelinek$</span><br></pre></td></tr></table></figure>
+<p>之后，第二个终端窗口用exit退出Redis客户端。</p>
+<p><img src="http://p83c9zj44.bkt.clouddn.com/%E7%BB%88%E7%AB%AF1.jpeg" alt="终端窗口1"><br><img src="http://p83c9zj44.bkt.clouddn.com/%E7%BB%88%E7%AB%AF2.jpeg" alt="终端窗口2"></p>
+<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
+
+
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="../../../../categories/数据库/">数据库</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/Redis数据库/">Redis数据库</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+<script src="../../../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '攒点银子，买本狗粮!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://p83c9zj44.bkt.clouddn.com/WeCahtQR.jpg',
+  alipayImage: 'http://p83c9zj44.bkt.clouddn.com/AlipayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjI2NC8xMjc5OQ==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../Redis开源库redigo的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Redis开源库redigo的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../02/用go语言爬虫珍爱网所有城市网址/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">用go语言爬虫珍爱网所有城市网址</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#整理：房玉辉"><span class="nav-number">1.</span> <span class="nav-text">整理：房玉辉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#博客：https-ElonJelinek-github-io"><span class="nav-number">2.</span> <span class="nav-text">博客：https://ElonJelinek.github.io</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、利用Homebrew安装Redis"><span class="nav-number"></span> <span class="nav-text">1、利用Homebrew安装Redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、数据的增删改查"><span class="nav-number"></span> <span class="nav-text">2、数据的增删改查</span></a>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 Jelinek All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+<script src="../../../../js/my.js"></script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/scripts.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+<script src="../../../../js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
