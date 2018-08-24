@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    <script src="../../../../js/pace.min.js"></script>
+    <link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>mysql8.0的帮助信息 | Jelinek</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="MySQL数据库" />
+  
+  
+  
+  
+  <meta name="description" content="整理：房玉辉">
+<meta name="keywords" content="MySQL数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL8.0的帮助信息">
+<meta property="og:url" content="http://yoursite.com/2018/07/27/MySQL8.0的帮助信息/index.html">
+<meta property="og:site_name" content="Jelinek">
+<meta property="og:description" content="整理：房玉辉">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-24T11:48:17.386Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL8.0的帮助信息">
+<meta name="twitter:description" content="整理：房玉辉">
+  
+    <link rel="alternate" href="/atom.xml" title="Jelinek" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../../../css/my.css">
+  <!-- Google Adsense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["../../../../index.html"] = "首页"; 
+
+  themeMenus["../../../../archives"] = "所有文章"; 
+
+  themeMenus["../../../../categories"] = "分类"; 
+
+  themeMenus["../../../../tags"] = "标签"; 
+
+  themeMenus["../../../../about"] = "关于我"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="400px" height="400px" alt="Hike News" src="http://p83c9zj44.bkt.clouddn.com/mylogo.png">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">拥抱这个时代，疯狂这个青春，用青春点亮未来，为时代树立标杆！</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../index.html">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../archives">所有文章</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../about">关于我</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-MySQL8.0的帮助信息" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      MySQL8.0的帮助信息
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="" class="article-date">
+	  <time datetime="2018-07-27T14:10:08.000Z" itemprop="datePublished">七月 27, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><a id="more"></a>
+<h5 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h5><h1 id="MySQL8-0的帮助信息"><a href="#MySQL8-0的帮助信息" class="headerlink" title="MySQL8.0的帮助信息"></a>MySQL8.0的帮助信息</h1><p>MySQL8.0版本相比于MySQL5.0做了很多的更改，有很多函数和字段都被删除了，因此之前网上的很多操作，现在已经不适用于8.0版本了，由于8.0版本是近期才更新的，所以对新手来说，会遇到很多的坑，而且一些坑在网上还找不到答案，所以跳坑最好的方法，就是查看MySQL自带的帮助信息，这里列出来一部分查看帮助信息的命令，以及一些帮助信息。</p>
+<p>当然，帮助信息需要在安装MySQL8.0并登陆成功之后，才能查看得到，并且需要有一定的英语基础。</p>
+<p>另外，跳坑最好的方法，就是不断地尝试，不断地总结，做记录。</p>
+<h2 id="账户管理"><a href="#账户管理" class="headerlink" title="账户管理"></a>账户管理</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; help account management;</span><br><span class="line">You asked <span class="keyword">for</span> help about help category: <span class="string">"Account Management"</span></span><br><span class="line">For more information, <span class="keyword">type</span> <span class="string">'help &lt;item&gt;'</span>, where &lt;item&gt; is one of the following</span><br><span class="line">topics:</span><br><span class="line">   ALTER RESOURCE GROUP</span><br><span class="line">   ALTER USER</span><br><span class="line">   CREATE RESOURCE GROUP</span><br><span class="line">   CREATE ROLE</span><br><span class="line">   CREATE USER</span><br><span class="line">   DROP RESOURCE GROUP</span><br><span class="line">   DROP ROLE</span><br><span class="line">   DROP USER</span><br><span class="line">   GRANT</span><br><span class="line">   RENAME USER</span><br><span class="line">   REVOKE</span><br><span class="line">   SET DEFAULT ROLE</span><br><span class="line">   SET PASSWORD</span><br><span class="line">   SET RESOURCE GROUP</span><br><span class="line">   SET ROLE</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="创建用户："><a href="#创建用户：" class="headerlink" title="创建用户："></a>创建用户：</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; help create user;</span><br><span class="line">Name: <span class="string">'CREATE USER'</span></span><br><span class="line">Description:</span><br><span class="line">Syntax:</span><br><span class="line">CREATE USER [IF NOT EXISTS]</span><br><span class="line">    user [auth_option] [, user [auth_option]] ...</span><br><span class="line">    DEFAULT ROLE role [, role ] ...</span><br><span class="line">    [REQUIRE &#123;NONE | tls_option [[AND] tls_option] ...&#125;]</span><br><span class="line">    [WITH resource_option [resource_option] ...]</span><br><span class="line">    [password_option | lock_option] ...</span><br><span class="line"></span><br><span class="line">user:</span><br><span class="line">    (see )</span><br><span class="line"></span><br><span class="line">auth_option: &#123;</span><br><span class="line">    IDENTIFIED BY <span class="string">'auth_string'</span></span><br><span class="line">  | IDENTIFIED WITH auth_plugin</span><br><span class="line">  | IDENTIFIED WITH auth_plugin BY <span class="string">'auth_string'</span></span><br><span class="line">  | IDENTIFIED WITH auth_plugin AS <span class="string">'hash_string'</span></span><br><span class="line">  | IDENTIFIED BY PASSWORD <span class="string">'hash_string'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tls_option: &#123;</span><br><span class="line">   SSL</span><br><span class="line"> | X509</span><br><span class="line"> | CIPHER <span class="string">'cipher'</span></span><br><span class="line"> | ISSUER <span class="string">'issuer'</span></span><br><span class="line"> | SUBJECT <span class="string">'subject'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">resource_option: &#123;</span><br><span class="line">    MAX_QUERIES_PER_HOUR count</span><br><span class="line">  | MAX_UPDATES_PER_HOUR count</span><br><span class="line">  | MAX_CONNECTIONS_PER_HOUR count</span><br><span class="line">  | MAX_USER_CONNECTIONS count</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">password_option: &#123;</span><br><span class="line">    PASSWORD EXPIRE</span><br><span class="line">  | PASSWORD EXPIRE DEFAULT</span><br><span class="line">  | PASSWORD EXPIRE NEVER</span><br><span class="line">  | PASSWORD EXPIRE INTERVAL N DAY</span><br><span class="line">  | PASSWORD HISTORY DEFAULT</span><br><span class="line">  | PASSWORD HISTORY N</span><br><span class="line">  | PASSWORD REUSE INTERVAL DEFAULT</span><br><span class="line">  | PASSWORD REUSE INTERVAL N DAY</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">lock_option: &#123;</span><br><span class="line">    ACCOUNT LOCK</span><br><span class="line">  | ACCOUNT UNLOCK</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">The CREATE USER statement creates <span class="built_in">new</span> MySQL accounts. It enables</span><br><span class="line">authentication, SSL/TLS, resource-limit, and password-management</span><br><span class="line">properties to be established <span class="keyword">for</span> <span class="built_in">new</span> accounts, and controls whether</span><br><span class="line">accounts are initially locked or unlocked.</span><br><span class="line"></span><br><span class="line">To use CREATE USER, you must have the global CREATE USER privilege, or</span><br><span class="line">the INSERT privilege <span class="keyword">for</span> the mysql database. When the read_only system</span><br><span class="line">variable is enabled, CREATE USER additionally requires the</span><br><span class="line">CONNECTION_ADMIN or SUPER privilege.</span><br><span class="line"></span><br><span class="line">CREATE USER either succeeds <span class="keyword">for</span> all named users or rolls back and has</span><br><span class="line">no effect <span class="keyword">if</span> any error occurs. By <span class="keyword">default</span>, an error occurs <span class="keyword">if</span> you try</span><br><span class="line">to create a user that already exists. If the IF NOT EXISTS clause is</span><br><span class="line">given, the statement produces a warning <span class="keyword">for</span> each named user that</span><br><span class="line">already exists, rather than an error.</span><br><span class="line"></span><br><span class="line">The statement is written to the binary log <span class="keyword">if</span> it succeeds, but not <span class="keyword">if</span></span><br><span class="line">it fails; in that <span class="keyword">case</span>, rollback occurs and no changes are made. A</span><br><span class="line">statement written to the binary log includes all named users. If the IF</span><br><span class="line">NOT EXISTS clause is given, this includes even users that already exist</span><br><span class="line">and were not created.</span><br><span class="line"></span><br><span class="line">The statement written to the binary log specifies an authentication</span><br><span class="line">plugin <span class="keyword">for</span> each user, determined as follows:</span><br><span class="line"></span><br><span class="line">o The plugin named in the original statement, <span class="keyword">if</span> one was specified.</span><br><span class="line"></span><br><span class="line">o Otherwise, the <span class="keyword">default</span> authentication plugin. In particular, <span class="keyword">if</span> a</span><br><span class="line">  user u1 already exists and uses a nondefault authentication plugin,</span><br><span class="line">  the statement written to the binary log <span class="keyword">for</span> CREATE USER IF NOT EXISTS</span><br><span class="line">  u1 names the <span class="keyword">default</span> authentication plugin. (If the statement written</span><br><span class="line">  to the binary log must specify a nondefault authentication plugin <span class="keyword">for</span></span><br><span class="line">  a user, include it in the original statement.)</span><br><span class="line"></span><br><span class="line">If the server adds the <span class="keyword">default</span> authentication plugin <span class="keyword">for</span> any</span><br><span class="line">nonexisting users in the statement written to the binary log, it writes</span><br><span class="line">a warning to the error log naming those users.</span><br><span class="line"></span><br><span class="line">URL: http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/create-user.html</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><p>新的方法为</p>
+<p><code>set password for root@localhost = &#39;123456&#39;;</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set password <span class="keyword">for</span> root@localhost = <span class="string">'123456'</span>;</span><br><span class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.04</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>旧的方法</p>
+<p><code>set password for &#39;root&#39;@&#39;localhost&#39; = password (&#39;123456&#39;);</code></p>
+<p>在MySQL8.0.11已经被删除，因为新版的MySQL已经没有password字段了，但是password函数没有被删除。  </p>
+<h2 id="修改密码的帮助信息"><a href="#修改密码的帮助信息" class="headerlink" title="修改密码的帮助信息"></a>修改密码的帮助信息</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; help set password</span><br><span class="line">Name: <span class="string">'SET PASSWORD'</span></span><br><span class="line">Description:</span><br><span class="line">Syntax:</span><br><span class="line">SET PASSWORD [FOR user] = password_option</span><br><span class="line"></span><br><span class="line">password_option: &#123;</span><br><span class="line">    <span class="string">'auth_string'</span></span><br><span class="line">  | PASSWORD(<span class="string">'auth_string'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">The SET PASSWORD statement assigns a password to a MySQL user account.</span><br><span class="line"><span class="string">'auth_string'</span> represents a cleartext (unencrypted) password.</span><br><span class="line"></span><br><span class="line">*Note*:</span><br><span class="line"></span><br><span class="line">o SET PASSWORD ... = PASSWORD(<span class="string">'auth_string'</span>) syntax was removed in</span><br><span class="line">  MySQL <span class="number">8.0</span><span class="number">.11</span>.</span><br><span class="line"></span><br><span class="line">o Rather than using SET PASSWORD ... = <span class="string">'auth_string'</span> syntax, ALTER USER</span><br><span class="line">  syntax is the preferred statement <span class="keyword">for</span> account alterations, including</span><br><span class="line">  assigning passwords. For example:</span><br><span class="line"></span><br><span class="line">ALTER USER user IDENTIFIED BY <span class="string">'auth_string'</span>;</span><br><span class="line"></span><br><span class="line">*Important*:</span><br><span class="line"></span><br><span class="line">Under some circumstances, SET PASSWORD may be recorded in server logs</span><br><span class="line">or on the client side in a history file such as ~/.mysql_history, which</span><br><span class="line">means that cleartext passwords may be read by anyone having read access</span><br><span class="line">to that information. For information about the conditions under which</span><br><span class="line">this occurs <span class="keyword">for</span> the server logs and how to control it, see</span><br><span class="line">http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/password-logging.html. For</span></span><br><span class="line">similar information about client-side logging, see</span><br><span class="line">http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/mysql-logging.html.</span></span><br><span class="line"></span><br><span class="line">SET PASSWORD can be used with or without a FOR clause that explicitly</span><br><span class="line">names a user account:</span><br><span class="line"></span><br><span class="line">o With a FOR user clause, the statement sets the password <span class="keyword">for</span> the named</span><br><span class="line">  account, which must exist:</span><br><span class="line"></span><br><span class="line">SET PASSWORD FOR <span class="string">'jeffrey'</span>@<span class="string">'localhost'</span> = <span class="string">'auth_string'</span>;</span><br><span class="line"></span><br><span class="line">o With no FOR user clause, the statement sets the password <span class="keyword">for</span> the</span><br><span class="line">  current user:</span><br><span class="line"></span><br><span class="line">SET PASSWORD = <span class="string">'auth_string'</span>;</span><br><span class="line"></span><br><span class="line">  Any client who connects to the server using a nonanonymous account</span><br><span class="line">  can change the password <span class="keyword">for</span> that account. To see which account the</span><br><span class="line">  server authenticated you as, invoke the CURRENT_USER() function:</span><br><span class="line"></span><br><span class="line">SELECT CURRENT_USER();</span><br><span class="line"></span><br><span class="line">Setting the password <span class="keyword">for</span> a named account (with a FOR clause) requires</span><br><span class="line">the UPDATE privilege <span class="keyword">for</span> the mysql database. Setting the password <span class="keyword">for</span></span><br><span class="line">yourself (<span class="keyword">for</span> a nonanonymous account with no FOR clause) requires no</span><br><span class="line">special privileges. When the read_only system variable is enabled, SET</span><br><span class="line">PASSWORD requires the CONNECTION_ADMIN or SUPER privilege in addition</span><br><span class="line">to any other required privileges.</span><br><span class="line"></span><br><span class="line">If a FOR user clause is given, the account name uses the format</span><br><span class="line">described in http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/account-names.html.</span></span><br><span class="line">For example:</span><br><span class="line"></span><br><span class="line">SET PASSWORD FOR <span class="string">'bob'</span>@<span class="string">'%.example.org'</span> = <span class="string">'auth_string'</span>;</span><br><span class="line"></span><br><span class="line">The host name part of the account name, <span class="keyword">if</span> omitted, defaults to <span class="string">'%'</span>.</span><br><span class="line"></span><br><span class="line">SET PASSWORD interprets the <span class="keyword">string</span> as a cleartext <span class="keyword">string</span>, passes it to</span><br><span class="line">the authentication plugin associated with the account, and stores the</span><br><span class="line">result returned by the plugin in the mysql.user account row. (The</span><br><span class="line">plugin is given the opportunity to hash the value into the encryption</span><br><span class="line">format it expects. The plugin may use the value as specified, in which</span><br><span class="line"><span class="keyword">case</span> no hashing occurs.)</span><br><span class="line"></span><br><span class="line">URL: http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/set-password.html</span></span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; help grant;</span><br><span class="line">Name: <span class="string">'GRANT'</span></span><br><span class="line">Description:</span><br><span class="line">Syntax:</span><br><span class="line">GRANT</span><br><span class="line">    priv_type [(column_list)]</span><br><span class="line">      [, priv_type [(column_list)]] ...</span><br><span class="line">    ON [object_type] priv_level</span><br><span class="line">    TO user_or_role [auth_option] [, user_or_role [auth_option]] ...</span><br><span class="line">    [REQUIRE &#123;NONE | tls_option [[AND] tls_option] ...&#125;]</span><br><span class="line">    [WITH &#123;GRANT OPTION | resource_option&#125; ...]</span><br><span class="line"></span><br><span class="line">GRANT PROXY ON user_or_role</span><br><span class="line">    TO user_or_role [, user_or_role] ...</span><br><span class="line">    [WITH GRANT OPTION]</span><br><span class="line"></span><br><span class="line">GRANT role [, role] ...</span><br><span class="line">    TO user_or_role [, user_or_role] ...</span><br><span class="line">    [WITH ADMIN OPTION]</span><br><span class="line"></span><br><span class="line">object_type: &#123;</span><br><span class="line">    TABLE</span><br><span class="line">  | FUNCTION</span><br><span class="line">  | PROCEDURE</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">priv_level: &#123;</span><br><span class="line">    *</span><br><span class="line">  | *.*</span><br><span class="line">  | db_name.*</span><br><span class="line">  | db_name.tbl_name</span><br><span class="line">  | tbl_name</span><br><span class="line">  | db_name.routine_name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">user_or_role: &#123;</span><br><span class="line">    user</span><br><span class="line">  | role</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">user:</span><br><span class="line">    (see http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/account-names.html)</span></span><br><span class="line"></span><br><span class="line">role:</span><br><span class="line">    (see http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/role-names.html.</span></span><br><span class="line"></span><br><span class="line">auth_option: &#123;</span><br><span class="line">    IDENTIFIED BY <span class="string">'auth_string'</span></span><br><span class="line">  | IDENTIFIED WITH auth_plugin</span><br><span class="line">  | IDENTIFIED WITH auth_plugin BY <span class="string">'auth_string'</span></span><br><span class="line">  | IDENTIFIED WITH auth_plugin AS <span class="string">'hash_string'</span></span><br><span class="line">  | IDENTIFIED BY PASSWORD <span class="string">'hash_string'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tls_option: &#123;</span><br><span class="line">    SSL</span><br><span class="line">  | X509</span><br><span class="line">  | CIPHER <span class="string">'cipher'</span></span><br><span class="line">  | ISSUER <span class="string">'issuer'</span></span><br><span class="line">  | SUBJECT <span class="string">'subject'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">resource_option: &#123;</span><br><span class="line">  | MAX_QUERIES_PER_HOUR count</span><br><span class="line">  | MAX_UPDATES_PER_HOUR count</span><br><span class="line">  | MAX_CONNECTIONS_PER_HOUR count</span><br><span class="line">  | MAX_USER_CONNECTIONS count</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">The GRANT statement enables system administrators to grant privileges</span><br><span class="line">and roles, which can be granted to user accounts and roles. These</span><br><span class="line">syntax restrictions apply:</span><br><span class="line"></span><br><span class="line">The GRANT statement enables system administrators to grant privileges</span><br><span class="line">and roles, which can be granted to user accounts and roles. These</span><br><span class="line">syntax restrictions apply:</span><br><span class="line"></span><br><span class="line">o GRANT cannot mix granting both privileges and roles in the same</span><br><span class="line">  statement. A given GRANT statement must grant either privileges or</span><br><span class="line">  roles.</span><br><span class="line"></span><br><span class="line">o The ON clause distinguishes whether the statement grants privileges</span><br><span class="line">  or roles:</span><br><span class="line"></span><br><span class="line">  o With ON, the statement grants privileges.</span><br><span class="line"></span><br><span class="line">  o Without ON, the statement grants roles.</span><br><span class="line"></span><br><span class="line">  o It is permitted to assign both privileges and roles to an account,</span><br><span class="line">    but you must use separate GRANT statements, each with syntax</span><br><span class="line">    appropriate to what is to be granted.</span><br><span class="line"></span><br><span class="line">For more information about roles, see</span><br><span class="line">http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/roles.html.</span></span><br><span class="line"></span><br><span class="line">To use GRANT, you must have the GRANT OPTION privilege, and you must</span><br><span class="line">have the privileges that you are granting. When the read_only system</span><br><span class="line">variable is enabled, GRANT additionally requires the CONNECTION_ADMIN</span><br><span class="line">or SUPER privilege.</span><br><span class="line"></span><br><span class="line">GRANT either succeeds <span class="keyword">for</span> all named users and roles or rolls back and</span><br><span class="line">has no effect <span class="keyword">if</span> any error occurs. The statement is written to the</span><br><span class="line">binary log only <span class="keyword">if</span> it succeeds <span class="keyword">for</span> all named users and roles.</span><br><span class="line"></span><br><span class="line">The REVOKE statement is related to GRANT and enables administrators to</span><br><span class="line">remove account privileges. See [HELP REVOKE].</span><br><span class="line"></span><br><span class="line">Each account name uses the format described in</span><br><span class="line">http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/account-names.html. Each role</span></span><br><span class="line">name uses the format described in</span><br><span class="line">http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/role-names.html. For example:</span></span><br><span class="line"></span><br><span class="line">GRANT ALL ON db1.* TO <span class="string">'jeffrey'</span>@<span class="string">'localhost'</span>;</span><br><span class="line">GRANT <span class="string">'role1'</span>, <span class="string">'role2'</span> TO <span class="string">'user1'</span>@<span class="string">'localhost'</span>, <span class="string">'user2'</span>@<span class="string">'localhost'</span>;</span><br><span class="line">GRANT SELECT ON world.* TO <span class="string">'role3'</span>;</span><br><span class="line"></span><br><span class="line">The host name part of the account or role name, <span class="keyword">if</span> omitted, defaults to</span><br><span class="line"><span class="string">'%'</span>.</span><br><span class="line"></span><br><span class="line">Normally, a database administrator first uses CREATE USER to create an</span><br><span class="line">account and define its nonprivilege characteristics such as its</span><br><span class="line">password, whether it uses secure connections, and limits on access to</span><br><span class="line">server resources, then uses GRANT to define its privileges. ALTER USER</span><br><span class="line">may be used to change the nonprivilege characteristics of existing</span><br><span class="line">accounts. For example:</span><br><span class="line"></span><br><span class="line">CREATE USER <span class="string">'jeffrey'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'password'</span>;</span><br><span class="line">GRANT ALL ON db1.* TO <span class="string">'jeffrey'</span>@<span class="string">'localhost'</span>;</span><br><span class="line">GRANT SELECT ON db2.invoice TO <span class="string">'jeffrey'</span>@<span class="string">'localhost'</span>;</span><br><span class="line">ALTER USER <span class="string">'jeffrey'</span>@<span class="string">'localhost'</span> WITH MAX_QUERIES_PER_HOUR <span class="number">90</span>;</span><br><span class="line"></span><br><span class="line">*Note*:</span><br><span class="line"></span><br><span class="line">As of MySQL <span class="number">8.0</span><span class="number">.11</span>, GRANT is used only <span class="keyword">for</span> defining account privileges.</span><br><span class="line">the REQUIRE clause, WITH clause as used <span class="keyword">for</span> setting resource limits,</span><br><span class="line">and the IDENTIFIED clause have been removed, and it is no longer</span><br><span class="line">possible to use GRANT to modify nonprivilege account characteristics.</span><br><span class="line">This includes using GRANT to create accounts or specify characteristics</span><br><span class="line">such as passwords, whether accounts use secure connections, and limits</span><br><span class="line">on access to server resources. Instead, perform these tasks using</span><br><span class="line">CREATE USER or ALTER USER.</span><br><span class="line"></span><br><span class="line">From the mysql program, GRANT responds with Query OK, <span class="number">0</span> rows affected</span><br><span class="line">when executed successfully. To determine what privileges result from</span><br><span class="line">the operation, use SHOW GRANTS. See [HELP SHOW GRANTS].</span><br><span class="line"></span><br><span class="line">URL: http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/grant.html</span></span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="数据库和创建数据库"><a href="#数据库和创建数据库" class="headerlink" title="数据库和创建数据库"></a>数据库和创建数据库</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; help databases;</span><br><span class="line">Many help items <span class="keyword">for</span> your request exist.</span><br><span class="line">To <span class="built_in">make</span> a more specific request, please <span class="keyword">type</span> <span class="string">'help &lt;item&gt;'</span>,</span><br><span class="line">where &lt;item&gt; is one of the following</span><br><span class="line">topics:</span><br><span class="line">   SHOW</span><br><span class="line">   SHOW DATABASES</span><br><span class="line"></span><br><span class="line">mysql&gt; help create database;</span><br><span class="line">Name: <span class="string">'CREATE DATABASE'</span></span><br><span class="line">Description:</span><br><span class="line">Syntax:</span><br><span class="line">CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name</span><br><span class="line">    [create_specification] ...</span><br><span class="line"></span><br><span class="line">create_specification:</span><br><span class="line">    [DEFAULT] CHARACTER SET [=] charset_name</span><br><span class="line">  | [DEFAULT] COLLATE [=] collation_name</span><br><span class="line"></span><br><span class="line">CREATE DATABASE creates a database with the given name. To use this</span><br><span class="line">statement, you need the CREATE privilege <span class="keyword">for</span> the database. CREATE</span><br><span class="line">SCHEMA is a synonym <span class="keyword">for</span> CREATE DATABASE.</span><br><span class="line"></span><br><span class="line">URL: http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/create-database.html</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; help create table;</span><br><span class="line">Name: <span class="string">'CREATE TABLE'</span></span><br><span class="line">Description:</span><br><span class="line">Syntax:</span><br><span class="line">CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name</span><br><span class="line">    (create_definition,...)</span><br><span class="line">    [table_options]</span><br><span class="line">    [partition_options]</span><br><span class="line"></span><br><span class="line">CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name</span><br><span class="line">    [(create_definition,...)]</span><br><span class="line">    [table_options]</span><br><span class="line">    [partition_options]</span><br><span class="line">    [IGNORE | REPLACE]</span><br><span class="line">    [AS] query_expression</span><br><span class="line"></span><br><span class="line">CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name</span><br><span class="line">    &#123; LIKE old_tbl_name | (LIKE old_tbl_name) &#125;</span><br><span class="line"></span><br><span class="line">create_definition:</span><br><span class="line">    col_name column_definition</span><br><span class="line">  | [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_col_name,...)</span><br><span class="line">      [index_option] ...</span><br><span class="line">  | &#123;INDEX|KEY&#125; [index_name] [index_type] (index_col_name,...)</span><br><span class="line">      [index_option] ...</span><br><span class="line">  | [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY]</span><br><span class="line">      [index_name] [index_type] (index_col_name,...)</span><br><span class="line">      [index_option] ...</span><br><span class="line">  | &#123;FULLTEXT|SPATIAL&#125; [INDEX|KEY] [index_name] (index_col_name,...)</span><br><span class="line">      [index_option] ...</span><br><span class="line">  | [CONSTRAINT [symbol]] FOREIGN KEY</span><br><span class="line">      [index_name] (index_col_name,...) reference_definition</span><br><span class="line">  | CHECK (expr)</span><br><span class="line"></span><br><span class="line">column_definition:</span><br><span class="line">    data_type [NOT NULL | NULL] [DEFAULT default_value]</span><br><span class="line">      [AUTO_INCREMENT] [UNIQUE [KEY]] [[PRIMARY] KEY]</span><br><span class="line">      [COMMENT <span class="string">'string'</span>]</span><br><span class="line">      [COLUMN_FORMAT &#123;FIXED|DYNAMIC|DEFAULT&#125;]</span><br><span class="line">      [reference_definition]</span><br><span class="line">  | data_type [GENERATED ALWAYS] AS (expression)</span><br><span class="line">      [VIRTUAL | STORED] [NOT NULL | NULL]</span><br><span class="line">      [UNIQUE [KEY]] [[PRIMARY] KEY]</span><br><span class="line">      [COMMENT <span class="string">'string'</span>]</span><br><span class="line"></span><br><span class="line">data_type:</span><br><span class="line">    BIT[(length)]</span><br><span class="line">  | TINYINT[(length)] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | SMALLINT[(length)] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | MEDIUMINT[(length)] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | INT[(length)] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | INTEGER[(length)] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | BIGINT[(length)] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | REAL[(length,decimals)] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | DOUBLE[(length,decimals)] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | FLOAT[(length,decimals)] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | DECIMAL[(length[,decimals])] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | NUMERIC[(length[,decimals])] [UNSIGNED] [ZEROFILL]</span><br><span class="line">  | DATE</span><br><span class="line">  | TIME[(fsp)]</span><br><span class="line">  | TIMESTAMP[(fsp)]</span><br><span class="line">  | DATETIME[(fsp)]</span><br><span class="line">  | YEAR</span><br><span class="line">  | CHAR[(length)]</span><br><span class="line">      [CHARACTER SET charset_name] [COLLATE collation_name]</span><br><span class="line">  | VARCHAR(length)</span><br><span class="line">      [CHARACTER SET charset_name] [COLLATE collation_name]</span><br><span class="line">  | BINARY[(length)]</span><br><span class="line">  | VARBINARY(length)</span><br><span class="line">  | TINYBLOB</span><br><span class="line">  | BLOB[(length)]</span><br><span class="line">  | MEDIUMBLOB</span><br><span class="line">  | LONGBLOB</span><br><span class="line">  | TINYTEXT</span><br><span class="line">      [CHARACTER SET charset_name] [COLLATE collation_name]</span><br><span class="line">  | TEXT[(length)]</span><br><span class="line">      [CHARACTER SET charset_name] [COLLATE collation_name]</span><br><span class="line">  | MEDIUMTEXT</span><br><span class="line">      [CHARACTER SET charset_name] [COLLATE collation_name]</span><br><span class="line">  | LONGTEXT</span><br><span class="line">      [CHARACTER SET charset_name] [COLLATE collation_name]</span><br><span class="line">  | ENUM(value1,value2,value3,...)</span><br><span class="line">      [CHARACTER SET charset_name] [COLLATE collation_name]</span><br><span class="line">  | SET(value1,value2,value3,...)</span><br><span class="line">      [CHARACTER SET charset_name] [COLLATE collation_name]</span><br><span class="line">  | JSON</span><br><span class="line">  | spatial_type</span><br><span class="line"></span><br><span class="line">index_col_name:</span><br><span class="line">    col_name [(length)] [ASC | DESC]</span><br><span class="line"></span><br><span class="line">index_type:</span><br><span class="line">    USING &#123;BTREE | HASH&#125;</span><br><span class="line"></span><br><span class="line">index_option:</span><br><span class="line">    KEY_BLOCK_SIZE [=] value</span><br><span class="line">  | index_type</span><br><span class="line">  | WITH PARSER parser_name</span><br><span class="line">  | COMMENT <span class="string">'string'</span></span><br><span class="line">  | &#123;VISIBLE | INVISIBLE&#125;</span><br><span class="line"></span><br><span class="line">reference_definition:</span><br><span class="line">    REFERENCES tbl_name (index_col_name,...)</span><br><span class="line">      [MATCH FULL | MATCH PARTIAL | MATCH SIMPLE]</span><br><span class="line">      [ON DELETE reference_option]</span><br><span class="line">      [ON UPDATE reference_option]</span><br><span class="line"></span><br><span class="line">reference_option:</span><br><span class="line">    RESTRICT | CASCADE | SET NULL | NO ACTION | SET DEFAULT</span><br><span class="line"></span><br><span class="line">table_options:</span><br><span class="line">    table_option [[,] table_option] ...</span><br><span class="line"></span><br><span class="line">table_option:</span><br><span class="line">    AUTO_INCREMENT [=] value</span><br><span class="line">  | AVG_ROW_LENGTH [=] value</span><br><span class="line">  | [DEFAULT] CHARACTER SET [=] charset_name</span><br><span class="line">  | CHECKSUM [=] &#123;<span class="number">0</span> | <span class="number">1</span>&#125;</span><br><span class="line">  | [DEFAULT] COLLATE [=] collation_name</span><br><span class="line">  | COMMENT [=] <span class="string">'string'</span></span><br><span class="line">  | COMPRESSION [=] &#123;<span class="string">'ZLIB'</span>|<span class="string">'LZ4'</span>|<span class="string">'NONE'</span>&#125;</span><br><span class="line">  | CONNECTION [=] <span class="string">'connect_string'</span></span><br><span class="line">  | &#123;DATA|INDEX&#125; DIRECTORY [=] <span class="string">'absolute path to directory'</span></span><br><span class="line">  | DELAY_KEY_WRITE [=] &#123;<span class="number">0</span> | <span class="number">1</span>&#125;</span><br><span class="line">  | ENCRYPTION [=] &#123;<span class="string">'Y'</span> | <span class="string">'N'</span>&#125;</span><br><span class="line">  | ENGINE [=] engine_name</span><br><span class="line">  | INSERT_METHOD [=] &#123; NO | FIRST | LAST &#125;</span><br><span class="line">  | KEY_BLOCK_SIZE [=] value</span><br><span class="line">  | MAX_ROWS [=] value</span><br><span class="line">  | MIN_ROWS [=] value</span><br><span class="line">  | PACK_KEYS [=] &#123;<span class="number">0</span> | <span class="number">1</span> | DEFAULT&#125;</span><br><span class="line">  | PASSWORD [=] <span class="string">'string'</span></span><br><span class="line">  | ROW_FORMAT [=] &#123;DEFAULT|DYNAMIC|FIXED|COMPRESSED|REDUNDANT|COMPACT&#125;</span><br><span class="line">  | STATS_AUTO_RECALC [=] &#123;DEFAULT|<span class="number">0</span>|<span class="number">1</span>&#125;</span><br><span class="line">  | STATS_PERSISTENT [=] &#123;DEFAULT|<span class="number">0</span>|<span class="number">1</span>&#125;</span><br><span class="line">  | STATS_SAMPLE_PAGES [=] value</span><br><span class="line">  | TABLESPACE tablespace_name</span><br><span class="line">  | UNION [=] (tbl_name[,tbl_name]...)</span><br><span class="line"></span><br><span class="line">partition_options:</span><br><span class="line">    PARTITION BY</span><br><span class="line">        &#123; [LINEAR] HASH(expr)</span><br><span class="line">        | [LINEAR] KEY [ALGORITHM=&#123;<span class="number">1</span>|<span class="number">2</span>&#125;] (column_list)</span><br><span class="line">        | RANGE&#123;(expr) | COLUMNS(column_list)&#125;</span><br><span class="line">        | LIST&#123;(expr) | COLUMNS(column_list)&#125; &#125;</span><br><span class="line">    [PARTITIONS num]</span><br><span class="line">    [SUBPARTITION BY</span><br><span class="line">        &#123; [LINEAR] HASH(expr)</span><br><span class="line">        | [LINEAR] KEY [ALGORITHM=&#123;<span class="number">1</span>|<span class="number">2</span>&#125;] (column_list) &#125;</span><br><span class="line">      [SUBPARTITIONS num]</span><br><span class="line">    ]</span><br><span class="line">    [(partition_definition [, partition_definition] ...)]</span><br><span class="line"></span><br><span class="line">partition_definition:</span><br><span class="line">    PARTITION partition_name</span><br><span class="line">        [VALUES</span><br><span class="line">            &#123;LESS THAN &#123;(expr | value_list) | MAXVALUE&#125;</span><br><span class="line">            |</span><br><span class="line">            IN (value_list)&#125;]</span><br><span class="line">        [[STORAGE] ENGINE [=] engine_name]</span><br><span class="line">        [COMMENT [=] <span class="string">'string'</span> ]</span><br><span class="line">        [DATA DIRECTORY [=] <span class="string">'data_dir'</span>]</span><br><span class="line">        [INDEX DIRECTORY [=] <span class="string">'index_dir'</span>]</span><br><span class="line">        [MAX_ROWS [=] max_number_of_rows]</span><br><span class="line">        [MIN_ROWS [=] min_number_of_rows]</span><br><span class="line">        [TABLESPACE [=] tablespace_name]</span><br><span class="line">        [(subpartition_definition [, subpartition_definition] ...)]</span><br><span class="line"></span><br><span class="line">subpartition_definition:</span><br><span class="line">    SUBPARTITION logical_name</span><br><span class="line">        [[STORAGE] ENGINE [=] engine_name]</span><br><span class="line">        [COMMENT [=] <span class="string">'string'</span> ]</span><br><span class="line">        [DATA DIRECTORY [=] <span class="string">'data_dir'</span>]</span><br><span class="line">        [INDEX DIRECTORY [=] <span class="string">'index_dir'</span>]</span><br><span class="line">        [MAX_ROWS [=] max_number_of_rows]</span><br><span class="line">        [MIN_ROWS [=] min_number_of_rows]</span><br><span class="line">        [TABLESPACE [=] tablespace_name]</span><br><span class="line"></span><br><span class="line">query_expression:</span><br><span class="line">    SELECT ...   (Some valid <span class="keyword">select</span> or union statement)</span><br><span class="line"></span><br><span class="line">CREATE TABLE creates a table with the given name. You must have the</span><br><span class="line">CREATE privilege <span class="keyword">for</span> the table.</span><br><span class="line"></span><br><span class="line">By <span class="keyword">default</span>, tables are created in the <span class="keyword">default</span> database, using the</span><br><span class="line">InnoDB storage engine. An error occurs <span class="keyword">if</span> the table exists, <span class="keyword">if</span> there is</span><br><span class="line">no <span class="keyword">default</span> database, or <span class="keyword">if</span> the database does not exist.</span><br><span class="line"></span><br><span class="line">For information about the physical representation of a table, see</span><br><span class="line">http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/create-table-files.html.</span></span><br><span class="line"></span><br><span class="line">URL: http:<span class="comment">//dev.mysql.com/doc/refman/8.0/en/create-table.html</span></span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
+
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="../../../../categories/数据库/">数据库</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/MySQL数据库/">MySQL数据库</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+<script src="../../../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '攒点银子，买本狗粮!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://p83c9zj44.bkt.clouddn.com/WeCahtQR.jpg',
+  alipayImage: 'http://p83c9zj44.bkt.clouddn.com/AlipayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjI2NC8xMjc5OQ==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../Mac安装MySQL 8.0版本/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Mac安装MySQL 8.0</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#整理：房玉辉"><span class="nav-number">1.</span> <span class="nav-text">整理：房玉辉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#博客：https-ElonJelinek-github-io"><span class="nav-number">2.</span> <span class="nav-text">博客：https://ElonJelinek.github.io</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL8-0的帮助信息"><span class="nav-number"></span> <span class="nav-text">MySQL8.0的帮助信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#账户管理"><span class="nav-number"></span> <span class="nav-text">账户管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建用户："><span class="nav-number"></span> <span class="nav-text">创建用户：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改密码"><span class="nav-number"></span> <span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改密码的帮助信息"><span class="nav-number"></span> <span class="nav-text">修改密码的帮助信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#授权"><span class="nav-number"></span> <span class="nav-text">授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库和创建数据库"><span class="nav-number"></span> <span class="nav-text">数据库和创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表"><span class="nav-number"></span> <span class="nav-text">创建表</span></a>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 Jelinek All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+<script src="../../../../js/my.js"></script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/scripts.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+<script src="../../../../js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
