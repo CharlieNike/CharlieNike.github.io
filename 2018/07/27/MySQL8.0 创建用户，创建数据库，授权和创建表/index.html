@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    <script src="../../../../js/pace.min.js"></script>
+    <link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>mysql8.0 创建用户，创建数据库，授权和创建表 | Jelinek</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="MySQL数据库" />
+  
+  
+  
+  
+  <meta name="description" content="整理：房玉辉">
+<meta name="keywords" content="MySQL数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL8.0 创建用户，创建数据库，授权和创建表">
+<meta property="og:url" content="http://yoursite.com/2018/07/27/MySQL8.0 创建用户，创建数据库，授权和创建表/index.html">
+<meta property="og:site_name" content="Jelinek">
+<meta property="og:description" content="整理：房玉辉">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-24T12:21:11.034Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL8.0 创建用户，创建数据库，授权和创建表">
+<meta name="twitter:description" content="整理：房玉辉">
+  
+    <link rel="alternate" href="/atom.xml" title="Jelinek" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../../../css/my.css">
+  <!-- Google Adsense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["../../../../index.html"] = "首页"; 
+
+  themeMenus["../../../../archives"] = "所有文章"; 
+
+  themeMenus["../../../../categories"] = "分类"; 
+
+  themeMenus["../../../../tags"] = "标签"; 
+
+  themeMenus["../../../../about"] = "关于我"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="400px" height="400px" alt="Hike News" src="http://p83c9zj44.bkt.clouddn.com/mylogo.png">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">拥抱这个时代，疯狂这个青春，用青春点亮未来，为时代树立标杆！</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../index.html">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../archives">所有文章</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../about">关于我</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-MySQL8.0 创建用户，创建数据库，授权和创建表" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      MySQL8.0 创建用户，创建数据库，授权和创建表
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="" class="article-date">
+	  <time datetime="2018-07-27T14:29:00.000Z" itemprop="datePublished">七月 27, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><a id="more"></a>
+<h5 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h5><h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>创建一个指定主机为127.0.0.1的用户，该用户只能在IP为127.0.0.1的主机登录，用户名叫做<code>Tom</code>，密码为<code>234567</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create user <span class="string">'Tom'</span>@<span class="string">'127.0.0.1'</span> identified by <span class="string">'234567'</span>;</span><br><span class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.14</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="为新用户授权"><a href="#为新用户授权" class="headerlink" title="为新用户授权"></a>为新用户授权</h2><p>为<a href="mailto:`Tom@127.0.0.1" target="_blank" rel="noopener">`Tom@127.0.0.1</a><code>用户授权，</code>grant all`表示授权所有权限</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant all on *.* to <span class="string">'Tom'</span>@<span class="string">'127.0.0.1'</span> with grant option;</span><br><span class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.16</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="查看权限"><a href="#查看权限" class="headerlink" title="查看权限"></a>查看权限</h2><p>查看用户<a href="mailto:`Tom@127.0.0.1" target="_blank" rel="noopener">`Tom@127.0.0.1</a>`的权限</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show grants <span class="keyword">for</span> <span class="string">'Tom'</span>@<span class="string">'127.0.0.1'</span>;</span><br><span class="line">+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| Grants <span class="keyword">for</span> Tom@<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>                                                                                                                                                                                                                                                                                                                                                                                |</span><br><span class="line">+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO <span class="string">`Tom`</span>@<span class="string">`127.0.0.1`</span> WITH GRANT OPTION |</span><br><span class="line">| GRANT BACKUP_ADMIN,BINLOG_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,GROUP_REPLICATION_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SET_USER_ID,SYSTEM_VARIABLES_ADMIN,XA_RECOVER_ADMIN ON *.* TO <span class="string">`Tom`</span>@<span class="string">`127.0.0.1`</span> WITH GRANT OPTION                                                                                                  |</span><br><span class="line">+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line"><span class="number">2</span> rows in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="查看所有的用户"><a href="#查看所有的用户" class="headerlink" title="查看所有的用户"></a>查看所有的用户</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">select</span> host,user from mysql.user;</span><br><span class="line">+-----------+------------------+</span><br><span class="line">| host      | user             |</span><br><span class="line">+-----------+------------------+</span><br><span class="line">| <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> | Tom              |</span><br><span class="line">| localhost | mysql.infoschema |</span><br><span class="line">| localhost | mysql.session    |</span><br><span class="line">| localhost | mysql.sys        |</span><br><span class="line">| localhost | root             |</span><br><span class="line">+-----------+------------------+</span><br><span class="line"><span class="number">5</span> rows in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="查看当前用户"><a href="#查看当前用户" class="headerlink" title="查看当前用户"></a>查看当前用户</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">select</span> current_user();</span><br><span class="line">+----------------+</span><br><span class="line">| current_user() |</span><br><span class="line">+----------------+</span><br><span class="line">| root@localhost |</span><br><span class="line">+----------------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>退出root用户，用<a href="mailto:Tom@127.0.0.1" target="_blank" rel="noopener">Tom@127.0.0.1</a>用户登录<br><code>-h</code>表示指定主机IP，<code>-u</code>表示指定用户名，<code>-p</code>表示指定密码</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ mysql -h <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> -u Tom -p</span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is <span class="number">53</span></span><br><span class="line">Server version: <span class="number">8.0</span><span class="number">.12</span> Homebrew</span><br><span class="line"></span><br><span class="line">Copyright (c) <span class="number">2000</span>, <span class="number">2018</span>, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> help. Type <span class="string">'\c'</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>查看当前用户</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">select</span> current_user;</span><br><span class="line">+---------------+</span><br><span class="line">| current_user  |</span><br><span class="line">+---------------+</span><br><span class="line">| Tom@<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> |</span><br><span class="line">+---------------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="查看当前用户权限"><a href="#查看当前用户权限" class="headerlink" title="查看当前用户权限"></a>查看当前用户权限</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show grants;</span><br><span class="line">+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| Grants <span class="keyword">for</span> Tom@<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>                                                                                                                                                                                                                                                                                                                                                                                |</span><br><span class="line">+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO <span class="string">`Tom`</span>@<span class="string">`127.0.0.1`</span> WITH GRANT OPTION |</span><br><span class="line">| GRANT BACKUP_ADMIN,BINLOG_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,GROUP_REPLICATION_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SET_USER_ID,SYSTEM_VARIABLES_ADMIN,XA_RECOVER_ADMIN ON *.* TO <span class="string">`Tom`</span>@<span class="string">`127.0.0.1`</span> WITH GRANT OPTION                                                                                                  |</span><br><span class="line">+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line"><span class="number">2</span> rows in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>创建一个数据库<br><code>mysql2018</code>为新创建的数据库的名称，<br><code>default character set = utf8</code>表示默认编码格式为utf8格式。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create database mysql2018 <span class="keyword">default</span> character set = utf8;</span><br><span class="line">Query OK, <span class="number">1</span> row affected, <span class="number">1</span> warning (<span class="number">0.02</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>查看当前用户下所有数据库</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| mysql2018          |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                |</span><br><span class="line">+--------------------+</span><br><span class="line"><span class="number">5</span> rows in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>选择一个数据库mysql，并查看其中的表</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line">Reading table information <span class="keyword">for</span> completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; show tables;</span><br><span class="line">+---------------------------+</span><br><span class="line">| Tables_in_mysql           |</span><br><span class="line">+---------------------------+</span><br><span class="line">| columns_priv              |</span><br><span class="line">| component                 |</span><br><span class="line">| db                        |</span><br><span class="line">| default_roles             |</span><br><span class="line">| engine_cost               |</span><br><span class="line">| <span class="function"><span class="keyword">func</span>                      |</span></span><br><span class="line"><span class="function">| <span class="title">general_log</span>               |</span></span><br><span class="line"><span class="function">| <span class="title">global_grants</span>             |</span></span><br><span class="line"><span class="function">| <span class="title">gtid_executed</span>             |</span></span><br><span class="line"><span class="function">| <span class="title">help_category</span>             |</span></span><br><span class="line"><span class="function">| <span class="title">help_keyword</span>              |</span></span><br><span class="line"><span class="function">| <span class="title">help_relation</span>             |</span></span><br><span class="line"><span class="function">| <span class="title">help_topic</span>                |</span></span><br><span class="line"><span class="function">| <span class="title">innodb_index_stats</span>        |</span></span><br><span class="line"><span class="function">| <span class="title">innodb_table_stats</span>        |</span></span><br><span class="line"><span class="function">| <span class="title">password_history</span>          |</span></span><br><span class="line"><span class="function">| <span class="title">plugin</span>                    |</span></span><br><span class="line"><span class="function">| <span class="title">procs_priv</span>                |</span></span><br><span class="line"><span class="function">| <span class="title">proxies_priv</span>              |</span></span><br><span class="line"><span class="function">| <span class="title">role_edges</span>                |</span></span><br><span class="line"><span class="function">| <span class="title">server_cost</span>               |</span></span><br><span class="line"><span class="function">| <span class="title">servers</span>                   |</span></span><br><span class="line"><span class="function">| <span class="title">slave_master_info</span>         |</span></span><br><span class="line"><span class="function">| <span class="title">slave_relay_log_info</span>      |</span></span><br><span class="line"><span class="function">| <span class="title">slave_worker_info</span>         |</span></span><br><span class="line"><span class="function">| <span class="title">slow_log</span>                  |</span></span><br><span class="line"><span class="function">| <span class="title">tables_priv</span>               |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone</span>                 |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone_leap_second</span>     |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone_name</span>            |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone_transition</span>      |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone_transition_type</span> |</span></span><br><span class="line"><span class="function">| <span class="title">user</span>                      |</span></span><br><span class="line"><span class="function">+---------------------------+</span></span><br><span class="line"><span class="function">33 <span class="title">rows</span> <span class="title">in</span> <span class="title">set</span> <span class="params">(0.00 sec)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">mysql</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>再次查询一下当前用户，看看是哪个用户，发现确实是新创建的<a href="mailto:Tom@127.0.0.1" target="_blank" rel="noopener">Tom@127.0.0.1</a>用户，这个新创建的用户下面就已经默认有一些数据库，并且数据库里默认有一些表。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">select</span> current_user;</span><br><span class="line">+---------------+</span><br><span class="line">| current_user  |</span><br><span class="line">+---------------+</span><br><span class="line">| Tom@<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> |</span><br><span class="line">+---------------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>这里选择刚刚新创建的那个数据库mysql2018，做进一步操作</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql2018;</span><br><span class="line">Database changed</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>查看当前所使用的数据库</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">select</span> database();</span><br><span class="line">+------------+</span><br><span class="line">| database() |</span><br><span class="line">+------------+</span><br><span class="line">| mysql2018  |</span><br><span class="line">+------------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="授权当前用户拥有mysql2018这个数据库的所有权限"><a href="#授权当前用户拥有mysql2018这个数据库的所有权限" class="headerlink" title="授权当前用户拥有mysql2018这个数据库的所有权限"></a>授权当前用户拥有mysql2018这个数据库的所有权限</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant all privileges on mysql2018.* to Tom@<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>;</span><br><span class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.17</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>刷新系统权限表</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; flush privileges;</span><br><span class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>查看这个数据库中是否有表</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">Empty set (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><p>经查询发现这个数据库中并没有表，接下来就创建一张表</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table student(id <span class="keyword">int</span> auto_increment primary key,name varchar(<span class="number">16</span>) not null,age <span class="keyword">int</span>,sex char(<span class="number">1</span>));</span><br><span class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.12</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>表名为<code>student</code>，表中有<code>id,name,age,sex</code>四个字段，其中</p>
+<p>字段<code>id</code>为自增长，并且为主键，数据类型为<code>int</code>，<br>字段<code>name</code>的数据类型为<code>varchar</code>，最大长度为16，并且不能为空，<br>字段<code>age</code>的数据类型为<code>int</code>，<br>字段<code>sex</code>的数据类型为<code>char</code>，长度为1。</p>
+<p>数据类型<code>char</code>的长度不可变，<code>varchar</code>的长度可变。</p>
+<p>查看刚刚参加的表<code>student</code>的结构</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; describe student;</span><br><span class="line">+-------+-------------+------+-----+---------+----------------+</span><br><span class="line">| Field | Type        | Null | Key | Default | Extra          |</span><br><span class="line">+-------+-------------+------+-----+---------+----------------+</span><br><span class="line">| id    | <span class="keyword">int</span>(<span class="number">11</span>)     | NO   | PRI | NULL    | auto_increment |</span><br><span class="line">| name  | varchar(<span class="number">16</span>) | NO   |     | NULL    |                |</span><br><span class="line">| age   | <span class="keyword">int</span>(<span class="number">11</span>)     | YES  |     | NULL    |                |</span><br><span class="line">| sex   | char(<span class="number">1</span>)     | YES  |     | NULL    |                |</span><br><span class="line">+-------+-------------+------+-----+---------+----------------+</span><br><span class="line"><span class="number">4</span> rows in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>查看表的创建语句</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show create table student;</span><br><span class="line">+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| Table   | Create Table                                                                                                                                                                                                          |</span><br><span class="line">+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| student | CREATE TABLE <span class="string">`student`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="keyword">int</span>(<span class="number">11</span>) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`name`</span> varchar(<span class="number">16</span>) NOT NULL,</span><br><span class="line">  <span class="string">`age`</span> <span class="keyword">int</span>(<span class="number">11</span>) DEFAULT NULL,</span><br><span class="line">  <span class="string">`sex`</span> char(<span class="number">1</span>) DEFAULT NULL,</span><br><span class="line">  PRIMARY KEY (<span class="string">`id`</span>)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8 |</span><br><span class="line">+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="../../../../categories/数据库/">数据库</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/MySQL数据库/">MySQL数据库</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+<script src="../../../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '攒点银子，买本狗粮!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://p83c9zj44.bkt.clouddn.com/WeCahtQR.jpg',
+  alipayImage: 'http://p83c9zj44.bkt.clouddn.com/AlipayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjI2NC8xMjc5OQ==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="../MySQL8.0的帮助信息/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">MySQL8.0的帮助信息</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#整理：房玉辉"><span class="nav-number">1.</span> <span class="nav-text">整理：房玉辉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#博客：https-ElonJelinek-github-io"><span class="nav-number">2.</span> <span class="nav-text">博客：https://ElonJelinek.github.io</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建用户"><span class="nav-number"></span> <span class="nav-text">创建用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为新用户授权"><span class="nav-number"></span> <span class="nav-text">为新用户授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看权限"><span class="nav-number"></span> <span class="nav-text">查看权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看所有的用户"><span class="nav-number"></span> <span class="nav-text">查看所有的用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看当前用户"><span class="nav-number"></span> <span class="nav-text">查看当前用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看当前用户权限"><span class="nav-number"></span> <span class="nav-text">查看当前用户权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number"></span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#授权当前用户拥有mysql2018这个数据库的所有权限"><span class="nav-number"></span> <span class="nav-text">授权当前用户拥有mysql2018这个数据库的所有权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建表"><span class="nav-number"></span> <span class="nav-text">创建表</span></a>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2018 Jelinek All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+<script src="../../../../js/my.js"></script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/scripts.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+<script src="../../../../js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
