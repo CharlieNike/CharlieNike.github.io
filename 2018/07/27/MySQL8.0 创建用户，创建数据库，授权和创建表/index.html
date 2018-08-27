@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Jelinek">
 <meta property="og:description" content="整理：房玉辉">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-24T12:35:14.956Z">
+<meta property="og:updated_time" content="2018-08-27T09:40:24.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL8.0 创建用户，创建数据库，授权和创建表">
 <meta name="twitter:description" content="整理：房玉辉">
@@ -238,6 +238,10 @@ var themeMenus = {};
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; describe student;</span><br><span class="line">+-------+-------------+------+-----+---------+----------------+</span><br><span class="line">| Field | Type        | Null | Key | Default | Extra          |</span><br><span class="line">+-------+-------------+------+-----+---------+----------------+</span><br><span class="line">| id    | <span class="keyword">int</span>(<span class="number">11</span>)     | NO   | PRI | NULL    | auto_increment |</span><br><span class="line">| name  | varchar(<span class="number">16</span>) | NO   |     | NULL    |                |</span><br><span class="line">| age   | <span class="keyword">int</span>(<span class="number">11</span>)     | YES  |     | NULL    |                |</span><br><span class="line">| sex   | char(<span class="number">1</span>)     | YES  |     | NULL    |                |</span><br><span class="line">+-------+-------------+------+-----+---------+----------------+</span><br><span class="line"><span class="number">4</span> rows in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
 <p>查看表的创建语句</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show create table student;</span><br><span class="line">+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| Table   | Create Table                                                                                                                                                                                                          |</span><br><span class="line">+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line">| student | CREATE TABLE <span class="string">`student`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="keyword">int</span>(<span class="number">11</span>) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`name`</span> varchar(<span class="number">16</span>) NOT NULL,</span><br><span class="line">  <span class="string">`age`</span> <span class="keyword">int</span>(<span class="number">11</span>) DEFAULT NULL,</span><br><span class="line">  <span class="string">`sex`</span> char(<span class="number">1</span>) DEFAULT NULL,</span><br><span class="line">  PRIMARY KEY (<span class="string">`id`</span>)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8 |</span><br><span class="line">+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>下一节，就开始对这里创建的student表进行增删改查操作。</p>
+<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
+
+
 
       
     </div>
@@ -295,6 +299,15 @@ var a = new Donate({
   
     
 <nav id="article-nav">
+  
+    <a href="../../28/MySQL8.0：添加、修改、删除数据，修改表结构/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          MySQL8.0：添加、修改、删除数据，修改表结构
+        
+      </div>
+    </a>
   
   
     <a href="../MySQL8.0的帮助信息/" id="article-nav-older" class="article-nav-link-wrap">
