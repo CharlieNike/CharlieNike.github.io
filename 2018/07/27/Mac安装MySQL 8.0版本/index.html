@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    <script src="../../../../js/pace.min.js"></script>
+    <link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>mac安装mysql 8.0 | 商山早行人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="MySQL数据库" />
+  
+  
+  
+  
+  <meta name="description" content="整理：房玉辉">
+<meta name="keywords" content="MySQL数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac安装MySQL 8.0">
+<meta property="og:url" content="http://yoursite.com/2018/07/27/Mac安装MySQL 8.0版本/index.html">
+<meta property="og:site_name" content="商山早行人">
+<meta property="og:description" content="整理：房玉辉">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-24T05:29:28.476Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac安装MySQL 8.0">
+<meta name="twitter:description" content="整理：房玉辉">
+  
+    <link rel="alternate" href="/atom.xml" title="商山早行人" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../../../css/my.css">
+  <!-- Google Adsense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["../../../../index.html"] = "首页"; 
+
+  themeMenus["../../../../archives"] = "所有文章"; 
+
+  themeMenus["../../../../categories"] = "分类"; 
+
+  themeMenus["../../../../tags"] = "标签"; 
+
+  themeMenus["../../../../about"] = "关于我"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner" style="background-color: red;">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="400px" height="400px" alt="Hike News" src="http://phc94on01.bkt.clouddn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF400080940.jpg">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">拥抱这个时代，疯狂这个青春，用青春点亮未来，为时代树立丰碑！</div>
+          
+
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../index.html">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../archives">所有文章</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../about">关于我</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Mac安装MySQL 8.0版本" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Mac安装MySQL 8.0
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="" class="article-date">
+	  <time datetime="2018-07-27T13:29:00.000Z" itemprop="datePublished">七月 27, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><a id="more"></a>
+<h5 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h5><h2 id="用Homebrew安装MySQL"><a href="#用Homebrew安装MySQL" class="headerlink" title="用Homebrew安装MySQL"></a>用Homebrew安装MySQL</h2><p>打开终端，输入命令：<code>brew install mysql</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ brew install mysql</span><br><span class="line">==&gt; Downloading https:<span class="comment">//homebrew.bintray.com/bottles/mysql-8.0.12.high_sierra.bo</span></span><br><span class="line">Already downloaded: /Users/ElonJelinek/Library/Caches/Homebrew/mysql-<span class="number">-8.0</span><span class="number">.12</span>.high_sierra.bottle.tar.gz</span><br><span class="line">==&gt; Pouring mysql-<span class="number">-8.0</span><span class="number">.12</span>.high_sierra.bottle.tar.gz</span><br><span class="line">==&gt; /usr/local/Cellar/mysql/<span class="number">8.0</span><span class="number">.12</span>/bin/mysqld --initialize-insecure --user=ElonJ</span><br><span class="line">==&gt; Caveats</span><br><span class="line">We<span class="string">'ve installed your MySQL database without a root password. To secure it run:</span></span><br><span class="line"><span class="string">    mysql_secure_installation</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">MySQL is configured to only allow connections from localhost by default</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">To connect run:</span></span><br><span class="line"><span class="string">    mysql -uroot</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">To have launchd start mysql now and restart at login:</span></span><br><span class="line"><span class="string">  brew services start mysql</span></span><br><span class="line"><span class="string">Or, if you don'</span>t want/need a background service you can just run:</span><br><span class="line">  mysql.server start</span><br><span class="line">==&gt; Summary</span><br><span class="line">🍺  /usr/local/Cellar/mysql/<span class="number">8.0</span><span class="number">.12</span>: <span class="number">255</span> files, <span class="number">233.0</span>MB</span><br></pre></td></tr></table></figure>
+<p>启动MySQL服务：<code>brew services start mysql</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ brew services start mysql</span><br><span class="line">Service <span class="string">`mysql`</span> already started, use <span class="string">`brew services restart mysql`</span> to restart.</span><br></pre></td></tr></table></figure>
+<p>设置开机启动：<code>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br><span class="line">/Users/ElonJelinek/Library/LaunchAgents/homebrew.mxcl.mysql.plist: service already loaded</span><br></pre></td></tr></table></figure>
+<p>用root用户登录MySQL：<code>mysql -uroot</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ mysql -uroot</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is <span class="number">8</span></span><br><span class="line">Server version: <span class="number">8.0</span><span class="number">.12</span> Homebrew</span><br><span class="line"></span><br><span class="line">Copyright (c) <span class="number">2000</span>, <span class="number">2018</span>, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> help. Type <span class="string">'\c'</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="一些简单操作，注意每一个命令都以分号-结束。"><a href="#一些简单操作，注意每一个命令都以分号-结束。" class="headerlink" title="一些简单操作，注意每一个命令都以分号;结束。"></a>一些简单操作，注意每一个命令都以分号<code>;</code>结束。</h2><p>查看版本：<code>select version();</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">select</span> version();</span><br><span class="line">+-----------+</span><br><span class="line">| version() |</span><br><span class="line">+-----------+</span><br><span class="line">| <span class="number">8.0</span><span class="number">.12</span>    |</span><br><span class="line">+-----------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<p>查看当前时间：<code>select now();</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">select</span> now();</span><br><span class="line">+---------------------+</span><br><span class="line">| now()               |</span><br><span class="line">+---------------------+</span><br><span class="line">| <span class="number">2018</span><span class="number">-07</span><span class="number">-27</span> <span class="number">19</span>:<span class="number">45</span>:<span class="number">13</span> |</span><br><span class="line">+---------------------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<p>查看所有的数据库：<code>show databases;</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                |</span><br><span class="line">+--------------------+</span><br><span class="line"><span class="number">4</span> rows in set (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<p>查看当前所进入的数据库，即当前正在使用的数据库：<code>select database();</code>  由于当前没有进入任何一个数据库，所以结果为<strong>null</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="keyword">select</span> database();</span><br><span class="line">+------------+</span><br><span class="line">| database() |</span><br><span class="line">+------------+</span><br><span class="line">| NULL       |</span><br><span class="line">+------------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<p>查看数据库中的表：<code>show tables;</code>  由于当前并没有进入任何一个数据库，所以查不到表</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">ERROR <span class="number">1046</span> (<span class="number">3</span>D000): No database selected</span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>修改root用户密码：<code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED WITH mysql_native_password BY <span class="string">'123456'</span>;</span><br><span class="line">Query OK, <span class="number">0</span> rows affected (<span class="number">0.01</span> sec)</span><br></pre></td></tr></table></figure>
+<p>退出：<code>exit</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; exit</span><br><span class="line">Bye</span><br><span class="line">ElonJelinek:~ ElonJelinek$</span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">重新登录，此时已经为root用户设置了密码：123456，因此，用用户名加密码方式登录：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span>mysql -u root -p<span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">回车后，输入密码`</span><span class="number">123456</span><span class="string">`  </span></span><br><span class="line"><span class="string">（这里并不显示输入的密码，直接输入123456并回车就OK。）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span><span class="keyword">go</span></span><br><span class="line">ElonJelinek:~ ElonJelinek$ mysql -u root -p </span><br><span class="line">Enter password: </span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is <span class="number">13</span></span><br><span class="line">Server version: <span class="number">8.0</span><span class="number">.12</span> Homebrew</span><br><span class="line"></span><br><span class="line">Copyright (c) <span class="number">2000</span>, <span class="number">2018</span>, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> help. Type <span class="string">'\c'</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="选择一个数据库"><a href="#选择一个数据库" class="headerlink" title="选择一个数据库"></a>选择一个数据库</h2><p>首次安装后，会有四个数据库，这里我们选择mysql这个库</p>
+<p><code>use mysql;</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line">Reading table information <span class="keyword">for</span> completion of table and column names</span><br><span class="line">You can turn off this feature to get a quicker startup with -A</span><br><span class="line"></span><br><span class="line">Database changed</span><br><span class="line">mysql&gt; <span class="keyword">select</span> database();</span><br><span class="line">+------------+</span><br><span class="line">| database() |</span><br><span class="line">+------------+</span><br><span class="line">| mysql      |</span><br><span class="line">+------------+</span><br><span class="line"><span class="number">1</span> row in set (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+<p>查看mysql库里的所有表：</p>
+<p><code>show tables;</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">+---------------------------+</span><br><span class="line">| Tables_in_mysql           |</span><br><span class="line">+---------------------------+</span><br><span class="line">| columns_priv              |</span><br><span class="line">| component                 |</span><br><span class="line">| db                        |</span><br><span class="line">| default_roles             |</span><br><span class="line">| engine_cost               |</span><br><span class="line">| <span class="function"><span class="keyword">func</span>                      |</span></span><br><span class="line"><span class="function">| <span class="title">general_log</span>               |</span></span><br><span class="line"><span class="function">| <span class="title">global_grants</span>             |</span></span><br><span class="line"><span class="function">| <span class="title">gtid_executed</span>             |</span></span><br><span class="line"><span class="function">| <span class="title">help_category</span>             |</span></span><br><span class="line"><span class="function">| <span class="title">help_keyword</span>              |</span></span><br><span class="line"><span class="function">| <span class="title">help_relation</span>             |</span></span><br><span class="line"><span class="function">| <span class="title">help_topic</span>                |</span></span><br><span class="line"><span class="function">| <span class="title">innodb_index_stats</span>        |</span></span><br><span class="line"><span class="function">| <span class="title">innodb_table_stats</span>        |</span></span><br><span class="line"><span class="function">| <span class="title">password_history</span>          |</span></span><br><span class="line"><span class="function">| <span class="title">plugin</span>                    |</span></span><br><span class="line"><span class="function">| <span class="title">procs_priv</span>                |</span></span><br><span class="line"><span class="function">| <span class="title">proxies_priv</span>              |</span></span><br><span class="line"><span class="function">| <span class="title">role_edges</span>                |</span></span><br><span class="line"><span class="function">| <span class="title">server_cost</span>               |</span></span><br><span class="line"><span class="function">| <span class="title">servers</span>                   |</span></span><br><span class="line"><span class="function">| <span class="title">slave_master_info</span>         |</span></span><br><span class="line"><span class="function">| <span class="title">slave_relay_log_info</span>      |</span></span><br><span class="line"><span class="function">| <span class="title">slave_worker_info</span>         |</span></span><br><span class="line"><span class="function">| <span class="title">slow_log</span>                  |</span></span><br><span class="line"><span class="function">| <span class="title">tables_priv</span>               |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone</span>                 |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone_leap_second</span>     |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone_name</span>            |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone_transition</span>      |</span></span><br><span class="line"><span class="function">| <span class="title">time_zone_transition_type</span> |</span></span><br><span class="line"><span class="function">| <span class="title">user</span>                      |</span></span><br><span class="line"><span class="function">+---------------------------+</span></span><br><span class="line"><span class="function">33 <span class="title">rows</span> <span class="title">in</span> <span class="title">set</span> <span class="params">(0.01 sec)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">mysql</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>默认有33张表。</p>
+<p>本节到此结束，下一次开始进行数据库、表的增删改查。</p>
+<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
+
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="../../../../categories/数据库/">数据库</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/MySQL数据库/">MySQL数据库</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+<script src="../../../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '攒点银子，买本狗粮!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://p83c9zj44.bkt.clouddn.com/WeCahtQR.jpg',
+  alipayImage: 'http://p83c9zj44.bkt.clouddn.com/AlipayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjI2NC8xMjc5OQ==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../MySQL8.0的帮助信息/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          MySQL8.0的帮助信息
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../05/12/go解析复杂json数据/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">go解析复杂json数据</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#整理：房玉辉"><span class="nav-number">1.</span> <span class="nav-text">整理：房玉辉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#博客：https-ElonJelinek-github-io"><span class="nav-number">2.</span> <span class="nav-text">博客：https://ElonJelinek.github.io</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用Homebrew安装MySQL"><span class="nav-number"></span> <span class="nav-text">用Homebrew安装MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些简单操作，注意每一个命令都以分号-结束。"><span class="nav-number"></span> <span class="nav-text">一些简单操作，注意每一个命令都以分号;结束。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择一个数据库"><span class="nav-number"></span> <span class="nav-text">选择一个数据库</span></a>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer" style="background-color: black;">
+  
+
+  <div class="clearfix container" style="">
+      <div class="site-info">
+	      &copy; 2018 房玉辉 All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              访客数<span id="busuanzi_value_site_uv"></span>人次
+              总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div style="display: inline;margin-left: 50px;">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备18140657号-1</a>
+      </div>
+      <div class="site-credit" style="display: inline;">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+<script src="../../../../js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/scripts.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+<script src="../../../../js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

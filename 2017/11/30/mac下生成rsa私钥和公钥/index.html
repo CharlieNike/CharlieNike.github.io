@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    <script src="../../../../js/pace.min.js"></script>
+    <link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>mac下生成rsa私钥和公钥 | 商山早行人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="RSA秘钥" />
+  
+  
+  
+  
+  <meta name="description" content="整理：房玉辉">
+<meta name="keywords" content="RSA秘钥">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mac下生成RSA私钥和公钥">
+<meta property="og:url" content="http://yoursite.com/2017/11/30/mac下生成rsa私钥和公钥/index.html">
+<meta property="og:site_name" content="商山早行人">
+<meta property="og:description" content="整理：房玉辉">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E7%9A%84%E7%A7%81%E9%92%A5.jpeg">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E5%9C%A8%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%8B%E7%94%9F%E6%88%90%E7%9A%84%E7%A7%81%E9%92%A5%EF%BC%88%E8%AE%B0%E4%BA%8B%E6%9C%AC%E6%89%93%E5%BC%80%EF%BC%89.jpeg">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%94%9F%E6%88%90%E7%A7%98%E9%92%A5.jpeg">
+<meta property="og:updated_time" content="2018-07-28T10:41:32.270Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mac下生成RSA私钥和公钥">
+<meta name="twitter:description" content="整理：房玉辉">
+<meta name="twitter:image" content="http://p83c9zj44.bkt.clouddn.com/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E7%9A%84%E7%A7%81%E9%92%A5.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="商山早行人" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../../../css/my.css">
+  <!-- Google Adsense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["../../../../index.html"] = "首页"; 
+
+  themeMenus["../../../../archives"] = "所有文章"; 
+
+  themeMenus["../../../../categories"] = "分类"; 
+
+  themeMenus["../../../../tags"] = "标签"; 
+
+  themeMenus["../../../../about"] = "关于我"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner" style="background-color: red;">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="400px" height="400px" alt="Hike News" src="http://phc94on01.bkt.clouddn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF400080940.jpg">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">拥抱这个时代，疯狂这个青春，用青春点亮未来，为时代树立丰碑！</div>
+          
+
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../index.html">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../archives">所有文章</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../about">关于我</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-mac下生成rsa私钥和公钥" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      mac下生成RSA私钥和公钥
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="" class="article-date">
+	  <time datetime="2017-11-30T13:26:05.000Z" itemprop="datePublished">十一月 30, 2017</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h3><a id="more"></a>
+<h3 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h3><h3 id="第一种方式（执行第2步之后，需要输入两次开机密码）："><a href="#第一种方式（执行第2步之后，需要输入两次开机密码）：" class="headerlink" title="第一种方式（执行第2步之后，需要输入两次开机密码）："></a>第一种方式（执行第2步之后，需要输入两次开机密码）：</h3><p>打开终端：输入：openssl<br>依次输入命令：<br><strong>1、制作私钥</strong><br>genrsa -out rsa_private_key.pem 2048<br><strong>2、设置私钥为PKCS8格式</strong><br>pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM</p>
+<font color="#FF0000" size="5"><strong>注意：</strong>执行完第2步，终端会输出以—–BEGIN ENCRYPTED PRIVATE KEY—–开头，以—–END ENCRYPTED PRIVATE KEY—–结尾的私钥，不是<strong>RSA</strong>私钥：<img src="http://p83c9zj44.bkt.clouddn.com/%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E7%9A%84%E7%A7%81%E9%92%A5.jpeg" alt="">记住不要用此私钥，可以把这里的私钥保存一下，查看其长度，为1784。</font><br>此时，/Users/（用户名）目录下也有了名为rsa_private_key.pem的私钥文件，可用记事本查看一下，<img src="http://p83c9zj44.bkt.clouddn.com/%E5%9C%A8%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%8B%E7%94%9F%E6%88%90%E7%9A%84%E7%A7%81%E9%92%A5%EF%BC%88%E8%AE%B0%E4%BA%8B%E6%9C%AC%E6%89%93%E5%BC%80%EF%BC%89.jpeg" alt=""><br><font color="red" size="5" face="黑体">是以—–BEGIN RSA PRIVATE KEY—–开头，以—–END RSA PRIVATE KEY—–结尾。这才是<strong>RSA</strong>私钥。</font><br><strong>3、通过私钥产生公钥</strong><br>rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem<br><br>执行完第三步<br>/Users/（用户名）<br>目录下就已经有了两个文件：<br>rsa_private_key.pem<br>rsa_public_key.pem<br>前者为私钥，后者为公钥。<br>此时可以用记事本打开文件，公钥长度为450，私钥长度为1678，<font color="gree">私钥与刚才控制台输出的私钥不一样</font><br>也可以用命令行在终端查看秘钥：cat /Users/charlienike/rsa_private_key.pem<br>### 第二种方式（不需要输密码）：<br>打开终端：输入 openssl<br>依次输入命令：<br>1、genrsa -out rsa_private_key.pem 2048<br>2、pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM –nocrypt<br>3、rsa -in rsa_private_key.pem -pubout -out rsa_public_key.pem<br>命令执行过程中控制台不会输出私钥<img src="http://p83c9zj44.bkt.clouddn.com/%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%94%9F%E6%88%90%E7%A7%98%E9%92%A5.jpeg" alt=""><br>最后/Users/(用户名)目录下会生成两个文件，一个公钥，一个私钥，用记事本打开（或者用终端：cat 文件路径），公钥长度为450，私钥长度为1674。<br><font color="gree">私钥的长度与第一种方式生成的私钥不一样长（1678、1674）。</font>
+
+<p><strong>注意：RSA</strong>私钥是以—–BEGIN RSA PRIVATE KEY—–开头，以—–END RSA PRIVATE KEY—–结尾，公钥是以—–BEGIN PUBLIC KEY—–开头，以—–END PUBLIC KEY—–结尾，第一种方式执行过程中终端输出的并不是<strong>RSA</strong>私钥。<br>两种方式的不同是第二种方式的第2条命令后面多了个<font color="gree">–nocrypt</font>，第二种方式执行过程中不会输出私钥，也不需要输入密码，因此推荐使用第二种方式，以避免混淆。</p>
+<p>同理：如果要生成1024字节的秘钥，只需要将第1行命令最后的2048改成1024即可：<br>rsa_private_key.pem 1024<br>同样推荐使用第二种方式，因为不需要输密码，且不易混淆。若使用第一种方式，过程中终端输出的私钥同样不是以—–BEGIN RSA PRIVATE KEY—–开头，不是RSA私钥，长度为992。正确的秘钥，即在用户名目录下生成的两个秘钥文件，私钥长度为886，公钥长度为271。</p>
+<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
+
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="../../../../categories/密码学/">密码学</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/RSA秘钥/">RSA秘钥</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+<script src="../../../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '攒点银子，买本狗粮!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://p83c9zj44.bkt.clouddn.com/WeCahtQR.jpg',
+  alipayImage: 'http://p83c9zj44.bkt.clouddn.com/AlipayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjI2NC8xMjc5OQ==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../12/01/用go语言简单实现SHA256哈希算法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          用go语言简单实现SHA256哈希算法
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../28/快速排序算法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">快速排序算法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#整理：房玉辉"><span class="nav-number">1.</span> <span class="nav-text">整理：房玉辉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客：https-ElonJelinek-github-io"><span class="nav-number">2.</span> <span class="nav-text">博客：https://ElonJelinek.github.io</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种方式（执行第2步之后，需要输入两次开机密码）："><span class="nav-number">3.</span> <span class="nav-text">第一种方式（执行第2步之后，需要输入两次开机密码）：</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer" style="background-color: black;">
+  
+
+  <div class="clearfix container" style="">
+      <div class="site-info">
+	      &copy; 2018 房玉辉 All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              访客数<span id="busuanzi_value_site_uv"></span>人次
+              总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div style="display: inline;margin-left: 50px;">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备18140657号-1</a>
+      </div>
+      <div class="site-credit" style="display: inline;">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+<script src="../../../../js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/scripts.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+<script src="../../../../js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

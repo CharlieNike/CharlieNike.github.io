@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    <script src="../../../../js/pace.min.js"></script>
+    <link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>gin框架 | 商山早行人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="web框架" />
+  
+  
+  
+  
+  <meta name="description" content="整理：房玉辉">
+<meta name="keywords" content="web框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gin框架">
+<meta property="og:url" content="http://yoursite.com/2018/02/03/gin框架/index.html">
+<meta property="og:site_name" content="商山早行人">
+<meta property="og:description" content="整理：房玉辉">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/postpostman%E5%B7%A5%E5%85%B7%E6%A8%A1%E6%8B%9Fpost%E8%AF%B7%E6%B1%82.jpeg">
+<meta property="og:image" content="http://p83c9zj44.bkt.clouddn.com/postpostman%E6%8F%90%E4%BA%A4post%E8%AF%B7%E6%B1%82.jpeg">
+<meta property="og:updated_time" content="2018-08-26T04:15:18.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gin框架">
+<meta name="twitter:description" content="整理：房玉辉">
+<meta name="twitter:image" content="http://p83c9zj44.bkt.clouddn.com/postpostman%E5%B7%A5%E5%85%B7%E6%A8%A1%E6%8B%9Fpost%E8%AF%B7%E6%B1%82.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="商山早行人" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../../../css/my.css">
+  <!-- Google Adsense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["../../../../index.html"] = "首页"; 
+
+  themeMenus["../../../../archives"] = "所有文章"; 
+
+  themeMenus["../../../../categories"] = "分类"; 
+
+  themeMenus["../../../../tags"] = "标签"; 
+
+  themeMenus["../../../../about"] = "关于我"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner" style="background-color: red;">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="400px" height="400px" alt="Hike News" src="http://phc94on01.bkt.clouddn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF400080940.jpg">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">拥抱这个时代，疯狂这个青春，用青春点亮未来，为时代树立丰碑！</div>
+          
+
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../index.html">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../archives">所有文章</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../about">关于我</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-gin框架" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      gin框架
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="" class="article-date">
+	  <time datetime="2018-02-03T14:52:10.000Z" itemprop="datePublished">二月 3, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><a id="more"></a>
+<h5 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h5><p>gin是一个用go写的web框架</p>
+<h2 id="1、安装gin"><a href="#1、安装gin" class="headerlink" title="1、安装gin"></a>1、安装gin</h2><p>在命令行输入：<code>go get github.com/gin-gonic/gin</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ <span class="keyword">go</span> get github.com/gin-gonic/gin</span><br><span class="line">ElonJelinek:~ ElonJelinek$</span><br></pre></td></tr></table></figure>
+<h2 id="2、基本用法"><a href="#2、基本用法" class="headerlink" title="2、基本用法"></a>2、基本用法</h2><h2 id="1、Hello-World"><a href="#1、Hello-World" class="headerlink" title="1、Hello World"></a>1、Hello World</h2><p>使用gin实现hello world 很简单，首先调用其default方法创建一个router，然后调用其Run方法</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="comment">// 调用default方法创建路由</span></span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过GET方法绑定路由规则和路由函数</span></span><br><span class="line">	router.GET(<span class="string">"/"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.String(http.StatusOK, <span class="string">"Hello world gin! \n"</span>)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用Run方法监听端口：8088</span></span><br><span class="line">	router.Run(<span class="string">":8088"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行，控制台输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[GIN-debug] [WARNING] Now Gin requires Go <span class="number">1.6</span> or later and Go <span class="number">1.7</span> will be required soon.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Running in <span class="string">"debug"</span> mode. Switch to <span class="string">"release"</span> mode in production.</span><br><span class="line"> - using env:	export GIN_MODE=release</span><br><span class="line"> - using code:	gin.SetMode(gin.ReleaseMode)</span><br><span class="line"></span><br><span class="line">[GIN-debug] GET    /                         --&gt; main.main.func1 (<span class="number">3</span> handlers)</span><br><span class="line">[GIN-debug] Listening and serving HTTP on :<span class="number">8088</span></span><br></pre></td></tr></table></figure>
+<p>打开终端，输入：<code>curl http://localhost:8088</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ curl http:<span class="comment">//localhost:8088</span></span><br><span class="line">Hello world gin! </span><br><span class="line">ElonJelinek:~ ElonJelinek$</span><br></pre></td></tr></table></figure>
+<p>gin的路由来自httprouter库，具有httprouter的功能，但是不支持路由正则表达式：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 冒号 ：加上一个参数名，组成路由参数，使用Param方法读取其值，</span></span><br><span class="line">	router.GET(<span class="string">"/user/:name"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		name := c.Param(<span class="string">"name"</span>)</span><br><span class="line">		c.String(http.StatusOK, <span class="string">"Hello %s! \n"</span>, name)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	router.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[GIN-debug] [WARNING] Now Gin requires Go <span class="number">1.6</span> or later and Go <span class="number">1.7</span> will be required soon.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Running in <span class="string">"debug"</span> mode. Switch to <span class="string">"release"</span> mode in production.</span><br><span class="line"> - using env:	export GIN_MODE=release</span><br><span class="line"> - using code:	gin.SetMode(gin.ReleaseMode)</span><br><span class="line"></span><br><span class="line">[GIN-debug] GET    /user/:name               --&gt; main.main.func1 (<span class="number">3</span> handlers)</span><br><span class="line">[GIN-debug] Listening and serving HTTP on :<span class="number">8088</span></span><br></pre></td></tr></table></figure>
+<p>显示监听http：8088端口<br>打开终端，输入：<br><code>curl http://localhost:8088/user/Tom</code><br>匹配正确</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ curl http:<span class="comment">//localhost:8088/user/Tom</span></span><br><span class="line">Hello Tom!</span><br></pre></td></tr></table></figure>
+<p>输入：<br><code>http://localhost:8088/user/Tom/</code><br>（最后多了个斜杠“ / ”）<br>显示不匹配</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ curl http:<span class="comment">//localhost:8088/user/Tom/</span></span><br><span class="line">&lt;a href="/user/Tom"&gt;Moved Permanently&lt;/a&gt;.</span><br></pre></td></tr></table></figure>
+<p>输入：<br><code>curl http://localhost:8088/user/</code><br>（user/后面为空）<br>也不匹配</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ curl http:<span class="comment">//localhost:8088/user/</span></span><br><span class="line"><span class="number">404</span> page not foundElonJelinek:~ ElonJelinek$</span><br></pre></td></tr></table></figure>
+<p>可见，<code>/user/Tom</code>是匹配的，但<code>/user/</code>和<code>/user/Tom/</code>是不匹配的，前者<code>name</code>字段为空，后者<code>name</code>字段后有个斜杠<code>/</code></p>
+<p>控制台的输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">16</span>:<span class="number">54</span>:<span class="number">55</span> | <span class="number">200</span> |       <span class="number">24.52</span>µs |             ::<span class="number">1</span> | GET      /user/Tom</span><br><span class="line">[GIN-debug] redirecting request <span class="number">301</span>: /user/Tom/ --&gt; /user/Tom</span><br><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">16</span>:<span class="number">55</span>:<span class="number">21</span> | <span class="number">404</span> |       <span class="number">1.143</span>µs |             ::<span class="number">1</span> | GET      /user/</span><br></pre></td></tr></table></figure>
+<p>除了冒号之外，还有<code>*</code>参数，<code>*</code>能匹配的规则就很多：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	router := gin.Default()</span><br><span class="line"><span class="comment">// 冒号 : 加name字段，星号 * 加action字段</span></span><br><span class="line">	router.GET(<span class="string">"/user/:name/*action"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		name := c.Param(<span class="string">"name"</span>)</span><br><span class="line">		action := c.Param(<span class="string">"action"</span>)</span><br><span class="line">		msg := name + <span class="string">" is "</span> + action + <span class="string">"\n"</span></span><br><span class="line">		c.String(http.StatusOK, msg)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	router.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在终端依次输入：<br><code>curl http://localhost:8088/user/Tom/美国人</code><br><code>curl http://localhost:8088/user/Tom/美国人/</code><br><code>curl http://localhost:8088/user/Tom/</code><br><code>curl http://localhost:8088/user/Tom/American</code></p>
+<p>结果均匹配正确：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ curl http:<span class="comment">//localhost:8088/user/Tom/美国人</span></span><br><span class="line">Tom is /美国人</span><br><span class="line">ElonJelinek:~ ElonJelinek$ curl http:<span class="comment">//localhost:8088/user/Tom/美国人/</span></span><br><span class="line">Tom is /美国人/</span><br><span class="line">ElonJelinek:~ ElonJelinek$ curl http:<span class="comment">//localhost:8088/user/Tom/</span></span><br><span class="line">Tom is /</span><br><span class="line">ElonJelinek:~ ElonJelinek$ curl http:<span class="comment">//localhost:8088/user/Tom/American</span></span><br><span class="line">Tom is /American</span><br><span class="line">ElonJelinek:~ ElonJelinek$</span><br></pre></td></tr></table></figure>
+<p>控制台结果：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">17</span>:<span class="number">23</span>:<span class="number">07</span> | <span class="number">200</span> |      <span class="number">12.679</span>µs |             ::<span class="number">1</span> | GET      /user/Tom/美国人</span><br><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">17</span>:<span class="number">23</span>:<span class="number">11</span> | <span class="number">200</span> |      <span class="number">16.977</span>µs |             ::<span class="number">1</span> | GET      /user/Tom/美国人/</span><br><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">17</span>:<span class="number">23</span>:<span class="number">18</span> | <span class="number">200</span> |       <span class="number">19.03</span>µs |             ::<span class="number">1</span> | GET      /user/Tom/</span><br><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">17</span>:<span class="number">23</span>:<span class="number">50</span> | <span class="number">200</span> |        <span class="number">13.1</span>µs |             ::<span class="number">1</span> | GET      /user/Tom/American</span><br></pre></td></tr></table></figure>
+<h3 id="2、GET"><a href="#2、GET" class="headerlink" title="2、GET"></a>2、GET</h3><h5 id="gin-Context中的Query方法："><a href="#gin-Context中的Query方法：" class="headerlink" title="gin.Context中的Query方法："></a>gin.Context中的Query方法：</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getQuery</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line"><span class="comment">// 调用query方法获取userid和username</span></span><br><span class="line">	userid := context.Query(<span class="string">"userid"</span>)</span><br><span class="line">	username := context.Query(<span class="string">"username"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转换为string，并在浏览器输出</span></span><br><span class="line">	context.String(http.StatusOK, userid+<span class="string">" "</span>+username)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="comment">// 使用gin的default方法创建一个路由handler</span></span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路由参数/user    调用getquery方法获取/user之后的值</span></span><br><span class="line">	router.GET(<span class="string">"/user"</span>, getQuery)</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 启动路由的run方法监听端口：8088</span></span><br><span class="line">	router.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行这段代码，goland控制台（即服务端）会有如下输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[GIN-debug] [WARNING] Now Gin requires Go <span class="number">1.6</span> or later and Go <span class="number">1.7</span> will be required soon.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Running in <span class="string">"debug"</span> mode. Switch to <span class="string">"release"</span> mode in production.</span><br><span class="line"> - using env:	export GIN_MODE=release</span><br><span class="line"> - using code:	gin.SetMode(gin.ReleaseMode)</span><br><span class="line"></span><br><span class="line">[GIN-debug] GET    /user                     --&gt; main.getQuery (<span class="number">3</span> handlers)</span><br><span class="line">[GIN-debug] Listening and serving HTTP on :<span class="number">8088</span></span><br></pre></td></tr></table></figure>
+<p>然后，打开浏览器，输入网址：<br><a href="http://localhost:8088/user?userid=1&amp;username=tyming" target="_blank" rel="noopener">http://localhost:8088/user?userid=1&amp;username=tyming</a></p>
+<p>控制台会输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">18</span>:<span class="number">00</span>:<span class="number">31</span> | <span class="number">200</span> |     <span class="number">105.848</span>µs |             ::<span class="number">1</span> | GET      /user?userid=<span class="number">1</span>&amp;username=tyming</span><br><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">18</span>:<span class="number">05</span>:<span class="number">32</span> | <span class="number">404</span> |         <span class="number">613</span>ns |             ::<span class="number">1</span> | GET      /favicon.ico</span><br></pre></td></tr></table></figure>
+<p>浏览器（即客户端）输出：<code>1 tyming</code></p>
+<h4 id="2、gin-Context中的Param方法："><a href="#2、gin-Context中的Param方法：" class="headerlink" title="2、gin.Context中的Param方法："></a>2、gin.Context中的Param方法：</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getParam</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line"><span class="comment">// 调用param方法读取userid和username的值</span></span><br><span class="line">	userid := context.Param(<span class="string">"userid"</span>)</span><br><span class="line">	username := context.Param(<span class="string">"username"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转换为string并在浏览器输出，输出格式为：userid 空格 username</span></span><br><span class="line">	context.String(http.StatusOK, userid+<span class="string">" "</span>+username)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="comment">// 用default注册路由</span></span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路由参数 /user/:加上由参数名组成的路由参数</span></span><br><span class="line">	router.GET(<span class="string">"/user/:userid/:username"</span>, getParam)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用路由的run方法</span></span><br><span class="line">	router.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行，goland控制台输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[GIN-debug] [WARNING] Now Gin requires Go <span class="number">1.6</span> or later and Go <span class="number">1.7</span> will be required soon.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Running in <span class="string">"debug"</span> mode. Switch to <span class="string">"release"</span> mode in production.</span><br><span class="line"> - using env:	export GIN_MODE=release</span><br><span class="line"> - using code:	gin.SetMode(gin.ReleaseMode)</span><br><span class="line"></span><br><span class="line">[GIN-debug] GET    /user/:userid/:username   --&gt; main.getParam (<span class="number">3</span> handlers)</span><br><span class="line">[GIN-debug] Listening and serving HTTP on :<span class="number">8088</span></span><br></pre></td></tr></table></figure>
+<p>打开网址：<a href="http://localhost:8088/user/1/tyming" target="_blank" rel="noopener">http://localhost:8088/user/1/tyming</a></p>
+<p>浏览器输出：<code>1 tyming</code></p>
+<p>goland控制台输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">18</span>:<span class="number">26</span>:<span class="number">35</span> | <span class="number">200</span> |      <span class="number">32.083</span>µs |             ::<span class="number">1</span> | GET      /user/<span class="number">1</span>/tyming</span><br></pre></td></tr></table></figure>
+<h3 id="3、POST"><a href="#3、POST" class="headerlink" title="3、POST"></a>3、POST</h3><h5 id="gin-Context中的PostForm方法："><a href="#gin-Context中的PostForm方法：" class="headerlink" title="gin.Context中的PostForm方法："></a>gin.Context中的PostForm方法：</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">post</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">	username := c.PostForm(<span class="string">"username"</span>)</span><br><span class="line">	<span class="comment">// DefaultPostForm方法的第二个参数为默认值</span></span><br><span class="line">	<span class="comment">// 如果提交post请求的时候，没有password字段，则默认值123456会被自动提交</span></span><br><span class="line">	password := c.DefaultPostForm(<span class="string">"password"</span>, <span class="string">"123456"</span>)</span><br><span class="line"></span><br><span class="line">	c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">		<span class="string">"status"</span>:   <span class="string">"ok"</span>,</span><br><span class="line">		<span class="string">"username"</span>: username,</span><br><span class="line">		<span class="string">"password"</span>: password,</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line">	router.POST(<span class="string">"/user"</span>, post)</span><br><span class="line"></span><br><span class="line">	router.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行此代码（在goland运行），控制台（即服务端）输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[GIN-debug] [WARNING] Now Gin requires Go <span class="number">1.6</span> or later and Go <span class="number">1.7</span> will be required soon.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.</span><br><span class="line"></span><br><span class="line">[GIN-debug] [WARNING] Running in <span class="string">"debug"</span> mode. Switch to <span class="string">"release"</span> mode in production.</span><br><span class="line"> - using env:	export GIN_MODE=release</span><br><span class="line"> - using code:	gin.SetMode(gin.ReleaseMode)</span><br><span class="line"></span><br><span class="line">[GIN-debug] POST   /user                     --&gt; main.post (<span class="number">3</span> handlers)</span><br><span class="line">[GIN-debug] Listening and serving HTTP on :<span class="number">8088</span></span><br></pre></td></tr></table></figure>
+<p>在终端用curl模拟提交post请求：<br>输入：<br><code>curl -X POST http://localhost:8088/user -H &quot;Content-Type:application/multipart/form-data&quot; -d &quot;username=hello&amp;password=123456&quot;</code></p>
+<p>或输入：<br><code>curl -X POST http://localhost:8088/user -H &quot;Content-Type:application/x-www-form-urlencoded&quot; -d &quot;username=hello&amp;password=123456&quot;</code></p>
+<p>这一段命令的<code>localhost</code>也可用<code>127.0.0.1</code>代替，<br><code>x-www-form-urlencoded</code>和<code>multipart/form-data</code>是post请求的编码格式，<code>urlencoded</code>表示对url进行encode加密，<br><code>username=hello&amp;password=123456</code>是要提交的数据，</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:~ ElonJelinek$ curl -X POST http:<span class="comment">//localhost:8088/user -H "Content-Type:application/multipart/form-data" -d "username=hello&amp;password=123456"</span></span><br><span class="line">&#123;<span class="string">"password"</span>:<span class="string">"123456"</span>,<span class="string">"status"</span>:<span class="string">"ok"</span>,<span class="string">"username"</span>:<span class="string">""</span>&#125;</span><br><span class="line">ElonJelinek:~ ElonJelinek$</span><br></pre></td></tr></table></figure>
+<p>控制台输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">19</span>:<span class="number">05</span>:<span class="number">24</span> | <span class="number">200</span> |     <span class="number">188.599</span>µs |             ::<span class="number">1</span> | POST     /user</span><br></pre></td></tr></table></figure>
+<p>也可用postman工具进行模拟post提交，使用很方便，不需要在终端打一长串命令，postman工具官网：<a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a><br><img src="http://p83c9zj44.bkt.clouddn.com/postpostman%E5%B7%A5%E5%85%B7%E6%A8%A1%E6%8B%9Fpost%E8%AF%B7%E6%B1%82.jpeg" alt="模拟post请求"></p>
+<p>控制台输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">19</span>:<span class="number">36</span>:<span class="number">57</span> | <span class="number">200</span> |      <span class="number">1.1565</span>ms |       <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> | POST     /user</span><br></pre></td></tr></table></figure>
+<p>参数绑定：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Username <span class="keyword">string</span> <span class="string">`form:"username"`</span></span><br><span class="line">	Password <span class="keyword">string</span> <span class="string">`form:"password"`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">bind</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> user User</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> c.Bind(&amp;user) == <span class="literal">nil</span> &#123;</span><br><span class="line">		c.JSON(http.StatusOK, gin.H&#123;</span><br><span class="line">			<span class="string">"username"</span>: user.Username,</span><br><span class="line">			<span class="string">"password"</span>: user.Password,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 注意bind前面有个斜杠 /</span></span><br><span class="line">	router.POST(<span class="string">"/bind"</span>, bind)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 注意8088前面有个冒号 :</span></span><br><span class="line">	router.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在goland运行，然后用postman工具模拟提交post请求：<br><img src="http://p83c9zj44.bkt.clouddn.com/postpostman%E6%8F%90%E4%BA%A4post%E8%AF%B7%E6%B1%82.jpeg" alt="模拟post请求"><br>控制台输出：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[GIN] <span class="number">2018</span>/<span class="number">02</span>/<span class="number">03</span> - <span class="number">20</span>:<span class="number">20</span>:<span class="number">15</span> | <span class="number">200</span> |    <span class="number">1.266963</span>ms |       <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> | POST     /bind</span><br></pre></td></tr></table></figure>
+<p>除了GET和POST方法外，gin还提供了PUT，DELETE，OPTION等常用的restful方法。</p>
+<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
+
+
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="../../../../categories/go语言/">go语言</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/web框架/">web框架</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+<script src="../../../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '攒点银子，买本狗粮!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://p83c9zj44.bkt.clouddn.com/WeCahtQR.jpg',
+  alipayImage: 'http://p83c9zj44.bkt.clouddn.com/AlipayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjI2NC8xMjc5OQ==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../04/gin框架：文件上传/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          gin框架：用POST进行文件上传
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../01/03/go语言面试题（数学篇）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">go语言常见面试题（数学篇）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#整理：房玉辉"><span class="nav-number">1.</span> <span class="nav-text">整理：房玉辉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#博客：https-ElonJelinek-github-io"><span class="nav-number">2.</span> <span class="nav-text">博客：https://ElonJelinek.github.io</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、安装gin"><span class="nav-number"></span> <span class="nav-text">1、安装gin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、基本用法"><span class="nav-number"></span> <span class="nav-text">2、基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、Hello-World"><span class="nav-number"></span> <span class="nav-text">1、Hello World</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2、GET"><span class="nav-number"></span> <span class="nav-text">2、GET</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#gin-Context中的Query方法："><span class="nav-number">1.</span> <span class="nav-text">gin.Context中的Query方法：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、gin-Context中的Param方法："><span class="nav-number"></span> <span class="nav-text">2、gin.Context中的Param方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、POST"><span class="nav-number"></span> <span class="nav-text">3、POST</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#gin-Context中的PostForm方法："><span class="nav-number">1.</span> <span class="nav-text">gin.Context中的PostForm方法：</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer" style="background-color: black;">
+  
+
+  <div class="clearfix container" style="">
+      <div class="site-info">
+	      &copy; 2018 房玉辉 All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              访客数<span id="busuanzi_value_site_uv"></span>人次
+              总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div style="display: inline;margin-left: 50px;">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备18140657号-1</a>
+      </div>
+      <div class="site-credit" style="display: inline;">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+<script src="../../../../js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/scripts.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+<script src="../../../../js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>

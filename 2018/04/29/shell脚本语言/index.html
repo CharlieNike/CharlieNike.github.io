@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    <script src="../../../../js/pace.min.js"></script>
+    <link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>shell脚本语言 | 商山早行人</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="shell脚本语言" />
+  
+  
+  
+  
+  <meta name="description" content="整理：房玉辉">
+<meta name="keywords" content="shell脚本语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell脚本语言">
+<meta property="og:url" content="http://yoursite.com/2018/04/29/shell脚本语言/index.html">
+<meta property="og:site_name" content="商山早行人">
+<meta property="og:description" content="整理：房玉辉">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-24T07:45:37.658Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="shell脚本语言">
+<meta name="twitter:description" content="整理：房玉辉">
+  
+    <link rel="alternate" href="/atom.xml" title="商山早行人" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="../../../../css/style.css">
+
+  <script src="../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../../../../css/my.css">
+  <!-- Google Adsense -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["../../../../index.html"] = "首页"; 
+
+  themeMenus["../../../../archives"] = "所有文章"; 
+
+  themeMenus["../../../../categories"] = "分类"; 
+
+  themeMenus["../../../../tags"] = "标签"; 
+
+  themeMenus["../../../../about"] = "关于我"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner" style="background-color: red;">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="400px" height="400px" alt="Hike News" src="http://phc94on01.bkt.clouddn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF400080940.jpg">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">拥抱这个时代，疯狂这个青春，用青春点亮未来，为时代树立丰碑！</div>
+          
+
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../index.html">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../archives">所有文章</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="../../../../about">关于我</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/pose.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-shell脚本语言" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      shell脚本语言
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="" class="article-date">
+	  <time datetime="2018-04-29T08:10:00.000Z" itemprop="datePublished">四月 29, 2018</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="整理：房玉辉"><a href="#整理：房玉辉" class="headerlink" title="整理：房玉辉"></a>整理：房玉辉</h5><a id="more"></a>
+<h5 id="博客：https-ElonJelinek-github-io"><a href="#博客：https-ElonJelinek-github-io" class="headerlink" title="博客：https://ElonJelinek.github.io"></a>博客：<a href="https://ElonJelinek.github.io" target="_blank" rel="noopener">https://ElonJelinek.github.io</a></h5><h5 id="while循环嵌套case语句"><a href="#while循环嵌套case语句" class="headerlink" title="while循环嵌套case语句"></a>while循环嵌套case语句</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"># COUNTER=<span class="number">0</span></span><br><span class="line"># while [ $COUNTER -le <span class="number">5</span> ] ;</span><br><span class="line"># do</span><br><span class="line">#     echo $COUNTER</span><br><span class="line">#     let COUNTER++</span><br><span class="line"># done</span><br><span class="line">#</span><br><span class="line"># ========================我是调皮的分割线==========================</span><br><span class="line">#</span><br><span class="line"># echo -e <span class="string">"\n-le 和 -lt 的却别：-le表示小于等于\n"</span></span><br><span class="line"># less equal     less than</span><br><span class="line">#</span><br><span class="line"># COUNTER=<span class="number">0</span></span><br><span class="line"># while [ $COUNTER -lt <span class="number">5</span> ] ;</span><br><span class="line"># do</span><br><span class="line">#     echo $COUNTER</span><br><span class="line">#     let COUNTER++</span><br><span class="line"># done</span><br><span class="line">#</span><br><span class="line"># ========================我是调皮的分割线==========================</span><br><span class="line">#</span><br><span class="line"># echo <span class="string">'type &lt;CTRL-D&gt; to terminate'</span></span><br><span class="line"># echo -n <span class="string">'enter your most liked film: '</span>    # -n表示取消行末的换行符</span><br><span class="line"># while read FILM</span><br><span class="line"># do</span><br><span class="line">#     echo <span class="string">"Yeah! great film the $FILM"</span></span><br><span class="line"># done</span><br><span class="line">#</span><br><span class="line"># ========================我是调皮的分割线==========================</span><br><span class="line">#</span><br><span class="line">#!/bin/bash</span><br><span class="line"># 执行之后只能用组合键Ctrl+C来终止它。 </span><br><span class="line"># ========================下面是死循环，慎用！慎用！慎用！==========================</span><br><span class="line"># while :</span><br><span class="line"># do</span><br><span class="line">#     echo I love you forever</span><br><span class="line"># done</span><br><span class="line">#</span><br><span class="line"># ========================上面是死循环，慎用！慎用！慎用！==========================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"># ========================这也是死循环，慎用！慎用！慎用！==========================</span><br><span class="line"># while <span class="literal">true</span></span><br><span class="line"># do</span><br><span class="line">    # echo I love you forever</span><br><span class="line"># done</span><br><span class="line"># ========================这也是死循环，慎用！慎用！慎用！==========================</span><br><span class="line"></span><br><span class="line">echo <span class="string">"I love you forever"</span></span><br><span class="line"></span><br><span class="line"># ========================我是调皮的分割线==========================</span><br><span class="line">while :</span><br><span class="line">do</span><br><span class="line">  echo</span><br><span class="line">  echo <span class="string">"===================="</span></span><br><span class="line">  echo <span class="string">"  1：学习九阴真经"</span></span><br><span class="line">  echo <span class="string">"  2：学习九阳真经"</span></span><br><span class="line">  echo <span class="string">"  3：学习独孤九剑"</span></span><br><span class="line">  echo <span class="string">"  q或Q：退出江湖"</span></span><br><span class="line">  echo <span class="string">"===================="</span></span><br><span class="line">  read -p <span class="string">"请选择："</span> input</span><br><span class="line">  <span class="keyword">case</span> $input in</span><br><span class="line">    <span class="number">1</span>) echo -e <span class="string">"\n\n    学习九阴真经\n"</span> ;;</span><br><span class="line">    <span class="number">2</span>) echo -e <span class="string">"\n\n    学习九阳真经\n"</span> ;;</span><br><span class="line">    <span class="number">3</span>) echo -e <span class="string">"\n\n    学习独孤九剑\n"</span> ;;</span><br><span class="line">    q | Q) exit ;;</span><br><span class="line">  esac</span><br><span class="line">  #statements</span><br><span class="line">done</span><br><span class="line"># ========================我是调皮的分割线==========================</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line">I love you forever</span><br><span class="line"></span><br><span class="line">====================</span><br><span class="line">  <span class="number">1</span>：学习九阴真经</span><br><span class="line">  <span class="number">2</span>：学习九阳真经</span><br><span class="line">  <span class="number">3</span>：学习独孤九剑</span><br><span class="line">  q或Q：退出江湖</span><br><span class="line">====================</span><br><span class="line">请选择：<span class="number">3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    学习独孤九剑</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">====================</span><br><span class="line">  <span class="number">1</span>：学习九阴真经</span><br><span class="line">  <span class="number">2</span>：学习九阳真经</span><br><span class="line">  <span class="number">3</span>：学习独孤九剑</span><br><span class="line">  q或Q：退出江湖</span><br><span class="line">====================</span><br><span class="line">请选择：<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    学习九阴真经</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">====================</span><br><span class="line">  <span class="number">1</span>：学习九阴真经</span><br><span class="line">  <span class="number">2</span>：学习九阳真经</span><br><span class="line">  <span class="number">3</span>：学习独孤九剑</span><br><span class="line">  q或Q：退出江湖</span><br><span class="line">====================</span><br><span class="line">请选择：<span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    学习九阳真经</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">====================</span><br><span class="line">  <span class="number">1</span>：学习九阴真经</span><br><span class="line">  <span class="number">2</span>：学习九阳真经</span><br><span class="line">  <span class="number">3</span>：学习独孤九剑</span><br><span class="line">  q或Q：退出江湖</span><br><span class="line">====================</span><br><span class="line">请选择：q</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<h5 id="while循环嵌套if语句"><a href="#while循环嵌套if语句" class="headerlink" title="while循环嵌套if语句"></a>while循环嵌套if语句</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># #!/bin/bash</span><br><span class="line"># #从/etc/passwd文件中读取用户名并输出</span><br><span class="line"># oldIFS=$IFS #IFS是文件内部分隔符</span><br><span class="line"># IFS=<span class="string">":"</span>     #设置分隔符为:</span><br><span class="line"># while  read username <span class="keyword">var</span> #<span class="keyword">var</span>变量不可少</span><br><span class="line"># do</span><br><span class="line">#     echo <span class="string">"用户名:$username"</span></span><br><span class="line"># done &lt; /etc/passwd</span><br><span class="line"># IFS=$oldIFS</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line">#每隔一段时间，ping一下局域网内本机IP，</span><br><span class="line">#并把结果记录到ping.txt文件中</span><br><span class="line">while date</span><br><span class="line">do</span><br><span class="line">    ping -c5 <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> &gt;/dev/null <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> [ $? = <span class="number">0</span> ];then</span><br><span class="line">        echo OK</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        echo FAIL</span><br><span class="line">    fi</span><br><span class="line">    sleep <span class="number">6</span> #<span class="number">6</span>秒</span><br><span class="line">done &gt; ping.txt</span><br></pre></td></tr></table></figure>
+<p>打开ping.txt，可以看到，其中记录了ping的时间和结果。</p>
+<h5 id="for循环，求1到100的和"><a href="#for循环，求1到100的和" class="headerlink" title="for循环，求1到100的和"></a>for循环，求1到100的和</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">sum=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i in <span class="string">`seq 1 100`</span></span><br><span class="line">do</span><br><span class="line">    sum=$[$sum+$i]</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo $sum</span><br></pre></td></tr></table></figure>
+<p>运行，结果为：5050</p>
+<h5 id="while嵌套if语句"><a href="#while嵌套if语句" class="headerlink" title="while嵌套if语句"></a>while嵌套if语句</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#/bin/bash</span><br><span class="line"></span><br><span class="line">while :</span><br><span class="line">do</span><br><span class="line">read -p <span class="string">"please input a number: "</span> n</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ -z <span class="string">"$n"</span> ]</span><br><span class="line">    then</span><br><span class="line">       echo <span class="string">"输入不能为空。"</span></span><br><span class="line">       <span class="keyword">continue</span></span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    n1=<span class="string">`echo $n|sed 's/[0-9]//g'`</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ ! -z <span class="string">"$n1"</span> ]</span><br><span class="line">    then</span><br><span class="line">       echo <span class="string">"只能输入数字。"</span></span><br><span class="line">       <span class="keyword">continue</span></span><br><span class="line">    fi</span><br><span class="line"><span class="keyword">break</span></span><br><span class="line">done</span><br><span class="line">echo <span class="string">"您输入的是：$n"</span></span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line">please input a number: </span><br><span class="line">输入不能为空。</span><br><span class="line">please input a number: h</span><br><span class="line">只能输入数字。</span><br><span class="line">please input a number: <span class="number">8</span></span><br><span class="line">您输入的是：<span class="number">8</span></span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<h5 id="until循环"><a href="#until循环" class="headerlink" title="until循环"></a>until循环</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">a=<span class="number">0</span></span><br><span class="line">until [[ ! $a -lt <span class="number">10</span> ]];</span><br><span class="line">do</span><br><span class="line">    echo -e <span class="string">"$a\t"</span></span><br><span class="line">    a=<span class="string">`expr $a + 1`</span></span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line"><span class="number">0</span>	</span><br><span class="line"><span class="number">1</span>	</span><br><span class="line"><span class="number">2</span>	</span><br><span class="line"><span class="number">3</span>	</span><br><span class="line"><span class="number">4</span>	</span><br><span class="line"><span class="number">5</span>	</span><br><span class="line"><span class="number">6</span>	</span><br><span class="line"><span class="number">7</span>	</span><br><span class="line"><span class="number">8</span>	</span><br><span class="line"><span class="number">9</span>	</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<h5 id="while循环嵌套case，break跳出循环"><a href="#while循环嵌套case，break跳出循环" class="headerlink" title="while循环嵌套case，break跳出循环"></a>while循环嵌套case，break跳出循环</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">while : ;</span><br><span class="line">do</span><br><span class="line">    read -p <span class="string">"please input a number between 1 to 5: "</span> aNum</span><br><span class="line">    # read aNum</span><br><span class="line">    <span class="keyword">case</span> $aNum in</span><br><span class="line">      <span class="number">1</span>|<span class="number">2</span>|<span class="number">3</span>|<span class="number">4</span>|<span class="number">5</span>) echo <span class="string">"Your number is $aNum"</span> ;;</span><br><span class="line">      *) echo <span class="string">"You do not select a number between 1 to 5,game over."</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">      ;;</span><br><span class="line">    esac</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line">please input a number between <span class="number">1</span> to <span class="number">5</span>: <span class="number">3</span></span><br><span class="line">Your number is <span class="number">3</span></span><br><span class="line">please input a number between <span class="number">1</span> to <span class="number">5</span>: <span class="number">5</span></span><br><span class="line">Your number is <span class="number">5</span></span><br><span class="line">please input a number between <span class="number">1</span> to <span class="number">5</span>: <span class="number">0</span></span><br><span class="line">You do not <span class="keyword">select</span> a number between <span class="number">1</span> to <span class="number">5</span>,game over.</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<h5 id="break跳出for循环"><a href="#break跳出for循环" class="headerlink" title="break跳出for循环"></a>break跳出for循环</h5><p>break后面可以跟整数，表示跳出第几层循环</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> var1 in <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line">do</span><br><span class="line">   <span class="keyword">for</span> var2 in <span class="number">0</span> <span class="number">5</span></span><br><span class="line">   do</span><br><span class="line">      <span class="keyword">if</span> [ $var1 -eq <span class="number">3</span> -a $var2 -eq <span class="number">0</span> ]</span><br><span class="line">      then</span><br><span class="line">         <span class="keyword">break</span> <span class="number">2</span></span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">         echo <span class="string">"$var1 $var2"</span></span><br><span class="line">      fi</span><br><span class="line">   done</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line"><span class="number">1</span> <span class="number">0</span></span><br><span class="line"><span class="number">1</span> <span class="number">5</span></span><br><span class="line"><span class="number">2</span> <span class="number">0</span></span><br><span class="line"><span class="number">2</span> <span class="number">5</span></span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<h5 id="continue跳过当前循环"><a href="#continue跳过当前循环" class="headerlink" title="continue跳过当前循环"></a>continue跳过当前循环</h5><p>continue后面也可以跟整数，表示跳过第几层循环</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">NUMS=<span class="string">"1 2 3 4 5 6 7"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> NUM in $NUMS</span><br><span class="line">do</span><br><span class="line">   Q=<span class="string">`expr $NUM % 2`</span></span><br><span class="line">   <span class="keyword">if</span> [[ $Q -eq <span class="number">0</span> ]];</span><br><span class="line">   then</span><br><span class="line">   echo <span class="string">"$NUM Number is an even number!!"</span></span><br><span class="line">   <span class="keyword">continue</span></span><br><span class="line">   fi</span><br><span class="line">   echo <span class="string">"Found odd number"</span></span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line">Found odd number</span><br><span class="line"><span class="number">2</span> Number is an even number!!</span><br><span class="line">Found odd number</span><br><span class="line"><span class="number">4</span> Number is an even number!!</span><br><span class="line">Found odd number</span><br><span class="line"><span class="number">6</span> Number is an even number!!</span><br><span class="line">Found odd number</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<h5 id="shell函数"><a href="#shell函数" class="headerlink" title="shell函数"></a>shell函数</h5><p>函数调用不需要括号，函数的返回值只能是数字。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Hello () &#123;</span><br><span class="line">    echo <span class="string">"流水今日，明月前身。"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Hello</span><br><span class="line">Hello</span><br><span class="line"></span><br><span class="line">funWithReturn()&#123;</span><br><span class="line">    echo <span class="string">"The function is to get the sum of two number..."</span></span><br><span class="line">    echo <span class="string">"Input first number: "</span></span><br><span class="line">    read numA</span><br><span class="line">    echo <span class="string">"Input second number: "</span></span><br><span class="line">    read numB</span><br><span class="line">    echo <span class="string">"The two numbers are $numA and $numB !"</span></span><br><span class="line">    <span class="keyword">return</span> $(($numA+$numB))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">funWithReturn</span><br><span class="line"></span><br><span class="line">ret=$?</span><br><span class="line">echo <span class="string">"The sum of two numbers is $ret !"</span></span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line">流水今日，明月前身。</span><br><span class="line">流水今日，明月前身。</span><br><span class="line">The function is to get the sum of two number...</span><br><span class="line">Input first number: </span><br><span class="line"><span class="number">3</span></span><br><span class="line">Input second number: </span><br><span class="line"><span class="number">5</span></span><br><span class="line">The two numbers are <span class="number">3</span> and <span class="number">5</span> !</span><br><span class="line">The sum of two numbers is <span class="number">8</span> !</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<h5 id="函数嵌套调用"><a href="#函数嵌套调用" class="headerlink" title="函数嵌套调用"></a>函数嵌套调用</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun1() &#123;</span><br><span class="line">    echo -n <span class="string">"人生几回伤往事，"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun2() &#123;</span><br><span class="line">    fun1</span><br><span class="line">    echo <span class="string">"山形依旧枕寒流。"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun2</span><br></pre></td></tr></table></figure>
+<p>运行结果，-n表示取消行末的换行符</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line">人生几回伤往事，山形依旧枕寒流。</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<p>取消函数设置：<code>unset 函数名</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fun1() &#123;</span><br><span class="line">    echo -n <span class="string">"人生几回伤往事，"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun2() &#123;</span><br><span class="line">    fun1</span><br><span class="line">    echo <span class="string">"山形依旧枕寒流。"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun2</span><br><span class="line"></span><br><span class="line">unset fun1</span><br><span class="line">fun2</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line">人生几回伤往事，山形依旧枕寒流。</span><br><span class="line">./test.sh: line <span class="number">6</span>: fun1: command not found</span><br><span class="line">山形依旧枕寒流。</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<h5 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">funWithParam() &#123;</span><br><span class="line">    echo <span class="string">"The value of the first parameter is $1 !"</span></span><br><span class="line">    echo <span class="string">"The value of the second parameter is $2 !"</span></span><br><span class="line">    echo <span class="string">"The value of the tenth parameter is $10 !"</span></span><br><span class="line">    echo <span class="string">"The value of the tenth parameter is $&#123;10&#125; !"</span></span><br><span class="line">    echo <span class="string">"The value of the eleventh parameter is $&#123;11&#125; !"</span></span><br><span class="line">    echo <span class="string">"The amount of the parameters is $# !"</span></span><br><span class="line">    echo <span class="string">"The string of the parameters is $* !"</span></span><br><span class="line">&#125;</span><br><span class="line">funWithParam <span class="number">19</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">16</span></span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ ./test.sh </span><br><span class="line">The value of the first parameter is <span class="number">19</span> !</span><br><span class="line">The value of the second parameter is <span class="number">2</span> !</span><br><span class="line">The value of the tenth parameter is <span class="number">190</span> !</span><br><span class="line">The value of the tenth parameter is <span class="number">10</span> !</span><br><span class="line">The value of the eleventh parameter is <span class="number">16</span> !</span><br><span class="line">The amount of the parameters is <span class="number">11</span> !</span><br><span class="line">The <span class="keyword">string</span> of the parameters is <span class="number">19</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">16</span> !</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<p>注意，10不能获取第十个参数，获取第十个参数需要{10}。当 n&gt;=10 时，需要使用 ${n} 来获取参数。</p>
+<table>
+<thead>
+<tr>
+<th>特殊变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$#</td>
+<td>传递给函数的参数个数。</td>
+</tr>
+<tr>
+<td>$*</td>
+<td>传给函数的所有参数，被双引号包含时，<code>&quot;$∗&quot;</code>会将所有的参数作为一个整体输出。</td>
+</tr>
+<tr>
+<td>$@</td>
+<td>与 <code>$*</code> 相同，被双引号包含时，<code>&quot;$@&quot;</code>会将参数一个个分开输出。</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>函数的返回值。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="输出重定向"><a href="#输出重定向" class="headerlink" title="输出重定向"></a>输出重定向</h5><p>两个箭头<code>&gt;&gt;</code>表示输出到文件末尾，一个箭头的话，会覆盖原有内容。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">who &gt; users.txt</span><br><span class="line">echo <span class="string">"I love you forever"</span> &gt;&gt; users.txt</span><br><span class="line">fun1() &#123;</span><br><span class="line">    echo <span class="string">"玉勒雕鞍游冶处"</span></span><br><span class="line">&#125;</span><br><span class="line">fun1 &gt;&gt; users.txt</span><br></pre></td></tr></table></figure>
+<p>运行结果，终端看不到任何输出，但是当前目录下自动生成了一个users.txt文本文件，打开该文件，输出结果在文件里。<br>内容如下</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek console  Sep  <span class="number">7</span> <span class="number">09</span>:<span class="number">10</span> </span><br><span class="line">ElonJelinek ttys000  Sep <span class="number">23</span> <span class="number">10</span>:<span class="number">57</span> </span><br><span class="line">I love you forever</span><br><span class="line">玉勒雕鞍游冶处</span><br></pre></td></tr></table></figure>
+<h5 id="shell外部脚本"><a href="#shell外部脚本" class="headerlink" title="shell外部脚本"></a>shell外部脚本</h5><p>创建第一个脚本subscript.sh，内容如下</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url=<span class="string">"http://see.xidian.edu.cn/cpp/view/2738.html"</span></span><br></pre></td></tr></table></figure>
+<p>创建第二个脚本main.sh，内容如下</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">. ./subscript.sh</span><br><span class="line">echo $url</span><br></pre></td></tr></table></figure>
+<p>执行脚本，过程如下</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ElonJelinek:Desktop ElonJelinek$ touch subscript.sh</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$ echo url=<span class="string">"http://see.xidian.edu.cn/cpp/view/2738.html"</span> &gt; subscript.sh </span><br><span class="line">ElonJelinek:Desktop ElonJelinek$ touch main.sh</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$ open main.sh </span><br><span class="line">ElonJelinek:Desktop ElonJelinek$ bash -x main.sh </span><br><span class="line">+ . ./subscript.sh</span><br><span class="line">++ url=http:<span class="comment">//see.xidian.edu.cn/cpp/view/2738.html</span></span><br><span class="line">+ echo http:<span class="comment">//see.xidian.edu.cn/cpp/view/2738.html</span></span><br><span class="line">http:<span class="comment">//see.xidian.edu.cn/cpp/view/2738.html</span></span><br><span class="line">ElonJelinek:Desktop ElonJelinek$ sh -x main.sh </span><br><span class="line">+ . ./subscript.sh</span><br><span class="line">++ url=http:<span class="comment">//see.xidian.edu.cn/cpp/view/2738.html</span></span><br><span class="line">+ echo http:<span class="comment">//see.xidian.edu.cn/cpp/view/2738.html</span></span><br><span class="line">http:<span class="comment">//see.xidian.edu.cn/cpp/view/2738.html</span></span><br><span class="line">ElonJelinek:Desktop ElonJelinek$ ./main.sh</span><br><span class="line">-bash: ./main.sh: Permission denied</span><br><span class="line">ElonJelinek:Desktop ElonJelinek$ chmod +x main.sh </span><br><span class="line">ElonJelinek:Desktop ElonJelinek$ ./main.sh </span><br><span class="line">http:<span class="comment">//see.xidian.edu.cn/cpp/view/2738.html</span></span><br><span class="line">ElonJelinek:Desktop ElonJelinek$</span><br></pre></td></tr></table></figure>
+<p>shell脚本语言看似简单，其实还有很多可学的内容。</p>
+<font color="#FF0000" size="5">版权声明：博客中的文章版权归博主所有，未经授权，禁止转载，转载请注明出处，合作请点击“关于我”，扫码添加微信</font>
+
+
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="../../../../categories/脚本语言/">脚本语言</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/shell脚本语言/">shell脚本语言</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+<script src="../../../../js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '攒点银子，买本狗粮!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://p83c9zj44.bkt.clouddn.com/WeCahtQR.jpg',
+  alipayImage: 'http://p83c9zj44.bkt.clouddn.com/AlipayQR.jpg'
+});
+</script>
+      
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjI2NC8xMjc5OQ==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../05/02/在星云链测试网部署super-dictionary智能合约/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          在星云链测试网部署super-dictionary智能合约
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../12/go解析json数据/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">go语言结构体对象与json串的互相转换</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#整理：房玉辉"><span class="nav-number">1.</span> <span class="nav-text">整理：房玉辉</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#博客：https-ElonJelinek-github-io"><span class="nav-number">2.</span> <span class="nav-text">博客：https://ElonJelinek.github.io</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#while循环嵌套case语句"><span class="nav-number">3.</span> <span class="nav-text">while循环嵌套case语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#while循环嵌套if语句"><span class="nav-number">4.</span> <span class="nav-text">while循环嵌套if语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for循环，求1到100的和"><span class="nav-number">5.</span> <span class="nav-text">for循环，求1到100的和</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#while嵌套if语句"><span class="nav-number">6.</span> <span class="nav-text">while嵌套if语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#until循环"><span class="nav-number">7.</span> <span class="nav-text">until循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#while循环嵌套case，break跳出循环"><span class="nav-number">8.</span> <span class="nav-text">while循环嵌套case，break跳出循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#break跳出for循环"><span class="nav-number">9.</span> <span class="nav-text">break跳出for循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#continue跳过当前循环"><span class="nav-number">10.</span> <span class="nav-text">continue跳过当前循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shell函数"><span class="nav-number">11.</span> <span class="nav-text">shell函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数嵌套调用"><span class="nav-number">12.</span> <span class="nav-text">函数嵌套调用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数参数"><span class="nav-number">13.</span> <span class="nav-text">函数参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出重定向"><span class="nav-number">14.</span> <span class="nav-text">输出重定向</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#shell外部脚本"><span class="nav-number">15.</span> <span class="nav-text">shell外部脚本</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer" style="background-color: black;">
+  
+
+  <div class="clearfix container" style="">
+      <div class="site-info">
+	      &copy; 2018 房玉辉 All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              访客数<span id="busuanzi_value_site_uv"></span>人次
+              总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div style="display: inline;margin-left: 50px;">
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备18140657号-1</a>
+      </div>
+      <div class="site-credit" style="display: inline;">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+<script src="../../../../js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/scripts.js"></script>
+<script src="../../../../js/bootstrap.js"></script>
+<script src="../../../../js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
