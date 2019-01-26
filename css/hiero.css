@@ -14,7 +14,7 @@ Tags: black, white, red, two-columns, fixed-layout, threaded-comments, full-widt
 /* Global
 ----------------------------------------------- */
 body {
-	color: #333;
+	color: #f00;
 	font-weight: 400;
 	font-family: Arial, Helvetica, Microsoft Yahei;
 	line-height: 1.8;
@@ -58,9 +58,9 @@ h6 {
 /* Links */
 a {
 	outline: none;
-	-webkit-transition: all 0.14s ease 0s; 
-	   -moz-transition: all 0.14s ease 0s; 
-		 -o-transition: all 0.14s ease 0s; 
+	-webkit-transition: all 0.14s ease 0s;
+	   -moz-transition: all 0.14s ease 0s;
+		 -o-transition: all 0.14s ease 0s;
 	}
 
 a:hover,
