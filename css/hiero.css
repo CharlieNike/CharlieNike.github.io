@@ -255,7 +255,7 @@ object {
 ----------------------------------------------- */
 .site-header {
 	padding: 20px 0 0;
-	background: #00BFFF;
+	background: #FFDEAD; /*桃色*/
 	background-image: url(https://file.fangyuhui.com/hexoheadbackground.jpg);
 	}
 .site-branding {
