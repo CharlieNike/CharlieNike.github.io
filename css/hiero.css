@@ -250,11 +250,12 @@ object {
 	clear: both;
 	}
 
-/* HEADER
+/* HEADER 首页的头部区域
 ----------------------------------------------- */
 .site-header {
 	padding: 20px 0 0;
-	background: #f00;
+	/* background: #f00; */
+	background-image: url(https://file.fangyuhui.com/hexoheadbackground.jpg);
 	}
 .site-branding {
 	float: left;
