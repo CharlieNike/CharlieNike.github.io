@@ -1139,12 +1139,12 @@ body.search .page .entry-footer {
 ----------------------------------------------- */
 .site-footer {
 	padding: 18px 0;
-	color: #999;
+	color: #333;
 	font-size: .9em;
 	background: #16171b;
 	}
 .site-footer a {
-	color: #fff;
+	color: #333;
 	text-decoration: none;
 	}
 .site-footer a:hover {
