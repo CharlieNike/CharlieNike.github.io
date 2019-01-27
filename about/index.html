@@ -27,8 +27,8 @@
 <meta property="og:description" content="房玉辉，区块链底层开发者、架构师，国内区块链高级专家。 联系我 微信： QQ：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://file.fangyuhui.com/WeChat.jpg">
-<meta property="og:image" content="https://file.fangyuhui.com/QQ.jpg">
-<meta property="og:updated_time" content="2019-01-26T05:20:31.198Z">
+<meta property="og:image" content="https://file.fangyuhui.com/QQ.jpeg">
+<meta property="og:updated_time" content="2019-01-26T14:31:48.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于我">
 <meta name="twitter:description" content="房玉辉，区块链底层开发者、架构师，国内区块链高级专家。 联系我 微信： QQ：">
@@ -136,33 +136,6 @@ var themeMenus = {};
 </header>
 
 
-  <div id="originBgDiv" style="background: #fff; width: 100%;">
-
-      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
-        <img id="originBg" width="100%" alt="" src="">
-      </div>
-
-  </div>
-
-  <script>
-  function setAboutIMG(){
-      var imgUrls = "css/images/background.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
-      var random = Math.floor((Math.random() * imgUrls.length ));
-      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-        document.getElementById("originBg").src=imgUrls[random];
-      } else {
-        document.getElementById("originBg").src='/' + imgUrls[random];
-      }
-  }
-  bgDiv=document.getElementById("originBgDiv");
-  if(location.pathname.match('about')){
-    setAboutIMG();
-    bgDiv.style.display='block';
-  }else{
-    bgDiv.style.display='none';
-  }
-  </script>
-
 
 
   <div id="container">
@@ -170,7 +143,7 @@ var themeMenus = {};
             
       <div id="content" class="outer">
         
-          <section id="main"><article id="page-"  class="article article-type-page" itemscope itemprop="blogPost" >
+          <section id="main"><article id="about-"  class="article article-type-about" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -196,8 +169,8 @@ var themeMenus = {};
       
         <p>房玉辉，区块链底层开发者、架构师，国内区块链高级专家。</p>
 <h2 id="联系我"><a href="#联系我" class="headerlink" title="联系我"></a>联系我</h2><ul>
-<li>微信：<img src="https://file.fangyuhui.com/WeChat.jpg" alt="微信二维码"></li>
-<li>QQ：<img src="https://file.fangyuhui.com/QQ.jpg" alt="QQ二维码"></li>
+<li>微信：<img src="https://file.fangyuhui.com/WeChat.jpg" width="256" height="256"></li>
+<li>QQ：<img src="https://file.fangyuhui.com/QQ.jpeg" width="256" height="256"></li>
 </ul>
 
       
@@ -327,7 +300,10 @@ var a = new Donate({
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="../2018/08/01/MySQL慢查询/" title=""><img width="50" height="50" src="https://file.fangyuhui.com/hexoteabook.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
               <h6 style="margin: 0;"><a href="../2018/08/01/MySQL慢查询/">MySQL慢查询</a></h6>
@@ -351,7 +327,10 @@ var a = new Donate({
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="../2018/07/30/MySQL8.0：复杂查询/" title=""><img width="50" height="50" src="https://file.fangyuhui.com/hexorose.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
               <h6 style="margin: 0;"><a href="../2018/07/30/MySQL8.0：复杂查询/">MySQL8.0：复杂查询</a></h6>
@@ -435,7 +414,7 @@ var a = new Donate({
 </aside>
         
       </div>
-      <footer id="footer" class="site-footer" style="background-color: #40E0D0;font-color: black;">
+      <footer id="footer" class="site-footer" style="background-color: #08a78b;">
   
 
   <div class="clearfix container" style="">

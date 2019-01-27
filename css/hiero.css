@@ -254,9 +254,8 @@ object {
 /* HEADER 首页的头部区域
 ----------------------------------------------- */
 .site-header {
-	padding: 20px 0 0;
-	/* background: #FFDAB9; /*暗橘黄：FF8C00  桃色：FFDAB9  天蓝色：00BFFF*/ */
-	/* background-image: url(https://file.fangyuhui.com/hexoheadbackground.jpg); */
+	padding: 20px 0px 0px 0px;
+	/* background: #FFDAB9; /*暗橘黄：FF8C00  桃色：FFDAB9  天蓝色：00BFFF*/
 	}
 .site-branding {
 	float: left;
@@ -1140,17 +1139,17 @@ body.search .page .entry-footer {
 /* FOOTER
 ----------------------------------------------- */
 .site-footer {
-	padding: 18px 0;
-	color: #333;
+	padding: 15px 0;
+	color: blue;
 	font-size: .9em;
-	background: #16171b;
+	/*background: #16171b;*/
 	}
 .site-footer a {
-	color: #333;
+	color: blue;
 	text-decoration: none;
 	}
 .site-footer a:hover {
-	color: #ff2828;
+	color: #f00;
 	}
 .site-info {
 	float: left;

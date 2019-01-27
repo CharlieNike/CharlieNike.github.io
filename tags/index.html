@@ -133,33 +133,6 @@ var themeMenus = {};
 </header>
 
 
-  <div id="originBgDiv" style="background: #fff; width: 100%;">
-
-      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
-        <img id="originBg" width="100%" alt="" src="">
-      </div>
-
-  </div>
-
-  <script>
-  function setAboutIMG(){
-      var imgUrls = "css/images/background.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
-      var random = Math.floor((Math.random() * imgUrls.length ));
-      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-        document.getElementById("originBg").src=imgUrls[random];
-      } else {
-        document.getElementById("originBg").src='/' + imgUrls[random];
-      }
-  }
-  bgDiv=document.getElementById("originBgDiv");
-  if(location.pathname.match('about')){
-    setAboutIMG();
-    bgDiv.style.display='block';
-  }else{
-    bgDiv.style.display='none';
-  }
-  </script>
-
 
 
   <div id="container">
@@ -214,6 +187,8 @@ var themeMenus = {};
             
                 <a href="#sha256哈希算法" title="sha256哈希算法" rel="1">sha256哈希算法</a>
             
+                <a href="#shell脚本语言" title="shell脚本语言" rel="1">shell脚本语言</a>
+            
                 <a href="#单机模拟etcd服务器集群" title="单机模拟etcd服务器集群" rel="1">单机模拟etcd服务器集群</a>
             
                 <a href="#递归" title="递归" rel="1">递归</a>
@@ -221,8 +196,6 @@ var themeMenus = {};
                 <a href="#动态规划" title="动态规划" rel="1">动态规划</a>
             
                 <a href="#最长公共子序列" title="最长公共子序列" rel="1">最长公共子序列</a>
-            
-                <a href="#shell脚本语言" title="shell脚本语言" rel="1">shell脚本语言</a>
             
         </div> 
         -->
@@ -1128,7 +1101,10 @@ var themeMenus = {};
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="../2018/08/01/MySQL慢查询/" title=""><img width="50" height="50" src="https://file.fangyuhui.com/hexoteabook.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
               <h6 style="margin: 0;"><a href="../2018/08/01/MySQL慢查询/">MySQL慢查询</a></h6>
@@ -1152,7 +1128,10 @@ var themeMenus = {};
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="../2018/07/30/MySQL8.0：复杂查询/" title=""><img width="50" height="50" src="https://file.fangyuhui.com/hexorose.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
               <h6 style="margin: 0;"><a href="../2018/07/30/MySQL8.0：复杂查询/">MySQL8.0：复杂查询</a></h6>
@@ -1236,7 +1215,7 @@ var themeMenus = {};
 </aside>
         
       </div>
-      <footer id="footer" class="site-footer" style="background-color: #40E0D0;font-color: black;">
+      <footer id="footer" class="site-footer" style="background-color: #08a78b;">
   
 
   <div class="clearfix container" style="">

@@ -29,10 +29,12 @@
 <meta property="og:site_name" content="商山早行人">
 <meta property="og:description" content="整理：房玉辉">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-26T10:24:50.215Z">
+<meta property="og:image" content="https://file.fangyuhui.com/hexoteabook.png">
+<meta property="og:updated_time" content="2019-01-27T04:26:32.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL慢查询">
 <meta name="twitter:description" content="整理：房玉辉">
+<meta name="twitter:image" content="https://file.fangyuhui.com/hexoteabook.png">
   
     <link rel="alternate" href="/atom.xml" title="商山早行人" type="application/atom+xml">
   
@@ -136,33 +138,6 @@ var themeMenus = {};
 </header>
 
 
-  <div id="originBgDiv" style="background: #fff; width: 100%;">
-
-      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
-        <img id="originBg" width="100%" alt="" src="">
-      </div>
-
-  </div>
-
-  <script>
-  function setAboutIMG(){
-      var imgUrls = "css/images/background.jpg,https://source.unsplash.com/collection/954550/1920x1080".split(",");
-      var random = Math.floor((Math.random() * imgUrls.length ));
-      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
-        document.getElementById("originBg").src=imgUrls[random];
-      } else {
-        document.getElementById("originBg").src='/' + imgUrls[random];
-      }
-  }
-  bgDiv=document.getElementById("originBgDiv");
-  if(location.pathname.match('about')){
-    setAboutIMG();
-    bgDiv.style.display='block';
-  }else{
-    bgDiv.style.display='none';
-  }
-  </script>
-
 
 
   <div id="container">
@@ -173,6 +148,16 @@ var themeMenus = {};
           <section id="main" style="float:none;"><article id="post-MySQL慢查询" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://file.fangyuhui.com/hexoteabook.png" rel="gallery_cjrehmbze00065rfyb71kqr95">
+        <img src="https://file.fangyuhui.com/hexoteabook.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
     
       <header class="article-header">
         
@@ -304,7 +289,7 @@ var a = new Donate({
 </section>
         
       </div>
-      <footer id="footer" class="site-footer" style="background-color: #40E0D0;font-color: black;">
+      <footer id="footer" class="site-footer" style="background-color: #08a78b;">
   
 
   <div class="clearfix container" style="">
